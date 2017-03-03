@@ -10,6 +10,7 @@ import gkzxhn.wqalliance.R;
  */
 
 public class RegisterActivity extends BaseContentActivity {
+
     @Override
     protected View initContentView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_register, null, false);
@@ -17,6 +18,8 @@ public class RegisterActivity extends BaseContentActivity {
 
     @Override
     protected void setTitleData() {
-
+        mTvTitle.setText("注册");
+        mTvSubtitle.setVisibility(View.GONE);
     }
+
 }

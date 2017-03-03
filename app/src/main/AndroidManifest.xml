@@ -34,6 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.RegisterActivity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.MainActivity"/>
     </application>
 
 </manifest>
