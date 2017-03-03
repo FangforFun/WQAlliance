@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -69,6 +70,7 @@ public class LoginActivity extends SuperActivity {
             case R.id.btn_login:
                 UiUtils.makeText("login");
                 Log.i(TAG, "onClick: login");
+                login();
                 break;
             case R.id.btn_register:
                 Log.i(TAG, "onClick: register");
@@ -79,9 +81,17 @@ public class LoginActivity extends SuperActivity {
     }
 
     /**
-     * 注册
+     * 登录操作
+     */
+    private void login() {
+        //TODO ... 登录操作逻辑
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    /**
+     * 跳转注册
      */
     private void register() {
-//        startActivity(new Intent(this, ));
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/main_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/main_bottome_switcher_container"
+        android:layout_width="match_parent"
+        android:layout_height="108px"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginTop="10px"
+                android:src="@drawable/home"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10px"
+                android:gravity="center"
+                android:text="首页"
+                android:textColor="@color/main_bottom_tv_color"
+                android:textSize="24px"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginTop="10px"
+                android:src="@drawable/protection"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10px"
+                android:gravity="center"
+                android:text="维权"
+                android:textColor="@color/main_bottom_tv_color"
+                android:textSize="24px"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginTop="10px"
+                android:src="@drawable/message"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10px"
+                android:gravity="center"
+                android:text="消息"
+                android:textColor="@color/main_bottom_tv_color"
+                android:textSize="24px"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:src="@drawable/mine"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10px"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="@color/main_bottom_tv_color"
+                android:textSize="24px"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>
