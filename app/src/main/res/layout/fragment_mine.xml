@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BJ">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:background="@color/B"
+        android:gravity="center_horizontal">
+
+        <gkzxhn.wqalliance.mvp.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/avatar_def"
+            android:layout_marginTop="35dp"/>
+
+        <TextView
+            android:id="@+id/tv_sign_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未签约"
+            android:background="@color/O1"
+            android:textColor="@color/W"
+            android:padding="3dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_login_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="登录 / 注册"
+            android:textColor="@color/W"/>
+    </LinearLayout>
+
+    <include layout="@layout/layout_setting_options" />
+</LinearLayout>
