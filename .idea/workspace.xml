@@ -10,68 +10,758 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c04ff26a-ffaa-4c7e-91e3-f7e3e208f185" name="Default" comment="添加网易云信sdk，登录操作前&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/cosinesdk.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/avatar_def.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/nim-basesdk-3.4.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/back.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/cosinesdk.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_1_34_android.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/nim_avchat_3_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/nim_basesdk_3_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/nim_lucene_3_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/universal_image_loader_1_9_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/Message.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/widget/CircleImageView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libcosine.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libcosine.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libcosine.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libcosine.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/recycleview_divider.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_message.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/arm64-v8a/libne_audio.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/armeabi-v7a/libne_audio.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/x86/libne_audio.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/x86_64/libne_audio.so" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/basesdk_3_3_0.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_compat_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/transition_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/transition_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/common/SuperApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/common/SuperApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v19/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v19/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arms/src/main/java/com/jess/arms/utils/UiUtils.java" afterPath="$PROJECT_DIR$/arms/src/main/java/com/jess/arms/utils/UiUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arms/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/arms/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/common/im/NimInit.java" afterPath="$PROJECT_DIR$/app/src/main/java/common/im/NimController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_00.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_101.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_102.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_103.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_104.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_105.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_106.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_107.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_108.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_109.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_110.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_111.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_112.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_113.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_114.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_115.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_145.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_160.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_161.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_162.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_163.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_164.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_165.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_166.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_167.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_18.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_21.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_22.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_23.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_25.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_26.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_27.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_28.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_29.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_30.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_31.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_33.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_34.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_35.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_36.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_37.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_38.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_41.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_43.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_44.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_45.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_46.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_47.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_48.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_49.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_50.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_51.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_52.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_53.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_54.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_55.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_56.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_57.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_58.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_59.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_60.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_61.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_62.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_63.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_64.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_65.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_66.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_67.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_68.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_69.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_70.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_71.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_73.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_74.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_76.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_77.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_78.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_79.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_80.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_81.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_82.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_83.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_84.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_85.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_86.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_87.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_88.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_89.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_90.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_91.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_92.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_93.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_94.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_95.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_96.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_97.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_98.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/default/emoji_99.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/pinyin/index.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/doc/universal-image-loader-1.9.5-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/fastjson-1.1.34.android.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/nim-avchat-3.4.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/nim-lucene-3.4.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/libs/universal-image-loader-1.9.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/drawable-hdpi/sample_footer_loading.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/explosion_five.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/explosion_four.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/explosion_one.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/explosion_three.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/explosion_two.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_actionbar_dark_back_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_actionbar_dark_logo_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_actionbar_search_dark_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_actionbar_white_back_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_arrow_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_left_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_left_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_left_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_right_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_right_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_audio_animation_list_right_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_avatar_default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_avatar_group.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_bg_message_tip.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_cameras.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_cameras_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_checkbox_checked_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_checkbox_checked_grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_checkbox_unchecked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_hit_letter_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_letter_view_hit_point.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_contact_select_dot_avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_default_img.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_default_img_failed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_dialog_toast_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_emoji_ck_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_emoji_del.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_emoji_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_emoji_icon_inactive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_g_download_progress_bar.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_g_download_progress_bar_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_g_unread_badge.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_grey_delete_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_ic_failed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_ic_message_actionbar_team.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_ic_trans_fail.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_icon_download_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_icon_download_resume.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_icon_edit_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_icon_reddot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_image_default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_image_download_failed.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_loading_small_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_activity_top_tip.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_audio_playing_left_blue_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_audio_playing_right_blue_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_edittext_box.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_edittext_box_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_emotion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_emotion_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_keyboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_keyboard_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_plus_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_send_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_send_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_voice_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_input_voice_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_left_white_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_left_white_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_location_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_location_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_photo_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_photo_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_video_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_plus_video_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_right_blue_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_right_blue_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_message_unread_news_icon_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_messages_list_empty_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_moon_page_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_moon_page_unselected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_music_icon_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_new_message_notify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_image_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_image_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_orignal_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_orignal_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_preview_disable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_preview_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_preview_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_picker_preview_unselected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_popup_menu_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_recent_contact_ic_sending.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_red_round_button.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_red_round_button_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_scrollbar_handle_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_slide_toggle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_slide_toggle_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_slide_toggle_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_admin_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_create_btn.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_create_btn_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_member_add_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_member_add_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_member_delete_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_member_delete_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_member_item_delete_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_team_owner_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_unsupport_mime_type.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_video_capture_start_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_video_capture_stop_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_video_play_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_video_play_icon_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_watch_video_download_progress_background.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-hdpi/nim_watch_video_download_progress_foreground.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_actionbar_dark_back_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_actionbar_dark_logo_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_actionbar_search_dark_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_actionbar_white_back_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_left_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_left_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_left_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_right_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_right_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_audio_animation_list_right_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_avatar_group.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_cameras.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_cameras_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_contact_checkbox_checked_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_contact_checkbox_unchecked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_contact_select_dot_avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_g_ic_failed_small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_ic_trans_fail.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_icon_edit_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_image_default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_location_bk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_main_tab_new_message_notify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_emotion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_emotion_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_keyboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_keyboard_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_plus_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_voice_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_input_voice_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_message_unread_news_icon_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_moon_page_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_moon_page_unselected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_music_icon_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_new_message_notify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_image_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_image_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_orignal_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_orignal_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_preview_disable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_preview_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_preview_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_picker_preview_unselected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_record_start.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_record_video.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_admin_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_member_add_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_member_add_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_member_delete_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_member_delete_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_team_owner_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_video_capture_start_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_video_capture_stop_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_video_play_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable-xhdpi/nim_video_play_icon_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/raw/audio_end_tip.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/assets/emoji/emoji.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/proguard-rules.pro" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/drawable-v21/touch_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/drawable/sample_footer_loading_progress.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/drawable/touch_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/layout/msg_list_fetch_load_more.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/layout/pull_to_refresh_header_custom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/layout/simple_load_more.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values-en/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values/attrs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values/colors.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values/dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values/ids.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res-ptr2/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/color/color_green_text_view_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/color/color_picker_preview_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/explosion.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/list_item_bg_selecter.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_actionbar_black_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_actionbar_nest_dark_logo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_align_bottom_green_btn_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_audio_animation_list_left.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_audio_animation_list_right.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_bg_edittext_rectangle.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_bg_edittext_rectangle_focused.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_bg_edittext_rectangle_normal.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_blue_edit_text_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_bottom_divider_match_parent_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_cameras_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_cancel_record_red_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_contact_list_item_selecter.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_easy_edit_text_dialog_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_emoji_item_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_g_image_preview_white_btn_selecter.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_gray_edit_text_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_list_item_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_button_bottom_add_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_button_bottom_audio_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_button_bottom_emoji_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_button_bottom_send_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_button_bottom_text_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_item_left_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_item_right_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_item_round_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_plus_location_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_plus_photo_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_plus_video_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_unread_news_icon_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_message_view_bottom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_nim_action_bar_button_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_picker_preview_btn_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_play_btn_select.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_popup_menu_item_black_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_popup_menu_item_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_portrait_mask_round.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_portrait_mask_square.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_progress_bar_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_progress_bar_foreground.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_progress_small_white.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_recent_contact_sticky_selecter.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_red_round_button_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_semitransparency_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_sticker_button_background_normal_layer_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_sticker_button_background_pressed_layer_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_team_create_btn_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_team_member_add_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_team_member_delete_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_video_play_icon_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/drawable/nim_view_pager_indicator_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/image_layout_multi_touch.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/mass_message_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_action_bar_custom_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_action_bar_right_clickable_tv.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_action_bar_right_picker_preview.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_actions_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_announce.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_announce_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_create_announce.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_create_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_info_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_info_divider_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_member_info_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_advanced_team_nickname_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_capture_video_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contact_loading_frame.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contact_select_area_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contact_text_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts_abc_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts_count_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts_select.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_contacts_select_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_crop_image_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_custom_dialog_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_alert_dialog_bottom_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_alert_dialog_default_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_alert_dialog_title.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_alert_dialog_with_edit_text.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_alert_dialog_with_listview.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_easy_progress_dialog.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_emoji_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_emoji_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_listview_refresh.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_menu_dialog.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_menu_dialog_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_activity_actions_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_activity_bottom_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_activity_text_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_fragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_audio.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_location.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_name_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_notification.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_picture.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_text.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_thumb_progress_bar_text.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_unknown.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_message_item_video.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_new_message_tip_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_pick_image_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_album_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_image_folder_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_image_preview_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_images_fragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_photo_grid_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_picker_photofolder_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_popup_menu_black_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_popup_menu_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_popup_menu_list_black_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_popup_menu_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_preview_image_from_camera_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_preview_image_from_local_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_preview_image_layout_multi_touch.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_preview_image_layout_zoom_control.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_read_recipt_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_recent_contact_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_recent_contacts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_round_loading_progress_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_sticker_picker_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_info_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_info_divider_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_member_grid_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_member_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_member_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_member_list_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_message_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_team_name_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_time_text_view_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_user_profile_toggle_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_voice_trans_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_watch_media_download_progress_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_watch_picture_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_watch_snapchat_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_watch_video_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/layout/nim_zbra_loading_progress_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/menu/contacts_search_menu.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/arrays.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/attrs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/colors.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/styles-activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/res/values/styles-widget.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/CustomPushContentProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/ImageLoaderKit.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/LocationProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/LoginSyncDataStatusObserver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/NimUIKit.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/UIKitLogTag.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/UserPreferences.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/cache/DataCacheManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/cache/FriendDataCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/cache/NimUserInfoCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/cache/SimpleCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/cache/TeamDataCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/activity/UI.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/adapter/IScrollStateListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/adapter/IViewReclaimer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/adapter/TAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/adapter/TAdapterDelegate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/adapter/TViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/fragment/TFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/fragment/TabFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/framework/NimSingleThreadExecutor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/framework/NimTaskExecutor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/http/HttpClientWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/http/NimHttpClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/audioplayer/BaseAudioControl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/audioplayer/Playable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/dao/MediaDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/PickImageHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/CropImageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/PickImageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/PickerAlbumActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/PickerAlbumPreviewActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/PreviewImageFromCameraActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/activity/PreviewImageFromLocalActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/adapter/ImagePagerAdapterInImageSwitch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/adapter/PickerAlbumAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/adapter/PickerPhotoAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/adapter/PickerPreviewPagerAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/fragment/PickerAlbumFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/fragment/PickerImageFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/loader/PickerConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/loader/PickerlImageLoadTool.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/loader/RotateImageViewAware.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/model/AlbumInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/model/PhotoInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/model/PickerContract.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/util/BitmapUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/util/PickerUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/media/picker/util/ThumbnailsUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/CustomAlertDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/CustomDialogViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/DialogMaker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/EasyAlertDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/EasyAlertDialogHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/EasyEditDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/EasyProgressDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/dialog/MenuDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/drop/DropCover.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/drop/DropFake.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/drop/DropManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/BaseZoomableImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/CheckedImageButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/CircleImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/CropImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/HeadImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/ImageGestureListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/ImageViewEx.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/MsgThumbImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/imageview/MultiTouchZoomableImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/listview/AutoRefreshListView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/listview/ListViewUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/listview/MessageListView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/liv/LetterIndexView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/liv/LivIndex.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/popupmenu/NIMPopupMenu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/popupmenu/PopupMenuAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/popupmenu/PopupMenuItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/popupmenu/PopupMenuListView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/CustomLoadingLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/ILoadingLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/LoadingLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/LoadingView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/PullToRefreshLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/ptr2/SuperSwipeRefreshLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseFetchLoadAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseItemDraggableAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseMultiItemFetchLoadAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseMultiItemQuickAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseQuickAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/BaseSectionQuickAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/adapter/IRecyclerView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/AlphaInAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/BaseAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/ScaleInAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/SlideInBottomAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/SlideInLeftAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/animation/SlideInRightAnimation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/callback/ItemDragAndSwipeCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/decoration/SpacingDecoration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/entity/AbstractExpandableItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/entity/IExpandable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/entity/MultiItemEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/entity/SectionEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/holder/BaseViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/holder/RecyclerViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemChildClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemChildLongClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemDragListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemLongClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/OnItemSwipeListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/listener/SimpleClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/loadmore/LoadMoreView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/loadmore/MsgListFetchLoadMoreView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/loadmore/SimpleLoadMoreView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/recyclerview/util/RecyclerViewUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/widget/ClearableEditTextWithIcon.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/ui/widget/SwitchButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/C.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/file/AttachmentStore.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/file/FileUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/log/LogImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/log/LogUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/media/BitmapDecoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/media/BitmapUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/media/ImageUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/media/SampleSizeUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/storage/ExternalStorage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/storage/StorageType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/storage/StorageUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/string/HexDump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/string/MD5.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/string/StringTextWatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/string/StringUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/sys/ClipboardUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/sys/NetworkUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/sys/ReflectionUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/sys/ScreenUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/common/util/sys/TimeUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/ContactEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/ContactProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/ContactsCustomization.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/ContactsFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/AbsContactItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/ContactIdFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/ContactItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/ContactItemFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/ItemTypes.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/LabelItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/MsgItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/item/TextItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/AbsContact.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/AbsContactDataList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/ContactDataAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/ContactDataList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/ContactDataTask.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/ContactGroupStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/IContact.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/TeamContact.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/model/TeamMemberContact.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/ContactDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/ContactSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/MsgDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/TeamDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/TeamMemberDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/provider/UserDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/IContactDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/PinYin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/SimpleT9Matcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/TextComparator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/TextQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/query/TextSearcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/util/ContactHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/viewholder/AbsContactViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/viewholder/ContactHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/viewholder/LabelHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/viewholder/MsgHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact/core/viewholder/TextHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact_selector/activity/ContactSelectActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact_selector/adapter/ContactSelectAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact_selector/adapter/ContactSelectAvatarAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact_selector/viewholder/ContactsMultiSelectHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/contact_selector/viewholder/ContactsSelectHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/custom/DefalutContactEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/custom/DefalutP2PSessionCustomization.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/custom/DefalutTeamSessionCustomization.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/custom/DefalutUserInfoProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/custom/DefaultContactProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/model/ToolBarOptions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/permission/MPermission.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/permission/annotation/OnMPermissionDenied.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/permission/annotation/OnMPermissionGranted.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/permission/annotation/OnMPermissionNeverAskAgain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/permission/util/MPermissionUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/AitHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/RecentContactsCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/RecentContactsFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/adapter/RecentContactAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/holder/CommonRecentViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/holder/RecentViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/recent/holder/TeamRecentViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/SessionCustomization.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/SessionEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/actions/BaseAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/actions/ImageAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/actions/LocationAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/actions/PickImageAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/actions/VideoAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/BaseMessageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/CaptureVideoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/P2PMessageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/TeamMessageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/VoiceTrans.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/WatchMessagePictureActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/activity/WatchVideoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/audio/AudioMessagePlayable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/audio/MessageAudioControl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/constant/Extras.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/constant/RequestCode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/EmojiAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/EmojiManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/EmoticonPickerView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/EmoticonView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/IEmoticonCategoryChanged.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/IEmoticonSelectedListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/MoonUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/StickerAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/StickerCategory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/StickerItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/emoji/StickerManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/fragment/MessageFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/fragment/TeamMessageFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/MessageHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/MessageListPanelHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/MsgBkImageView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/SendImageHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/TeamNotificationHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/helper/VideoMessageHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/Container.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/ModuleProxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/MsgForwardFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/MsgRevokeFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/input/ActionsGridviewAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/input/ActionsPagerAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/input/ActionsPanel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/input/InputPanel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/input/MessageEditWatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/list/IncomingMsgPrompt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/list/MessageListPanelEx.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/module/list/MsgAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderAudio.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderLocation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderNotification.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderPicture.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderText.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderThumbBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderUnknown.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderVideo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamAnnounceActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamCreateAnnounceActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamInfoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamMemberActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamMemberInfoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/AdvancedTeamNicknameActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/NormalTeamInfoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/TeamMemberListActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/activity/TeamPropertySettingActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/adapter/TeamMemberAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/adapter/TeamMemberListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/helper/AnnouncementHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/helper/TeamHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/model/Announcement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/model/TeamExtras.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/model/TeamRequestCode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/ui/DividerItemDecoration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/ui/TeamInfoGridView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/viewholder/TeamAnnounceHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/viewholder/TeamMemberHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/team/viewholder/TeamMemberListHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/uinfo/UserInfoHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/uinfo/UserInfoObservable.java" />
     </list>
     <ignored path="WQAlliance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -4668,224 +5358,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x86_64" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x86" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="armeabi-v7a" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WQAlliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="arm64-v8a" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="PackagesPane" />
       <pane id="AndroidView">
