@@ -92,6 +92,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="48px"
+                android:layout_marginTop="10px"
                 android:src="@drawable/mine"/>
 
             <TextView

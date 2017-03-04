@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,12 +13,19 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.EmptyUtils;
+import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
+import com.netease.nim.uikit.NimUIKit;
+import com.netease.nimlib.sdk.RequestCallback;
+import com.netease.nimlib.sdk.auth.LoginInfo;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import common.AppComponent;
 import common.SuperActivity;
+import common.im.NimController;
 import gkzxhn.wqalliance.R;
 
 /**
@@ -59,6 +67,8 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
+        mEtAccount.setText("gkzxhn001");
+        mEtPassword.setText("123456");
     }
 
     @OnClick({R.id.tv_forget_psw, R.id.btn_login, R.id.btn_register})
@@ -85,7 +95,37 @@ public class LoginActivity extends SuperActivity {
      */
     private void login() {
         //TODO ... 登录操作逻辑
-        startActivity(new Intent(this, MainActivity.class));
+        final String account = mEtAccount.getText().toString().trim();
+        String pwd = mEtPassword.getText().toString().trim();
+        if(EmptyUtils.isNotEmpty(account) && EmptyUtils.isNotEmpty(pwd)){
+            // 网络判断
+            if (NetworkUtils.isConnected()) {
+                final ProgressDialog loginDialog = UiUtils.showProgressDialog(this, getString(R.string.login_ing));
+                NimController.login(account, pwd, new RequestCallback<LoginInfo>() {
+                    @Override public void onSuccess(LoginInfo param) {
+                        UiUtils.dismissProgressDialog(loginDialog);
+                        NimUIKit.setAccount(account);
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        LoginActivity.this.finish();
+                    }
+
+                    @Override public void onFailed(int code) {
+                        UiUtils.dismissProgressDialog(loginDialog);
+                        NimController.checkLoginResultCode(code);
+                    }
+
+                    @Override public void onException(Throwable exception) {
+                        LogUtils.e(TAG, "login nim exception: " + exception.getMessage());
+                        UiUtils.dismissProgressDialog(loginDialog);
+                        UiUtils.makeText(getString(R.string.login_exception));
+                    }
+                });
+            }else {
+                UiUtils.makeText(getString(R.string.network_unavailable));
+            }
+        }else {
+            UiUtils.makeText(getString(R.string.empty_acc_pwd));
+        }
     }
 
     /**

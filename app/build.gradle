@@ -35,20 +35,20 @@ buildscript {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    testCompile 'junit:junit:4.12'
     apt rootProject.ext.dependencies["butterknife-apt"]
-
-    apt rootProject.ext.dependencies["dagger2-apt-compiler"]//依赖apt插件
-    provided rootProject.ext.dependencies["javax.annotation"]//dagger2必须依赖jsr250 annotation
+    apt rootProject.ext.dependencies["dagger2-apt-compiler"]
+    //依赖apt插件
+    provided rootProject.ext.dependencies["javax.annotation"]
+    //dagger2必须依赖jsr250 annotation
     compile project(path: ':arms')
-
     // 云信基础功能 (必需)
-    compile 'com.netease.nimlib:basesdk:3.3.0'
     //utils
+    //    compile 'com.netease.nimlib:basesdk:3.3.0'
     compile 'com.blankj:utilcode:1.3.6'
+    compile project(':uikit')
+    compile files('src/main/jniLibs/cosinesdk.jar')
 }

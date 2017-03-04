@@ -27,3 +27,8 @@
 -keep class com.blankj.utilcode.** { *; }
 -keepclassmembers class com.blankj.utilcode.** { *; }
 -dontwarn com.blankj.utilcode.**
+
+# 消息列表适配器混淆规则
+-keep class com.chad.library.adapter.** {
+   *;
+}

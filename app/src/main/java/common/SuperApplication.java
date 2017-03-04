@@ -3,6 +3,7 @@ package common;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.blankj.utilcode.utils.LogUtils;
 import com.blankj.utilcode.utils.Utils;
 import com.jess.arms.base.BaseApplication;
 import com.jess.arms.di.module.GlobeConfigModule;
@@ -13,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import common.im.NimInit;
+import common.im.NimController;
 import gkzxhn.wqalliance.di.module.CacheModule;
 import gkzxhn.wqalliance.di.module.ServiceModule;
 import gkzxhn.wqalliance.mvp.model.api.Api;
@@ -44,7 +45,9 @@ public class SuperApplication extends BaseApplication {
                 .cacheModule(new CacheModule())//需自行创建
                 .build();
         Utils.init(this);
-        NimInit.init(this);
+        // 初始化log  第二个参数为true会将log写入文件  context.getCacheDir()目录下
+        LogUtils.init(true, true, 'v', getClass().getName());
+        NimController.init(this);
     }
 
     //将AppComponent返回出去,供其它地方使用, AppComponent接口中声明的方法返回的实例, 在getAppComponent()拿到对象后都可以直接使用

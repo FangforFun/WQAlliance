@@ -1,10 +1,15 @@
 package com.jess.arms.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +24,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jess.arms.R;
 import com.jess.arms.base.BaseApplication;
 
 import org.simple.eventbus.EventBus;
@@ -412,4 +418,88 @@ public class UiUtils {
         EventBus.getDefault().post(message, APPMANAGER_MESSAGE);
     }
 
+
+    /**
+     * 默认提示语
+     */
+    private static String defaultMsg = "请稍候...";
+
+    /**
+     *  进度条对话框
+     * @param context
+     */
+    public static ProgressDialog showProgressDialog(Context context){
+        return showProgressDialog(context, defaultMsg);
+    }
+
+    /**
+     *
+     * @param context
+     * @param msg
+     */
+    public static ProgressDialog showProgressDialog(Context context, String msg){
+        if (context instanceof Application)
+            throw new IllegalArgumentException("not supported context");
+        if (Thread.currentThread() != Looper.getMainLooper().getThread()){
+            throw new IllegalStateException("must show dialog in main thread");
+        }
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setMessage(msg);
+        dialog.show();
+        return dialog;
+    }
+
+    /**
+     * dismiss
+     * @param dialog
+     */
+    public static void dismissProgressDialog(ProgressDialog... dialog){
+        if (Thread.currentThread() != Looper.getMainLooper().getThread()){
+            throw new IllegalStateException("this controller must in main thread");
+        }
+        if (dialog == null || dialog.length < 1)
+            return;
+        for (ProgressDialog d : dialog) {
+            if (d != null && d.isShowing())
+                d.dismiss();
+        }
+    }
+
+    /**
+     * show对话框  cancelable为默认true
+     * @param context
+     * @param msg
+     * @param okListener
+     * @param cancelListener
+     * @return
+     */
+    public static AlertDialog showAlertDialog(Context context, String msg, DialogInterface.OnClickListener
+            okListener, DialogInterface.OnClickListener cancelListener){
+        return showAlertDialog(context, msg, okListener, cancelListener, true);
+    }
+
+    /**
+     * show对话框  可传入是否cancelable
+     * @param context
+     * @param msg
+     * @param okListener
+     * @param cancelListener
+     * @param cancelable
+     * @return
+     */
+    public static AlertDialog showAlertDialog(Context context, String msg, DialogInterface.OnClickListener
+            okListener, DialogInterface.OnClickListener cancelListener, boolean cancelable){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder
+                .setTitle(R.string.reminder)
+                .setMessage(msg)
+                .setPositiveButton(R.string.ok, okListener)
+                .setCancelable(cancelable);
+        if (cancelListener != null) {
+            builder.setNegativeButton(R.string.cancel, cancelListener);
+        }
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        return dialog;
+    }
 }

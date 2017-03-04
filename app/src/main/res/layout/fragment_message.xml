@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BJ"
+    tools:context="gkzxhn.wqalliance.mvp.ui.fragment.MessageFragment">
+
+    <TextView
+        android:id="@+id/tv_my_msg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/B"
+        android:text="@string/my_msg"
+        android:gravity="center"
+        android:textColor="@color/W"
+        android:textSize="18sp"/>
+
+    <fragment
+        android:id="@+id/recent_contacts_fragment"
+        android:name="com.netease.nim.uikit.recent.RecentContactsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

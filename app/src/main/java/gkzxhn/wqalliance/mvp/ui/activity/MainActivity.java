@@ -51,6 +51,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
     LinearLayout mMainBottomeSwitcherContainer;
 
     private List<Fragment> mFragments = new ArrayList<>();
+    private long mExitTime = 0;
 
 
     @Override
@@ -166,4 +167,13 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - mExitTime > 2000){
+            UiUtils.makeText(getString(R.string.press_again));
+            mExitTime = System.currentTimeMillis();
+        }else {
+            super.onBackPressed();
+        }
+    }
 }
