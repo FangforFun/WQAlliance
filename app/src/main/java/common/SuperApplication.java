@@ -3,6 +3,7 @@ package common;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.blankj.utilcode.utils.Utils;
 import com.jess.arms.base.BaseApplication;
 import com.jess.arms.di.module.GlobeConfigModule;
 import com.jess.arms.http.GlobeHttpHandler;
@@ -12,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import common.im.NimInit;
 import gkzxhn.wqalliance.di.module.CacheModule;
 import gkzxhn.wqalliance.di.module.ServiceModule;
 import gkzxhn.wqalliance.mvp.model.api.Api;
@@ -41,6 +43,8 @@ public class SuperApplication extends BaseApplication {
                 .serviceModule(new ServiceModule())//需自行创建
                 .cacheModule(new CacheModule())//需自行创建
                 .build();
+        Utils.init(this);
+        NimInit.init(this);
     }
 
     //将AppComponent返回出去,供其它地方使用, AppComponent接口中声明的方法返回的实例, 在getAppComponent()拿到对象后都可以直接使用

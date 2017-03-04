@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="utilcode-1.3.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.blankj/utilcode/1.3.6/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.blankj/utilcode/1.3.6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.blankj/utilcode/1.3.6/db79c762cd2a2ff8da23af474eca6a8e2b4987e6/utilcode-1.3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
