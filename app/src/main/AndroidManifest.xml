@@ -102,6 +102,11 @@
         </activity>
         <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.RegisterActivity"/>
         <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.MainActivity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.UploadEdActivity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed1Activity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed2Activity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed3Activity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed4Activity"/>
     </application>
 
 </manifest>

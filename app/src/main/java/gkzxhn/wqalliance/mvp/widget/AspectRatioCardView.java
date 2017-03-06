@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  */
 public class AspectRatioCardView extends CardView {
 
-    private float ratio = 1.2f;
+    private float ratio = 70.0f / 40.0f;
 
     public AspectRatioCardView(Context context) {
         this(context, null);

@@ -45,15 +45,15 @@ public abstract class BaseContentActivity<p extends Presenter> extends SuperActi
     }
 
     /**
+     * 设置标题内容
+     */
+    protected abstract void setTitleData();
+
+    /**
      * 初始化内容视图
      * @return
      */
     protected abstract View initContentView();
-
-    /**
-     * 设置标题内容
-     */
-    protected abstract void setTitleData();
 
     @OnClick({R.id.iv_back, R.id.tv_subtitle})
     public void onClick(View view) {

@@ -5,12 +5,7 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/ll_content"
-        android:layout_alignParentBottom="true"
-        android:layout_weight="1"
-        android:background="@color/BJ">
+        style="@style/fl_bacgroud">
 
         <TextView
             android:id="@+id/tv_register"
@@ -29,20 +24,13 @@
 
     <LinearLayout
         android:id="@+id/ll_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:background="@color/W"
-        android:orientation="vertical">
+        style="@style/ll_list">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="88px">
+            style="@style/rl_item">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                style="@style/ll_list_item">
 
                 <TextView
                     android:id="@+id/tv_left"

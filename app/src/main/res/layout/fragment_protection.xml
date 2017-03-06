@@ -13,7 +13,7 @@
         android:background="@color/BJ">
 
         <TextView
-            android:id="@+id/tv_register"
+            android:id="@+id/tv_commit"
             android:layout_width="640px"
             android:layout_height="100px"
             android:layout_gravity="bottom|center"
@@ -72,7 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="88px">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/rl_upload_ed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
@@ -82,7 +83,11 @@
                     android:text="上传证据"
                     style="@style/item_left_textview"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:src="@drawable/toright"
+                    style="@style/item_right_arrow"/>
+
+            </RelativeLayout>
 
             <TextView
                 style="@style/item_slip_line"/>

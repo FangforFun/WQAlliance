@@ -13,6 +13,7 @@
     android:layout_marginLeft="56px"
     android:layout_marginRight="56px"
     app:cardElevation="20dp"
+    android:translationZ="2dp"
     app:cardMaxElevation="20dp">
 
     <ImageView
