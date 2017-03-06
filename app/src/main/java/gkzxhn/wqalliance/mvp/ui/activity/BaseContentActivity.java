@@ -10,8 +10,6 @@ import com.jess.arms.mvp.Presenter;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
-import common.AppComponent;
 import common.SuperActivity;
 import gkzxhn.wqalliance.R;
 
@@ -28,13 +26,6 @@ public abstract class BaseContentActivity<p extends Presenter> extends SuperActi
     TextView mTvSubtitle;
     @BindView(R.id.fl_content)
     FrameLayout mFlContent;
-
-    private Unbinder mChildUnbinder;
-
-    @Override
-    protected void setupActivityComponent(AppComponent appComponent) {
-
-    }
 
     @Override
     protected View initView() {

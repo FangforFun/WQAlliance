@@ -57,6 +57,7 @@ public abstract class BaseActivity<P extends Presenter> extends RxAppCompatActiv
     @Nullable
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         super.onCreate(savedInstanceState);
         mApplication = (BaseApplication) getApplication();
         if (useEventBus())//如果要使用eventbus请将此方法返回true

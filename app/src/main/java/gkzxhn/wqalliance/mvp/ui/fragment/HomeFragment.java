@@ -2,18 +2,21 @@ package gkzxhn.wqalliance.mvp.ui.fragment;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
-import common.SuperFragment;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerHomeComponent;
 import gkzxhn.wqalliance.di.module.HomeModule;
 import gkzxhn.wqalliance.mvp.contract.HomeContract;
 import gkzxhn.wqalliance.mvp.presenter.HomePresenter;
+import gkzxhn.wqalliance.mvp.widget.CustPagerTransformer;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -30,7 +33,9 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * Created by 方 on 2017/3/3.
  */
 
-public class HomeFragment extends SuperFragment<HomePresenter> implements HomeContract.View {
+public class HomeFragment extends BaseContentFragment<HomePresenter> implements HomeContract.View {
+
+    private ViewPager mViewpager;
 
 
     public static HomeFragment newInstance() {
@@ -49,13 +54,45 @@ public class HomeFragment extends SuperFragment<HomePresenter> implements HomeCo
     }
 
     @Override
-    protected View initView() {
-        return LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home, null, false);
+    protected View initContentView() {
+        View contentView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home, null, false);
+        mViewpager = (ViewPager) contentView.findViewById(R.id.viewpager);
+
+//        添加parallax效果，使用PageTransformer就足够了
+        mViewpager.setPageTransformer(false, new CustPagerTransformer(getActivity()));
+
+        mViewpager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return 666;
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                View child = LayoutInflater.from(HomeFragment.this.getActivity()).inflate(R.layout.home_card, null, false);
+                container.addView(child);
+                return child;
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView((View) object);
+            }
+        });
+
+        return contentView;
     }
 
     @Override
-    protected void initData() {
-
+    protected void setTitleData() {
+        mIvBack.setVisibility(View.GONE);
+        mTvSubtitle.setVisibility(View.GONE);
+        mTvTitle.setText("维权联盟");
     }
 
     /**
