@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:background="@color/B">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:CircleIndicator="http://schemas.android.com/apk/res-auto"
+                android:background="@color/B"
+                android:orientation="vertical">
 
-</LinearLayout>
+    <gkzxhn.wqalliance.mvp.widget.CircleIndicator
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:layout_marginTop="43px"
+        android:id="@+id/indicator"
+        CircleIndicator:ci_background="#99ffffff"
+        CircleIndicator:ci_selected_background="@color/W"
+        CircleIndicator:ci_mode="outside"
+        CircleIndicator:ci_gravity="center"
+        CircleIndicator:ci_radius="6.5dp"
+        CircleIndicator:ci_margin="10dp"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:clipToPadding="false"
+        android:paddingEnd="48dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:paddingStart="48dp">
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

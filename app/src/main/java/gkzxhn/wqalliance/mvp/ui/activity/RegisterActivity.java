@@ -3,6 +3,7 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import common.AppComponent;
 import gkzxhn.wqalliance.R;
 
 /**
@@ -22,4 +23,8 @@ public class RegisterActivity extends BaseContentActivity {
         mTvSubtitle.setVisibility(View.GONE);
     }
 
+    @Override
+    protected void setupActivityComponent(AppComponent appComponent) {
+
+    }
 }

@@ -8,11 +8,11 @@ import com.jess.arms.mvp.Presenter;
  * contact with jess.yan.effort@gmail.com
  */
 public abstract class SuperFragment<P extends Presenter> extends BaseFragment<P> {
-    protected SuperApplication mWeApplication;
+    protected SuperApplication mSuperApplication;
     @Override
     protected void ComponentInject() {
-        mWeApplication = (SuperApplication) mActivity.getApplication();
-        setupFragmentComponent(mWeApplication.getAppComponent());
+        mSuperApplication = (SuperApplication) mActivity.getApplication();
+        setupFragmentComponent(mSuperApplication.getAppComponent());
     }
 
     //提供AppComponent(提供所有的单例对象)给子类，进行Component依赖
@@ -25,6 +25,6 @@ public abstract class SuperFragment<P extends Presenter> extends BaseFragment<P>
 //        if (watcher != null) {
 //            watcher.watch(this);
 //        }
-        this.mWeApplication =null;
+        this.mSuperApplication =null;
     }
 }

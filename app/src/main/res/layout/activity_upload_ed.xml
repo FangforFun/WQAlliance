@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+    <FrameLayout
+        style="@style/fl_bacgroud"/>
+
+    <LinearLayout
+        style="@style/ll_list">
+
+        <RelativeLayout
+            android:id="@+id/rl_ed1"
+            style="@style/rl_item">
+
+            <TextView
+                style="@style/item_left_textview"
+                android:layout_centerVertical="true"
+                android:text="@string/ed1"/>
+
+            <ImageView
+                style="@style/item_right_arrow"
+                android:layout_centerVertical="true"
+                android:src="@drawable/toright"/>
+
+            <TextView
+                style="@style/item_slip_line"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_ed2"
+            style="@style/rl_item">
+
+            <TextView
+                style="@style/item_left_textview"
+                android:layout_centerVertical="true"
+                android:text="@string/ed2"/>
+
+            <ImageView
+                style="@style/item_right_arrow"
+                android:layout_centerVertical="true"
+                android:src="@drawable/toright"/>
+
+            <TextView
+                style="@style/item_slip_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_ed3"
+            style="@style/rl_item">
+
+            <TextView
+                style="@style/item_left_textview"
+                android:layout_centerVertical="true"
+                android:text="@string/ed3"/>
+
+            <ImageView
+                style="@style/item_right_arrow"
+                android:layout_centerVertical="true"
+                android:src="@drawable/toright"/>
+
+            <TextView
+                style="@style/item_slip_line"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_ed4"
+            style="@style/rl_item">
+
+            <TextView
+                style="@style/item_left_textview"
+                android:layout_centerVertical="true"
+                android:text="@string/ed4"/>
+
+            <ImageView
+                style="@style/item_right_arrow"
+                android:layout_centerVertical="true"
+                android:src="@drawable/toright"/>
+
+            <TextView
+                style="@style/item_slip_line"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</FrameLayout>

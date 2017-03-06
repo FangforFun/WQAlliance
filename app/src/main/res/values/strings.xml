@@ -38,6 +38,10 @@
     <string name="net_broken">网络连接已断开，请检查网络设置</string>
     <string name="kickout">您已被挤下线，请重新登录</string>
     <string name="press_again">再按一次退出</string>
+    <string name="ed1">当事人主体资格</string>
+    <string name="ed2">原告拥有商标权</string>
+    <string name="ed3">被告实施商标侵权行为</string>
+    <string name="ed4">禁止侵权开支</string>
     <string name="my_order">我的订单</string>
     <string name="my_address">我的地址</string>
     <string name="contact_info">联系方式</string>
