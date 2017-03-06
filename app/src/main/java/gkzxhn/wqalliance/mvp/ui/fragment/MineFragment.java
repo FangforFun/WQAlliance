@@ -1,7 +1,9 @@
 package gkzxhn.wqalliance.mvp.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,12 @@ import com.jess.arms.utils.UiUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import gkzxhn.utils.DialogUtil;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.MyAddressActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.SignActivity;
 import gkzxhn.wqalliance.mvp.widget.CircleImageView;
 
 /**
@@ -29,6 +36,8 @@ public class MineFragment extends android.support.v4.app.Fragment {
     @BindView(R.id.ll_contact_info) LinearLayout ll_contact_info; // 联系方式
     @BindView(R.id.ll_sign) LinearLayout ll_sign;// 签约
     @BindView(R.id.ll_setting) LinearLayout ll_setting; // 设置
+
+    private AlertDialog signDialog;
 
     @Nullable
     @Override
@@ -48,20 +57,34 @@ public class MineFragment extends android.support.v4.app.Fragment {
     public void onClick(View view){
         switch (view.getId()){
             case R.id.ll_my_order:
-                UiUtils.makeText("clicked ll_my_order");
+                UiUtils.startActivity(new Intent(getActivity(), MyOrderActivity.class));
                 break;
             case R.id.ll_my_address:
-                UiUtils.makeText("clicked ll_my_address");
+                UiUtils.startActivity(new Intent(getActivity(), MyAddressActivity.class));
                 break;
             case R.id.ll_contact_info:
-                UiUtils.makeText("clicked ll_contact_info");
+                UiUtils.startActivity(new Intent(getActivity(), ContactWayActivity.class));
                 break;
             case R.id.ll_sign:
-                UiUtils.makeText("clicked ll_sign");
+                signDialog = DialogUtil.showSignDialog(getActivity(), new View.OnClickListener() {
+                    @Override public void onClick(View v) {
+                        UiUtils.makeText("线下");
+                    }
+                }, new View.OnClickListener() {
+                    @Override public void onClick(View v) {
+                        UiUtils.startActivity(new Intent(getActivity(), SignActivity.class));
+                    }
+                });
                 break;
             case R.id.ll_setting:
                 UiUtils.makeText("clicked ll_setting");
                 break;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        DialogUtil.dismissDialog(signDialog);
     }
 }

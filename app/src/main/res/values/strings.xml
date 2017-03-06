@@ -38,4 +38,10 @@
     <string name="net_broken">网络连接已断开，请检查网络设置</string>
     <string name="kickout">您已被挤下线，请重新登录</string>
     <string name="press_again">再按一次退出</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_address">我的地址</string>
+    <string name="contact_info">联系方式</string>
+    <string name="sign">签约</string>
+    <string name="setting">设置</string>
+    <string name="save">保存</string>
 </resources>

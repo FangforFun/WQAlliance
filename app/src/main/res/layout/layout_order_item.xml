@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/W"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_order_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="某某公司对我司商标侵权"
+            android:textColor="@color/ONE"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_order_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上午 11:06"
+            android:textColor="@color/THREE"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        
+        <TextView
+            android:id="@+id/tv_total_spend"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:maxLines="1"
+            android:layout_height="30dp"
+            android:background="@drawable/theme_border_bg"
+            android:text="总计费用：6666"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/B"/>
+
+        <!-- 用于将右边标签对齐 无实际效果-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标签"
+            android:background="@drawable/theme_border_bg"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/B"/>
+
+        <TextView
+            android:id="@+id/tv_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标签"
+            android:background="@drawable/theme_bg"
+            android:textColor="@color/W"
+            android:textSize="12sp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

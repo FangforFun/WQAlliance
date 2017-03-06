@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/BJ"
+    android:showDividers="middle"
+    android:divider="@drawable/onedp_divider_bg"
+    tools:context="gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/W">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/ONE"
+            android:text="电话"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入电话号码"
+            android:textSize="14sp"
+            android:inputType="phone"
+            android:textCursorDrawable="@drawable/text_cursor"
+            android:textColor="@color/TWO"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/W">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/ONE"
+            android:text="邮箱"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入电子邮箱"
+            android:textSize="14sp"
+            android:textCursorDrawable="@drawable/text_cursor"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/TWO"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>
