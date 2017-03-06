@@ -5,16 +5,14 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\Software_Compression_Zip\Java_Development\android-studio\gradle\gradle-3.3" />
+        <option name="gradleHome" value="D:\installdir\android studio\gradle\gradle-3.3" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arms" />
-            <option value="$PROJECT_DIR$/indicator_module" />
             <option value="$PROJECT_DIR$/rxerrorhandler" />
             <option value="$PROJECT_DIR$/uikit" />
-            <option value="$PROJECT_DIR$/vp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

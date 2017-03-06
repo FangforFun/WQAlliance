@@ -20,6 +20,7 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyAddressActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.SettingActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.SignActivity;
 import gkzxhn.wqalliance.mvp.widget.CircleImageView;
 
@@ -77,7 +78,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 });
                 break;
             case R.id.ll_setting:
-                UiUtils.makeText("clicked ll_setting");
+                UiUtils.startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
         }
     }

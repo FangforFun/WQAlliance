@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import com.jess.arms.utils.UiUtils;
 
+import common.AppComponent;
 import gkzxhn.wqalliance.R;
 
 /**
@@ -36,5 +37,10 @@ public class ContactWayActivity extends BaseContentActivity {
     @Override
     protected void doSubtitle() {
         UiUtils.makeText(getString(R.string.save));
+    }
+
+    @Override
+    protected void setupActivityComponent(AppComponent appComponent) {
+
     }
 }

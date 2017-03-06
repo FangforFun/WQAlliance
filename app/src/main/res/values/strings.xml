@@ -48,4 +48,5 @@
     <string name="sign">签约</string>
     <string name="setting">设置</string>
     <string name="save">保存</string>
+    <string name="check_process">查看流程</string>
 </resources>

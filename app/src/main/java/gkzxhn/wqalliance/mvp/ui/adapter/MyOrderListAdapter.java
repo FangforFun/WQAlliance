@@ -1,6 +1,7 @@
 package gkzxhn.wqalliance.mvp.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.jess.arms.utils.UiUtils;
 
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.ui.activity.CheckProcessActivity;
 
 /**
  * Author: Huang ZN
@@ -48,6 +50,7 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
             public void onClick(View v) {
                 // 查看流程
                 UiUtils.makeText("查看流程： " + position);
+                UiUtils.startActivity(new Intent(mContext, CheckProcessActivity.class));
             }
         });
         holder.tv_label2.setOnClickListener(new View.OnClickListener() {
