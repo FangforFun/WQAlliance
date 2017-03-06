@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="564px"
+                android:layout_height="250px">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="152px"
+        android:textColor="@color/ONE"
+        android:textSize="36px"
+        android:gravity="center"
+        android:text="需与平台签订维权委托才能提交"/>
+</RelativeLayout>

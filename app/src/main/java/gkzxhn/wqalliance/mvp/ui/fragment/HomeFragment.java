@@ -16,6 +16,9 @@ import gkzxhn.wqalliance.di.component.DaggerHomeComponent;
 import gkzxhn.wqalliance.di.module.HomeModule;
 import gkzxhn.wqalliance.mvp.contract.HomeContract;
 import gkzxhn.wqalliance.mvp.presenter.HomePresenter;
+import gkzxhn.wqalliance.mvp.ui.activity.MessageActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.ProtectionActivity;
+import gkzxhn.wqalliance.mvp.widget.CircleIndicator;
 import gkzxhn.wqalliance.mvp.widget.CustPagerTransformer;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -36,6 +39,8 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
 public class HomeFragment extends BaseContentFragment<HomePresenter> implements HomeContract.View {
 
     private ViewPager mViewpager;
+    private CircleIndicator mCircleIndicator;
+    private ViewPager.OnPageChangeListener mOnPageChangeListener;
 
 
     public static HomeFragment newInstance() {
@@ -57,6 +62,31 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
     protected View initContentView() {
         View contentView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home, null, false);
         mViewpager = (ViewPager) contentView.findViewById(R.id.viewpager);
+        mCircleIndicator = (CircleIndicator) contentView.findViewById(R.id.indicator);
+
+        mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        };
 
 //        添加parallax效果，使用PageTransformer就足够了
         mViewpager.setPageTransformer(false, new CustPagerTransformer(getActivity()));
@@ -64,7 +94,7 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
         mViewpager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return 666;
+                return 3;
             }
 
             @Override
@@ -73,9 +103,29 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
             }
 
             @Override
-            public Object instantiateItem(ViewGroup container, int position) {
+            public Object instantiateItem(ViewGroup container, final int position) {
                 View child = LayoutInflater.from(HomeFragment.this.getActivity()).inflate(R.layout.home_card, null, false);
                 container.addView(child);
+                child.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        switch (position) {
+                            case 0:
+                                //跳转消息二级界面
+                                HomeFragment.this.getActivity().startActivity(new Intent(HomeFragment.this.getActivity(), MessageActivity.class));
+                                break;
+                            case 1:
+                                //跳转维权二级界面
+                                HomeFragment.this.getActivity().startActivity(new Intent(HomeFragment.this.getActivity(), ProtectionActivity.class));
+                                break;
+                            case 2:
+                                //跳转订单二级界面
+                                //TODO ...订单
+//                                HomeFragment.this.getActivity().startActivity(new Intent(HomeFragment.this.getActivity(), OrderActivity.class));
+                                break;
+                        }
+                    }
+                });
                 return child;
             }
 
@@ -84,6 +134,10 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
                 container.removeView((View) object);
             }
         });
+
+        mCircleIndicator.setViewPager(mViewpager);
+
+        mViewpager.setOnPageChangeListener(mOnPageChangeListener);
 
         return contentView;
     }

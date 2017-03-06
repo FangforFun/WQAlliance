@@ -52,6 +52,7 @@ public class ProtectionFragment extends BaseContentFragment implements View.OnCl
             case R.id.tv_commit:
                 UiUtils.makeText("commit");
                 //TODO ...提交案件
+//                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
                 break;
         }
     }

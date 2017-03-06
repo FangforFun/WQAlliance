@@ -107,6 +107,8 @@
         <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed2Activity"/>
         <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed3Activity"/>
         <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.Ed4Activity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.MessageActivity"/>
+        <activity android:name="gkzxhn.wqalliance.mvp.ui.activity.ProtectionActivity"/>
     </application>
 
 </manifest>

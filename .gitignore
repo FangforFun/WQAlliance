@@ -29,3 +29,5 @@ proguard/
 *.log
 
 vp/
+
+indicator_module/

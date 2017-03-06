@@ -1,1 +1,1 @@
-include ':app', ':arms', ':rxerrorhandler', ':uikit', ':vp'
+include ':app', ':arms', ':rxerrorhandler', ':uikit', ':vp', ':indicator_module'

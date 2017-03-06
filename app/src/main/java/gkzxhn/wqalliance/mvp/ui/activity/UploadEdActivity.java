@@ -59,6 +59,9 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
             case R.id.rl_ed4:
                 startActivity(new Intent(this, Ed4Activity.class));
                 break;
+            case R.id.iv_back:
+                finish();
+                break;
         }
     }
 }

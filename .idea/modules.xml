@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/WQAlliance.iml" filepath="$PROJECT_DIR$/WQAlliance.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/arms/arms.iml" filepath="$PROJECT_DIR$/arms/arms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/indicator_module/indicator_module.iml" filepath="$PROJECT_DIR$/indicator_module/indicator_module.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxerrorhandler/rxerrorhandler.iml" filepath="$PROJECT_DIR$/rxerrorhandler/rxerrorhandler.iml" />
       <module fileurl="file://$PROJECT_DIR$/uikit/uikit.iml" filepath="$PROJECT_DIR$/uikit/uikit.iml" />
       <module fileurl="file://$PROJECT_DIR$/vp/vp.iml" filepath="$PROJECT_DIR$/vp/vp.iml" />
