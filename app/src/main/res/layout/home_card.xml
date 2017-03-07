@@ -15,29 +15,55 @@
         app:cardElevation="20dp"
         app:cardMaxElevation="20dp">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/W">
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="102px"
                 android:scaleType="fitXY"
                 android:src="@drawable/nim_location_bk"/>
 
             <TextView
+                android:id="@+id/tv_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="56px"
+                android:ems="1"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="我要维权"
+                android:textColor="@color/ONE"
+                android:textSize="32px"/>
+
+            <TextView
+                android:id="@+id/people_account"
                 android:layout_width="130px"
                 android:layout_height="56px"
+                android:layout_below="@+id/tv_center"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="80px"
+                android:layout_marginTop="48px"
                 android:background="@drawable/home_count"
                 android:gravity="center"
                 android:text="2686人"
                 android:textColor="@color/O"
                 android:textSize="32px"/>
-        </FrameLayout>
+
+            <ImageView
+                android:id="@+id/iv_home_image"
+                android:src="@drawable/home_image"
+                android:layout_alignTop="@+id/people_account"
+                android:layout_width="420px"
+                android:layout_height="110px"/>
+        </RelativeLayout>
 
     </gkzxhn.wqalliance.mvp.widget.AspectRatioCardView>
 </FrameLayout>
