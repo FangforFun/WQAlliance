@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jess.arms.utils.UiUtils;
 
@@ -105,6 +107,26 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
                 View child = LayoutInflater.from(HomeFragment.this.getActivity()).inflate(R.layout.home_card, null, false);
+
+                ImageView image = (ImageView) child.findViewById(R.id.image);
+                TextView tv_center = (TextView) child.findViewById(R.id.tv_center);
+                TextView tv_people_account = (TextView) child.findViewById(R.id.people_account);
+                ImageView iv_home_image = (ImageView) child.findViewById(R.id.iv_home_image);
+
+                switch (position) {
+                    case 0:
+                        image.setImageResource(R.drawable.message_big);
+                        tv_center.setText("我的消息");
+                        break;
+                    case 1:
+                        image.setImageResource(R.drawable.protection_big);
+                        tv_center.setText("我要维权");
+                        break;
+                    case 2:
+                        image.setImageResource(R.drawable.order_big);
+                        tv_center.setText("我的订单");
+                        break;
+                }
                 container.addView(child);
                 child.setOnClickListener(new View.OnClickListener() {
                     @Override

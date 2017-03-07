@@ -44,7 +44,6 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 public class MainActivity extends SuperActivity<MainPresenter> implements MainContract.View {
 
-
     @BindView(R.id.main_fragment_container)
     FrameLayout mMainFragmentContainer;
     @BindView(R.id.main_bottome_switcher_container)
