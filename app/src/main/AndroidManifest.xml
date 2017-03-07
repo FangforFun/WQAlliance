@@ -110,8 +110,6 @@
         <activity android:name=".mvp.ui.activity.Ed4Activity" />
         <activity android:name=".mvp.ui.activity.MessageActivity" />
         <activity android:name=".mvp.ui.activity.ProtectionActivity" />
-        <activity android:name=".mvp.ui.activity.RegisterActivity" />
-        <activity android:name=".mvp.ui.activity.MainActivity" />
         <activity android:name=".mvp.ui.activity.MyOrderActivity" />
         <activity android:name=".mvp.ui.activity.MyAddressActivity" />
         <activity android:name=".mvp.ui.activity.ContactWayActivity" />

@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
-<gkzxhn.wqalliance.mvp.widget.AspectRatioCardView
-    android:layout_width="420px"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginLeft="56px"
-    android:layout_marginRight="56px"
-    app:cardElevation="20dp"
-    app:cardMaxElevation="20dp">
+    <gkzxhn.wqalliance.mvp.widget.AspectRatioCardView
+        android:layout_width="420px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="56px"
+        android:layout_marginRight="56px"
+        app:cardElevation="20dp"
+        app:cardMaxElevation="20dp">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/nim_location_bk"
-        android:scaleType="fitXY" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</gkzxhn.wqalliance.mvp.widget.AspectRatioCardView>
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/nim_location_bk"/>
+
+            <TextView
+                android:layout_width="130px"
+                android:layout_height="56px"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="80px"
+                android:background="@drawable/home_count"
+                android:gravity="center"
+                android:text="2686人"
+                android:textColor="@color/O"
+                android:textSize="32px"/>
+        </FrameLayout>
+
+    </gkzxhn.wqalliance.mvp.widget.AspectRatioCardView>
 </FrameLayout>
