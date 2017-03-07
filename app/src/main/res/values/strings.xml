@@ -49,4 +49,10 @@
     <string name="setting">设置</string>
     <string name="save">保存</string>
     <string name="check_process">查看流程</string>
+    <string name="register_success">注册成功!</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="committing">正在提交...</string>
+    <string name="timeout_retry">连接超时, 请稍后再试!</string>
+    <string name="file_not_exist">文件不存在</string>
+    <string name="read_file_error">读取文件出错</string>
 </resources>

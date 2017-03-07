@@ -26,25 +26,24 @@ import butterknife.OnClick;
 import common.AppComponent;
 import common.SuperActivity;
 import common.im.NimController;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
 
 /**
  * Created by 方 on 2017/3/2.
  */
 
 public class LoginActivity extends SuperActivity {
-    @BindView(R.id.et_account)
-    EditText mEtAccount;
-    @BindView(R.id.et_password)
-    EditText mEtPassword;
-    @BindView(R.id.tv_forget_psw)
-    TextView mTvForgetPsw;
-    @BindView(R.id.btn_login)
-    RelativeLayout mBtnLogin;
-    @BindView(R.id.btn_register)
-    RelativeLayout mBtnRegister;
-    @BindView(R.id.activity_splash)
-    LinearLayout mActivitySplash;
+
+    @BindView(R.id.et_account) EditText mEtAccount;
+    @BindView(R.id.et_password) EditText mEtPassword;
+    @BindView(R.id.tv_forget_psw) TextView mTvForgetPsw;
+    @BindView(R.id.btn_login) RelativeLayout mBtnLogin;
+    @BindView(R.id.btn_register) RelativeLayout mBtnRegister;
+    @BindView(R.id.activity_splash) LinearLayout mActivitySplash;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -67,7 +66,7 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("gkzxhn001");
+        mEtAccount.setText("18774810958");
         mEtPassword.setText("123456");
     }
 
@@ -75,49 +74,46 @@ public class LoginActivity extends SuperActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_forget_psw:
-                UiUtils.makeText("忘记密码");
+                UiUtils.startActivity(new Intent(this, ForgetPwdActivity.class));
                 break;
             case R.id.btn_login:
-                UiUtils.makeText("login");
-                Log.i(TAG, "onClick: login");
-                login();
+                login();// 登录
                 break;
             case R.id.btn_register:
                 Log.i(TAG, "onClick: register");
-                UiUtils.makeText("register");
                 register();
                 break;
         }
     }
 
+    private ProgressDialog loginDialog;
+
     /**
      * 登录操作
      */
     private void login() {
-        //TODO ... 登录操作逻辑
         final String account = mEtAccount.getText().toString().trim();
-        String pwd = mEtPassword.getText().toString().trim();
+        final String pwd = mEtPassword.getText().toString().trim();
         if(EmptyUtils.isNotEmpty(account) && EmptyUtils.isNotEmpty(pwd)){
             // 网络判断
             if (NetworkUtils.isConnected()) {
-                final ProgressDialog loginDialog = UiUtils.showProgressDialog(this, getString(R.string.login_ing));
-                NimController.login(account, pwd, new RequestCallback<LoginInfo>() {
-                    @Override public void onSuccess(LoginInfo param) {
+                loginDialog  = UiUtils.showProgressDialog(this, getString(R.string.login_ing));
+                ApiWrap.login(account, pwd, new SimpleObserver<Result>(){
+                    @Override public void onError(Throwable e) {
                         UiUtils.dismissProgressDialog(loginDialog);
-                        NimUIKit.setAccount(account);
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        LoginActivity.this.finish();
+                        UiUtils.makeText("连接超时");
+                        LogUtils.e(TAG, "login request exception: " + e.getMessage());
                     }
 
-                    @Override public void onFailed(int code) {
-                        UiUtils.dismissProgressDialog(loginDialog);
-                        NimController.checkLoginResultCode(code);
-                    }
-
-                    @Override public void onException(Throwable exception) {
-                        LogUtils.e(TAG, "login nim exception: " + exception.getMessage());
-                        UiUtils.dismissProgressDialog(loginDialog);
-                        UiUtils.makeText(getString(R.string.login_exception));
+                    @Override public void onNext(Result result) {
+                        LogUtils.i(TAG, "login request result: " + result.toString());
+                        UiUtils.makeText(result.getMsg());
+                        if (result.getCode() == 0){
+                            SPUtil.put(LoginActivity.this, "userId", result.getData().getId());
+                            loginNim(account, pwd);
+                        }else{
+                            UiUtils.dismissProgressDialog(loginDialog);
+                        }
                     }
                 });
             }else {
@@ -126,6 +122,33 @@ public class LoginActivity extends SuperActivity {
         }else {
             UiUtils.makeText(getString(R.string.empty_acc_pwd));
         }
+    }
+
+    /**
+     * 登录云信
+     * @param account
+     * @param pwd
+     */
+    private void loginNim(final String account, String pwd) {
+        NimController.login("gkzxhn001", "123456", new RequestCallback<LoginInfo>() {
+            @Override public void onSuccess(LoginInfo param) {
+                UiUtils.dismissProgressDialog(loginDialog);
+                NimUIKit.setAccount("gkzxhn001");
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                LoginActivity.this.finish();
+            }
+
+            @Override public void onFailed(int code) {
+                UiUtils.dismissProgressDialog(loginDialog);
+                NimController.checkLoginResultCode(code);
+            }
+
+            @Override public void onException(Throwable exception) {
+                LogUtils.e(TAG, "login nim exception: " + exception.getMessage());
+                UiUtils.dismissProgressDialog(loginDialog);
+                UiUtils.makeText(getString(R.string.login_exception));
+            }
+        });
     }
 
     /**

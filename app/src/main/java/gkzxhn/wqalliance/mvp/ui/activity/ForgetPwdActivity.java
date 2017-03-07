@@ -17,73 +17,68 @@ import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 
-/**
- * Created by 方 on 2017/3/3.
- */
-
-public class RegisterActivity extends BaseContentActivity implements View.OnClickListener {
-
-    private static final String TAG = "RegisterActivity";
+public class ForgetPwdActivity extends BaseContentActivity implements View.OnClickListener {
 
     private EditText et_phone_number;
     private TextView tv_send_code;
     private EditText et_auth_code;
     private EditText et_password;
-    private TextView tv_register;
-
-    private ProgressDialog registerDialog;
+    private TextView tv_commit;
 
     @Override
-    protected View initContentView() {
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_register, null, false);
-        et_phone_number = (EditText) view.findViewById(R.id.et_phone_number);
-        tv_send_code = (TextView) view.findViewById(R.id.tv_send_code);
-        et_auth_code = (EditText) view.findViewById(R.id.et_auth_code);
-        et_password = (EditText) view.findViewById(R.id.et_password);
-        tv_register = (TextView) view.findViewById(R.id.tv_register);
-        tv_register.setOnClickListener(this);
-        tv_send_code.setOnClickListener(this);
-        return view;
+    protected void setupActivityComponent(AppComponent appComponent) {
+
     }
 
     @Override
     protected void setTitleData() {
-        mTvTitle.setText("注册");
+        mTvTitle.setText(R.string.forget_pwd);
         mTvSubtitle.setVisibility(View.GONE);
     }
 
-    @Override protected void setupActivityComponent(AppComponent appComponent) {}
+    @Override
+    protected View initContentView() {
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_forget_pwd, null, false);
+        et_phone_number = (EditText) view.findViewById(R.id.et_phone_number);
+        tv_send_code = (TextView) view.findViewById(R.id.tv_send_code);
+        et_auth_code = (EditText) view.findViewById(R.id.et_auth_code);
+        et_password = (EditText) view.findViewById(R.id.et_password);
+        tv_commit = (TextView) view.findViewById(R.id.tv_commit);
+        tv_commit.setOnClickListener(this);
+        tv_send_code.setOnClickListener(this);
+        return view;
+    }
+
+    private ProgressDialog updatePasswordDialog;
 
     @Override
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()){
-            case R.id.tv_register:
+            case R.id.tv_commit:
                 if (NetworkUtils.isAvailableByPing()) {
                     String phone = et_phone_number.getText().toString().trim();
-                    String password = et_password.getText().toString().trim();
-                    registerDialog = UiUtils.showProgressDialog(this, "正在注册");
-                    ApiWrap.register(phone, password, new SimpleObserver<Result>() {
+                    String pwd = et_password.getText().toString().trim();
+                    updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
+                    ApiWrap.updatePassword(phone, pwd, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
-                            UiUtils.dismissProgressDialog(registerDialog);
-                            UiUtils.makeText("服务器异常");
-                            LogUtils.e(TAG, "register request exception: " + e.getMessage());
+                            UiUtils.dismissProgressDialog(updatePasswordDialog);
+                            UiUtils.makeText(getString(R.string.timeout_retry));
+                            LogUtils.e(TAG, "update password exception: " + e.getMessage());
                         }
 
                         @Override public void onNext(Result result) {
-                            UiUtils.dismissProgressDialog(registerDialog);
+                            LogUtils.i(TAG, "update password result: " + result.toString());
+                            UiUtils.dismissProgressDialog(updatePasswordDialog);
+                            UiUtils.makeText(result.getMsg());
                             if (result.getCode() == 0){
-                                UiUtils.makeText(getString(R.string.register_success));
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        finish();
+                                        ForgetPwdActivity.this.finish();
                                     }
                                 }, 500);
-                            }else {
-                                UiUtils.makeText(result.getMsg());
                             }
-                            LogUtils.i(TAG, "register request result: " + result.toString());
                         }
                     });
                 }else {

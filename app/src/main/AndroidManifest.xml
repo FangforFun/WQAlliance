@@ -115,7 +115,8 @@
         <activity android:name=".mvp.ui.activity.ContactWayActivity" />
         <activity android:name=".mvp.ui.activity.SignActivity" />
         <activity android:name=".mvp.ui.activity.SettingActivity" />
-        <activity android:name=".mvp.ui.activity.CheckProcessActivity"></activity>
+        <activity android:name=".mvp.ui.activity.CheckProcessActivity" />
+        <activity android:name=".mvp.ui.activity.ForgetPwdActivity"></activity>
     </application>
 
 </manifest>

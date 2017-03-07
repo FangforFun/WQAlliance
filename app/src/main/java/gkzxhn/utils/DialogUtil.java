@@ -1,8 +1,9 @@
 package gkzxhn.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import gkzxhn.wqalliance.R;
  */
 
 public class DialogUtil {
+
+    private static String defaultMsg = "请稍候...";
 
     /**
      * 显示签约对话框
@@ -42,6 +45,33 @@ public class DialogUtil {
     }
 
     /**
+     * 显示正在加载对话框
+     * @param context
+     * @return
+     */
+    public static ProgressDialog showLoadingDialog(Context context, String msg){
+        if (!(context instanceof Activity)){
+            throw new IllegalStateException("show dialog must use activity context");
+        }
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage(msg);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+        return progressDialog;
+    }
+
+    /**
+     * 显示正在加载对话框
+     * @param context
+     * @return
+     */
+    public static ProgressDialog showLoadingDialog(Context context){
+        return showLoadingDialog(context, defaultMsg);
+    }
+
+    /**
      * dismiss
      * @param dialogs
      */
@@ -49,6 +79,22 @@ public class DialogUtil {
         if (dialogs == null || dialogs.length == 0)
             return;
         for (AlertDialog dialog : dialogs){
+            if (dialog != null){
+                if (dialog.isShowing())
+                    dialog.dismiss();
+                dialog = null;
+            }
+        }
+    }
+
+    /**
+     * dismiss
+     * @param dialogs
+     */
+    public static void dismissProgressDialog(ProgressDialog... dialogs){
+        if (dialogs == null || dialogs.length == 0)
+            return;
+        for (ProgressDialog dialog : dialogs){
             if (dialog != null){
                 if (dialog.isShowing())
                     dialog.dismiss();

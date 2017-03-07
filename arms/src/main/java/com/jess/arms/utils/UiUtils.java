@@ -502,4 +502,20 @@ public class UiUtils {
         dialog.show();
         return dialog;
     }
+
+    /**
+     * show对话框
+     * @param context
+     * @param title
+     * @return
+     */
+    public static AlertDialog showSingleChooseDialog(Context context, String title,
+                                                     String[] itemNames, DialogInterface.OnClickListener listener){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder
+                .setTitle(title)
+                .setCancelable(true);
+        builder.setSingleChoiceItems(itemNames, 0, listener);
+        return builder.show();
+    }
 }
