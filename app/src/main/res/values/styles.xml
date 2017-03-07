@@ -50,6 +50,7 @@
     </style>
 
     <style name="rl_item">
+        <item name="android:clickable">true</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">88px</item>
     </style>

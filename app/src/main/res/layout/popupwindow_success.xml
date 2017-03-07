@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="650px"
+        android:layout_height="778px"
+        android:background="@drawable/popupwindow_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="194px"
+            android:layout_height="194px"
+            android:layout_marginTop="112px"
+            android:src="@drawable/success_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72px"
+            android:text="提交成功"
+            android:textColor="@color/ONE"
+            android:textSize="34px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="案件列入待审核等待平台审查"
+            android:textColor="@color/THREE"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/tv_checkout"
+            android:layout_width="360px"
+            android:layout_height="100px"
+            android:layout_marginTop="124px"
+            android:background="@drawable/btn_success"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="点击查看"
+            android:textColor="@color/W"
+            android:textSize="34px"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -11,7 +11,7 @@
         style="@style/ll_list">
 
         <RelativeLayout
-            android:id="@+id/rl_ed1"
+            android:id="@+id/rl_ed2_1"
             style="@style/rl_item">
 
             <TextView
@@ -30,7 +30,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_ed2"
+            android:id="@+id/rl_ed2_2"
             style="@style/rl_item">
 
             <TextView
@@ -48,7 +48,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_ed3"
+            android:id="@+id/rl_ed2_3"
             style="@style/rl_item">
 
             <TextView
@@ -68,7 +68,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_ed4"
+            android:id="@+id/rl_ed2_4"
             style="@style/rl_item">
 
             <TextView
@@ -86,7 +86,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_ed5"
+            android:id="@+id/rl_ed2_5"
             style="@style/rl_item">
 
             <TextView
@@ -104,7 +104,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_ed6"
+            android:id="@+id/rl_ed2_6"
             style="@style/rl_item">
 
             <TextView
