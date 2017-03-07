@@ -22,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="我的订单"
+            android:text="@string/my_order"
             android:textColor="@color/TWO" />
 
         <ImageView
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="我的地址"
+            android:text="@string/my_address"
             android:textColor="@color/TWO" />
 
         <ImageView
@@ -64,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="联系方式"
+            android:text="@string/contact_info"
             android:textColor="@color/TWO" />
 
         <ImageView
@@ -85,7 +85,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="签约"
+            android:text="@string/sign"
             android:textColor="@color/TWO" />
 
         <ImageView
@@ -106,7 +106,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="设置"
+            android:text="@string/setting"
             android:textColor="@color/TWO" />
 
         <ImageView

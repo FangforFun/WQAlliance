@@ -42,4 +42,11 @@
     <string name="ed2">原告拥有商标权</string>
     <string name="ed3">被告实施商标侵权行为</string>
     <string name="ed4">禁止侵权开支</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_address">我的地址</string>
+    <string name="contact_info">联系方式</string>
+    <string name="sign">签约</string>
+    <string name="setting">设置</string>
+    <string name="save">保存</string>
+    <string name="check_process">查看流程</string>
 </resources>

@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:listDivider">@drawable/tendp_divider_bg</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance"
+        parent="TextAppearance.AppCompat.Widget.ActionBar.Title" >
+        <item name="android:textSize">14sp</item>
     </style>
 
     <!--条目左侧textview-->
