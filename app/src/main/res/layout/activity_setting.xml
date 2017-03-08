@@ -6,29 +6,73 @@
     android:orientation="vertical"
     android:background="@color/BJ"
     android:paddingTop="10dp"
+    android:divider="@drawable/onedp_divider_bg"
+    android:showDividers="middle"
     tools:context="gkzxhn.wqalliance.mvp.ui.activity.SettingActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/ll_notification_setting"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
         android:background="@color/W"
-        android:gravity="center_vertical">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="新消息提醒"
-            android:textColor="@color/TWO"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_setting"
+            android:textColor="@color/TWO" />
 
-        <Switch
-            android:id="@+id/tb_new_msg_remind"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
-    </RelativeLayout>
+            android:src="@drawable/toright" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_change_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/W"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/change_pwd"
+            android:textColor="@color/TWO" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/toright" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_change_info"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/W"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/info_change"
+            android:textColor="@color/TWO" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/toright" />
+    </LinearLayout>
 </LinearLayout>

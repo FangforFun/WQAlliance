@@ -55,4 +55,22 @@
     <string name="timeout_retry">连接超时, 请稍后再试!</string>
     <string name="file_not_exist">文件不存在</string>
     <string name="read_file_error">读取文件出错</string>
+    <string name="login_timeout">登录超时</string>
+    <string name="server_exeption">服务器异常</string>
+    <string name="upload_trademark">上传商标</string>
+    <string name="knowledge_right">知识产权</string>
+    <string name="company_name">企业名称</string>
+    <string name="input_company_name">输入企业名称</string>
+    <string name="please_choose">请选择</string>
+    <string name="notification_setting">通知设置</string>
+    <string name="change_pwd">密码修改</string>
+    <string name="info_change">资料修改</string>
+    <string name="old_pwd">旧密码</string>
+    <string name="input_old_pwd">输入旧密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="input_new_pwd">输入新密码</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="can_not_be_empty">不能为空</string>
+    <string name="pwd_not_same">密码不一致</string>
+    <string name="upload_ed">上传证据</string>
 </resources>

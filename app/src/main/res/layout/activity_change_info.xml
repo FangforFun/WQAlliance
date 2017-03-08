@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BJ"
+    android:orientation="vertical"
+    android:divider="@drawable/onedp_divider_bg"
+    android:showDividers="middle"
+    tools:context="gkzxhn.wqalliance.mvp.ui.activity.ChangeInfoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@color/W"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="头像"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/ONE"
+            android:textSize="16sp"/>
+
+        <gkzxhn.wqalliance.mvp.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/avatar_def"
+            android:layout_margin="5dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/W">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="企业名称"
+            android:textSize="16sp"
+            android:textColor="@color/ONE"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+
+        <EditText
+            android:id="@+id/et_company_name"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:hint="输入企业名称"
+            android:textSize="14sp"
+            android:textColor="@color/TWO"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+</LinearLayout>

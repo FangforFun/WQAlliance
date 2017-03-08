@@ -26,7 +26,7 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
 
     @Override
     protected void setTitleData() {
-        mTvTitle.setText("上传证据");
+        mTvTitle.setText(R.string.upload_ed);
         mTvSubtitle.setVisibility(View.GONE);
     }
 

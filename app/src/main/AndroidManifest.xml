@@ -116,7 +116,10 @@
         <activity android:name=".mvp.ui.activity.SignActivity" />
         <activity android:name=".mvp.ui.activity.SettingActivity" />
         <activity android:name=".mvp.ui.activity.CheckProcessActivity" />
-        <activity android:name=".mvp.ui.activity.ForgetPwdActivity"></activity>
+        <activity android:name=".mvp.ui.activity.ForgetPwdActivity" />
+        <activity android:name=".mvp.ui.activity.NotificationSettingActivity" />
+        <activity android:name=".mvp.ui.activity.ChangePasswordActivity" />
+        <activity android:name=".mvp.ui.activity.ChangeInfoActivity"></activity>
     </application>
 
 </manifest>

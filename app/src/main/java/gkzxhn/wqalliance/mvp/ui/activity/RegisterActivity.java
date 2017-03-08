@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
+import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -32,6 +32,12 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
     private TextView tv_register;
 
     private ProgressDialog registerDialog;
+
+    @Override
+    protected void onDestroy() {
+        UiUtils.dismissProgressDialog(registerDialog);
+        super.onDestroy();
+    }
 
     @Override
     protected View initContentView() {
@@ -59,14 +65,14 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
         super.onClick(view);
         switch (view.getId()){
             case R.id.tv_register:
-                if (NetworkUtils.isAvailableByPing()) {
+                if (Utils.isAvailableByPing()) {
                     String phone = et_phone_number.getText().toString().trim();
                     String password = et_password.getText().toString().trim();
                     registerDialog = UiUtils.showProgressDialog(this, "正在注册");
                     ApiWrap.register(phone, password, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(registerDialog);
-                            UiUtils.makeText("服务器异常");
+                            UiUtils.makeText(getString(R.string.server_exeption));
                             LogUtils.e(TAG, "register request exception: " + e.getMessage());
                         }
 

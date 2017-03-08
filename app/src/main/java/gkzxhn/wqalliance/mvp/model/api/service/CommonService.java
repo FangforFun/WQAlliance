@@ -75,7 +75,7 @@ public interface CommonService {
      * @return
      */
     @Multipart
-    @POST("springUpload")
+    @POST("upload")
     Observable<UploadImageResult> upLoadImage(
             @Part MultipartBody.Part photo
     );

@@ -11,7 +11,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -123,7 +122,6 @@ public class CircleIndicator extends View{
     private void trigger(int position,float positionOffset){
         CircleIndicator.this.mCurItemPosition = position;
         CircleIndicator.this.mCurItemPositionOffset = positionOffset;
-        Log.e("CircleIndicator", "onPageScrolled()" + position + ":" + positionOffset);
         requestLayout();
         invalidate();
     }
@@ -165,7 +163,6 @@ public class CircleIndicator extends View{
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        Log.e("CircleIndicator","onLayout()");
         super.onLayout(changed, left, top, right, bottom);
         final int width = getWidth();
         final int height = getHeight();
@@ -218,7 +215,6 @@ public class CircleIndicator extends View{
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.e("CircleIndicator", "onDraw()");
         super.onDraw(canvas);
         int sc = canvas.saveLayer(0, 0, getWidth(), getHeight(), null,
                 Canvas.MATRIX_SAVE_FLAG |

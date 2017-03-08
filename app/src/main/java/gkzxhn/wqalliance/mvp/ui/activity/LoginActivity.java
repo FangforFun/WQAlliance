@@ -29,6 +29,7 @@ import common.im.NimController;
 import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 
@@ -88,6 +89,12 @@ public class LoginActivity extends SuperActivity {
 
     private ProgressDialog loginDialog;
 
+    @Override
+    protected void onDestroy() {
+        UiUtils.dismissProgressDialog(loginDialog);
+        super.onDestroy();
+    }
+
     /**
      * 登录操作
      */
@@ -101,17 +108,18 @@ public class LoginActivity extends SuperActivity {
                 ApiWrap.login(account, pwd, new SimpleObserver<Result>(){
                     @Override public void onError(Throwable e) {
                         UiUtils.dismissProgressDialog(loginDialog);
-                        UiUtils.makeText("连接超时");
+                        UiUtils.makeText(getString(R.string.login_timeout));
                         LogUtils.e(TAG, "login request exception: " + e.getMessage());
                     }
 
                     @Override public void onNext(Result result) {
                         LogUtils.i(TAG, "login request result: " + result.toString());
-                        UiUtils.makeText(result.getMsg());
                         if (result.getCode() == 0){
-                            SPUtil.put(LoginActivity.this, "userId", result.getData().getId());
+                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
+                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
                             loginNim(account, pwd);
                         }else{
+                            UiUtils.makeText(result.getMsg());
                             UiUtils.dismissProgressDialog(loginDialog);
                         }
                     }

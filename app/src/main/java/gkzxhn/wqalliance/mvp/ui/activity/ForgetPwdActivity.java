@@ -8,15 +8,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
+import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 
+/**
+ * Author: Huang ZN
+ * Date: 2017/3/6
+ * Email:943852572@qq.com
+ * Description:忘记密码
+ */
 public class ForgetPwdActivity extends BaseContentActivity implements View.OnClickListener {
 
     private EditText et_phone_number;
@@ -52,13 +58,19 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
     private ProgressDialog updatePasswordDialog;
 
     @Override
+    protected void onDestroy() {
+        UiUtils.dismissProgressDialog(updatePasswordDialog);
+        super.onDestroy();
+    }
+
+    @Override
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()){
             case R.id.tv_commit:
-                if (NetworkUtils.isAvailableByPing()) {
-                    String phone = et_phone_number.getText().toString().trim();
-                    String pwd = et_password.getText().toString().trim();
+                String phone = et_phone_number.getText().toString().trim();
+                String pwd = et_password.getText().toString().trim();
+                if (Utils.isAvailableByPing()) {
                     updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
                     ApiWrap.updatePassword(phone, pwd, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
