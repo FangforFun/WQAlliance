@@ -95,6 +95,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 break;
             case R.id.ll_sign_contract:
                 UiUtils.makeText("签订合同");
+                UiUtils.startActivity(this, SignContractActivity.class);
                 break;
         }
     }

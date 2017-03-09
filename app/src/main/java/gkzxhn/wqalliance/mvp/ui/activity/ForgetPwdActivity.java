@@ -72,15 +72,15 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                 String pwd = et_password.getText().toString().trim();
                 if (Utils.isAvailableByPing()) {
                     updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-                    ApiWrap.updatePassword(phone, pwd, new SimpleObserver<Result>() {
+                    ApiWrap.forgetPassword(phone, pwd, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(updatePasswordDialog);
                             UiUtils.makeText(getString(R.string.timeout_retry));
-                            LogUtils.e(TAG, "update password exception: " + e.getMessage());
+                            LogUtils.e(TAG, "forget password exception: " + e.getMessage());
                         }
 
                         @Override public void onNext(Result result) {
-                            LogUtils.i(TAG, "update password result: " + result.toString());
+                            LogUtils.i(TAG, "new password result: " + result.toString());
                             UiUtils.dismissProgressDialog(updatePasswordDialog);
                             UiUtils.makeText(result.getMsg());
                             if (result.getCode() == 0){

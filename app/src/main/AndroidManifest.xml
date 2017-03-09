@@ -120,6 +120,8 @@
         <activity android:name=".mvp.ui.activity.NotificationSettingActivity" />
         <activity android:name=".mvp.ui.activity.ChangePasswordActivity" />
         <activity android:name=".mvp.ui.activity.ChangeInfoActivity"></activity>
+        <activity android:name=".mvp.ui.activity.SignContractActivity"/>
+        <activity android:name=".mvp.ui.activity.EdActivity"/>
     </application>
 
 </manifest>

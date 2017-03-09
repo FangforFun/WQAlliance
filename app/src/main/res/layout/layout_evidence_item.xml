@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    style="@style/rl_item"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:id="@+id/tv_evidence_name"
+            style="@style/item_left_textview"
+            android:layout_centerVertical="true"
+            android:text="原告营业执照"/>
+
+        <ImageView
+            android:id="@+id/iv_upload_ed"
+            android:src="@drawable/add_pic_icon"
+            android:layout_centerVertical="true"
+            style="@style/item_right_arrow"/>
+
+        <TextView
+            style="@style/item_slip_line"/>
+
+    </RelativeLayout>

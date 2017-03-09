@@ -33,12 +33,7 @@ public class Ed1Activity extends BaseContentActivity implements View.OnClickList
 
     @Override
     protected View initContentView() {
-        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_ed1, null, false);
-        mEd1_1 = (RelativeLayout) rootView.findViewById(R.id.rl_ed1_1);
-        mEd1_2 = (RelativeLayout) rootView.findViewById(R.id.rl_ed1_2);
-        mEd1_3 = (RelativeLayout) rootView.findViewById(R.id.rl_ed1_3);
-        mEd1_4 = (RelativeLayout) rootView.findViewById(R.id.rl_ed1_4);
-
+        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_ed, null, false);
         mEd1_1.setOnClickListener(this);
         mEd1_2.setOnClickListener(this);
         mEd1_3.setOnClickListener(this);
@@ -50,18 +45,7 @@ public class Ed1Activity extends BaseContentActivity implements View.OnClickList
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()) {
-            case R.id.rl_ed1_1:
-                UiUtils.makeText("ed1_1");
-                break;
-            case R.id.rl_ed1_2:
-                UiUtils.makeText("ed1_2");
-                break;
-            case R.id.rl_ed1_3:
-                UiUtils.makeText("ed1_3");
-                break;
-            case R.id.rl_ed1_4:
-                UiUtils.makeText("ed1_4");
-                break;
+
         }
     }
 }

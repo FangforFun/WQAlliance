@@ -18,6 +18,7 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
     private RelativeLayout mRlEd2;
     private RelativeLayout mRlEd3;
     private RelativeLayout mRlEd4;
+    public static final String TYPE = "type";
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -46,18 +47,23 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent(this, EdActivity.class);
         switch (view.getId()) {
             case R.id.rl_ed1:
-                startActivity(new Intent(this, Ed1Activity.class));
+                intent.putExtra(TYPE, 0);
+                startActivity(intent);
                 break;
             case R.id.rl_ed2:
-                startActivity(new Intent(this, Ed2Activity.class));
+                intent.putExtra(TYPE, 1);
+                startActivity(intent);
                 break;
             case R.id.rl_ed3:
-                startActivity(new Intent(this, Ed3Activity.class));
+                intent.putExtra(TYPE, 2);
+                startActivity(intent);
                 break;
             case R.id.rl_ed4:
-                startActivity(new Intent(this, Ed4Activity.class));
+                intent.putExtra(TYPE, 3);
+                startActivity(intent);
                 break;
             case R.id.iv_back:
                 finish();

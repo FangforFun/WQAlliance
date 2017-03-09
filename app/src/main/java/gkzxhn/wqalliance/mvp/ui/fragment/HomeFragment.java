@@ -161,6 +161,8 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
 
         mViewpager.setOnPageChangeListener(mOnPageChangeListener);
 
+        mViewpager.setCurrentItem(1);
+
         return contentView;
     }
 

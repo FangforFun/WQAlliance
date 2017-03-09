@@ -2,6 +2,7 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 
 import java.util.Map;
 
+import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MultipartBody;
@@ -46,16 +47,34 @@ public interface CommonService {
     );
 
     /**
-     * 修改密码
+     * 忘记密码
      * @param phone
      * @param pwd
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/forgetPassword")
+    Observable<Result> forgetPassword(@Field("phone") String phone, @Field("password") String pwd);
+
+    /**
+     * 修改密码
+     * @param phone
+     * @param oldPwd
+     * @param newPwd
      * @return
      */
     @FormUrlEncoded
     @POST("user/updatePassword")
     Observable<Result> updatePassword(
             @Field("phone") String phone,
-            @Field("password") String pwd
+            @Field("oldPassword") String oldPwd,
+            @Field("password") String newPwd
+    );
+
+    @FormUrlEncoded
+    @POST("evidence/getEvidences")
+    Observable<EvidenceList> getEvidences(
+            @Field("type") Integer type
     );
 
     /**

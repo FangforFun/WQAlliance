@@ -19,4 +19,9 @@ public class SharedPreferenceConstants {
      */
     public static final String FACEIMGURL = "faceImgUrl";
 
+    /**
+     * 用户头像url
+     */
+    public static final String PHONE = "PHONE";
+
 }
