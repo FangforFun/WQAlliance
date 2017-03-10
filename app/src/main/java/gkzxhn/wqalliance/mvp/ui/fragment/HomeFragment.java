@@ -19,6 +19,7 @@ import gkzxhn.wqalliance.di.module.HomeModule;
 import gkzxhn.wqalliance.mvp.contract.HomeContract;
 import gkzxhn.wqalliance.mvp.presenter.HomePresenter;
 import gkzxhn.wqalliance.mvp.ui.activity.MessageActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.ProtectionActivity;
 import gkzxhn.wqalliance.mvp.widget.CircleIndicator;
 import gkzxhn.wqalliance.mvp.widget.CustPagerTransformer;
@@ -143,7 +144,7 @@ public class HomeFragment extends BaseContentFragment<HomePresenter> implements 
                             case 2:
                                 //跳转订单二级界面
                                 //TODO ...订单
-//                                HomeFragment.this.getActivity().startActivity(new Intent(HomeFragment.this.getActivity(), OrderActivity.class));
+                                HomeFragment.this.getActivity().startActivity(new Intent(HomeFragment.this.getActivity(), MyOrderActivity.class));
                                 break;
                         }
                     }

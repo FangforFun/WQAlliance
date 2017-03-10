@@ -67,7 +67,7 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("18774810958");
+        mEtAccount.setText("15243686547");
         mEtPassword.setText("123456");
     }
 
@@ -113,7 +113,7 @@ public class LoginActivity extends SuperActivity {
                     }
 
                     @Override public void onNext(Result result) {
-//                        LogUtils.i(TAG, "login request result: " + result.toString());
+                        LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
                             if (result.getData().getFaceImgUrl() != null) {

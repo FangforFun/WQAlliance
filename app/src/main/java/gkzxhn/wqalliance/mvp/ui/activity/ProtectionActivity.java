@@ -57,6 +57,7 @@ public class ProtectionActivity extends BaseContentActivity implements View.OnCl
                 UiUtils.makeText("commit");
                 //TODO ...提交案件
 //                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
+
                 break;
             case R.id.iv_back:
                 finish();

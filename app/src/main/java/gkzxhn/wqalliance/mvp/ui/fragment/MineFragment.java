@@ -21,8 +21,12 @@ import butterknife.OnClick;
 import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.LoginActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyAddressActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.SettingActivity;
@@ -59,16 +63,38 @@ public class MineFragment extends android.support.v4.app.Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         String faceImgUrl = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.FACEIMGURL, "");
+        int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
         if (!TextUtils.isEmpty(faceImgUrl)){
             LogUtils.i(TAG, faceImgUrl);
             Glide.with(getActivity()).load(faceImgUrl).error(R.drawable.avatar_def).into(iv_avatar);
         }
+        ApiWrap.getUser(userId, new SimpleObserver<Result>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(Result result) {
+                super.onNext(result);
+                int signedStatus = result.getData().getSignedStatus();
+                if (signedStatus == 0) {
+                    tv_sign_status.setText("未签约");
+                }else {
+                    tv_sign_status.setText("已签约");
+                }
+            }
+        });
     }
 
     @OnClick({R.id.ll_my_order, R.id.ll_my_address, R.id.ll_contact_info,
             R.id.ll_sign, R.id.ll_setting})
     public void onClick(View view){
         switch (view.getId()){
+            case R.id.tv_login_status: //注销账号
+                UiUtils.startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
+                break;
             case R.id.ll_my_order:
                 UiUtils.startActivity(new Intent(getActivity(), MyOrderActivity.class));
                 break;
