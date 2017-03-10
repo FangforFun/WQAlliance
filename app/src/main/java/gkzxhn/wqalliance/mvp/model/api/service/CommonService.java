@@ -3,6 +3,7 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 import java.util.Map;
 
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MultipartBody;
@@ -86,14 +87,13 @@ public interface CommonService {
     /**
      * 查询订单
      * @param userId
-     * @param orderStatus
+     * @param orderStatus  订单状态：0-审核中；2-处理中；3-待支付；4-已完成；
      * @return
      */
-    @FormUrlEncoded
-    @POST("order/getOrders")
-    Observable getOrders(
-        @Field("userId") Integer userId,
-        @Field("orderStatus") Integer orderStatus
+    @GET("order/getOrders")
+    Observable<OrderResult> getOrders(
+        @Query("userId") Integer userId,
+        @Query("orderStatus") Integer orderStatus
     );
 
     /**

@@ -70,8 +70,8 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
             case R.id.tv_commit:
                 String phone = et_phone_number.getText().toString().trim();
                 String pwd = et_password.getText().toString().trim();
+                updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
                 if (Utils.isAvailableByPing()) {
-                    updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
                     ApiWrap.forgetPassword(phone, pwd, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(updatePasswordDialog);
@@ -94,6 +94,7 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                         }
                     });
                 }else {
+                    UiUtils.dismissProgressDialog(updatePasswordDialog);
                     UiUtils.makeText(getString(R.string.net_broken));
                 }
                 break;

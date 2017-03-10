@@ -66,10 +66,10 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
         super.onClick(view);
         switch (view.getId()){
             case R.id.tv_register:
+                registerDialog = UiUtils.showProgressDialog(this, "正在注册...");
                 if (Utils.isAvailableByPing()) {
                     String phone = et_phone_number.getText().toString().trim();
                     String password = et_password.getText().toString().trim();
-                    registerDialog = UiUtils.showProgressDialog(this, "正在注册");
                     ApiWrap.register(phone, password, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(registerDialog);
@@ -95,6 +95,7 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                         }
                     });
                 }else {
+                    UiUtils.dismissProgressDialog(registerDialog);
                     UiUtils.makeText(getString(R.string.net_broken));
                 }
                 break;

@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,11 +11,18 @@ import android.view.View;
 import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
+import java.util.List;
+
 import common.AppComponent;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerMyOrderComponent;
 import gkzxhn.wqalliance.di.module.MyOrderModule;
 import gkzxhn.wqalliance.mvp.contract.MyOrderContract;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.presenter.MyOrderPresenter;
 import gkzxhn.wqalliance.mvp.ui.adapter.MyOrderListAdapter;
 import gkzxhn.wqalliance.mvp.widget.DividerItemDecoration;
@@ -37,18 +45,65 @@ public class MyOrderActivity extends BaseContentActivity<MyOrderPresenter> imple
     @Override
     protected void initData() {
         super.initData();
-        order_list.setLayoutManager(new LinearLayoutManager(this));
-        order_list.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-        listAdapter = new MyOrderListAdapter(this, 1);
-        order_list.setAdapter(listAdapter);
         table_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override public void onTabSelected(TabLayout.Tab tab) {
                 LogUtils.i(TAG, "position: " + tab.getPosition());
-                listAdapter.switchList(tab.getPosition() + 1);
+                getOrderList(tab.getPosition());
             }
             @Override public void onTabUnselected(TabLayout.Tab tab) {}
             @Override public void onTabReselected(TabLayout.Tab tab) {}
         });
+        getOrderList(0);// 默认进入页面获取待审查订单列表
+    }
+
+    private ProgressDialog getOrderDialog;
+
+    /**
+     * 获取默认订单列表   待审查
+     * @param type  订单类型
+     */
+    private void getOrderList(final int type) {
+        getOrderDialog = UiUtils.showProgressDialog(this);
+        int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, -1);
+        ApiWrap.getOrders(userId, type, new SimpleObserver<OrderResult>(){
+            @Override public void onError(Throwable e) {
+                UiUtils.dismissProgressDialog();
+                UiUtils.makeText(getString(R.string.timeout_retry));
+                LogUtils.i(TAG, "get order exception: " + e.getMessage());
+            }
+
+            @Override public void onNext(OrderResult orderResult) {
+                LogUtils.i(TAG, "get order result: " + orderResult.toString());
+                UiUtils.dismissProgressDialog(getOrderDialog);
+                if (orderResult.getCode() == 0){
+                    if (orderResult.getData().size() > 0){
+                        setListLayout(type, orderResult.getData());
+                        return;
+                    }
+                    UiUtils.makeText(getString(R.string.no_order));
+                    order_list.setVisibility(View.GONE);
+                    return;
+                }
+                UiUtils.makeText(orderResult.getMsg());
+            }
+        });
+    }
+
+    /**
+     * 设置列表布局
+     * @param data
+     */
+    private void setListLayout(int type, List<OrderResult.DataBean> data) {
+        order_list.setVisibility(View.VISIBLE);
+        if (listAdapter == null) {
+            order_list.setLayoutManager(new LinearLayoutManager(this));
+            order_list.addItemDecoration(new DividerItemDecoration(this,
+                    DividerItemDecoration.VERTICAL_LIST));
+            listAdapter = new MyOrderListAdapter(this, 0, data);
+            order_list.setAdapter(listAdapter);
+        }else {
+            listAdapter.switchList(type, data);
+        }
     }
 
     @Override

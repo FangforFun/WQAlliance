@@ -6,6 +6,7 @@ import java.util.Map;
 import gkzxhn.wqalliance.mvp.model.api.service.CommonService;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MediaType;
@@ -138,9 +139,8 @@ public class ApiWrap {
      * @param userId
      * @param orderStatus
      * @param subscriber
-     * TODO ...
      */
-    public static void getOrders(int userId, int orderStatus, SimpleObserver subscriber){
+    public static void getOrders(int userId, int orderStatus, SimpleObserver<OrderResult> subscriber){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

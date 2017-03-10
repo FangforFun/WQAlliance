@@ -57,8 +57,8 @@ public class ContactWayActivity extends BaseContentActivity {
             UiUtils.makeText(getString(R.string.can_not_be_empty));
             return;
         }
+        updateDialog = UiUtils.showProgressDialog(this);
         if (Utils.isAvailableByPing()){
-            updateDialog = UiUtils.showProgressDialog(this);
             Map<String, Object> map = new HashMap<>();
             map.put("userId", SPUtil.get(this, SharedPreferenceConstants.USERID, 1));
             map.put("email", eMail);
@@ -84,6 +84,9 @@ public class ContactWayActivity extends BaseContentActivity {
                     }
                 }
             });
+        }else {
+            UiUtils.dismissProgressDialog(updateDialog);
+            UiUtils.makeText(getString(R.string.net_broken));
         }
     }
 

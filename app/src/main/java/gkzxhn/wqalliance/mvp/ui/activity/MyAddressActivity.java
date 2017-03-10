@@ -51,8 +51,8 @@ public class MyAddressActivity extends BaseContentActivity {
     protected void doSubtitle() {
         String address = et_my_addr.getText().toString().trim();
         if (!TextUtils.isEmpty(address)){
+            updateDialog = UiUtils.showProgressDialog(this);
             if (Utils.isAvailableByPing()){
-                updateDialog = UiUtils.showProgressDialog(this);
                 Map<String, Object> map = new HashMap<>();
                 map.put("userId", SPUtil.get(this, SharedPreferenceConstants.USERID, 1));
                 map.put("address", address);
@@ -78,6 +78,7 @@ public class MyAddressActivity extends BaseContentActivity {
                     }
                 });
             }else {
+                UiUtils.dismissProgressDialog(updateDialog);
                 UiUtils.makeText(getString(R.string.net_broken));
             }
         }

@@ -64,8 +64,8 @@ public class ChangePasswordActivity extends BaseContentActivity {
             UiUtils.makeText(getString(R.string.pwd_not_same));
             return;
         }
+        updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
         if (Utils.isAvailableByPing()) {
-            updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
             ApiWrap.updatePassword((String)(SPUtil.get(this, SharedPreferenceConstants.PHONE, "")),old, newPwd, new SimpleObserver<Result>() {
                 @Override public void onError(Throwable e) {
                     UiUtils.dismissProgressDialog(updatePasswordDialog);
@@ -88,6 +88,7 @@ public class ChangePasswordActivity extends BaseContentActivity {
                 }
             });
         }else {
+            UiUtils.dismissProgressDialog(updatePasswordDialog);
             UiUtils.makeText(getString(R.string.net_broken));
         }
     }
