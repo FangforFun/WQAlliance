@@ -47,22 +47,26 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, EdActivity.class);
+        Intent intent = new Intent(UploadEdActivity.this, EdActivity.class);
         switch (view.getId()) {
             case R.id.rl_ed1:
                 intent.putExtra(TYPE, 0);
+                intent.putExtra("title", "当事人主题资格");
                 startActivity(intent);
                 break;
             case R.id.rl_ed2:
+                intent.putExtra("title", "原告拥有商标权");
                 intent.putExtra(TYPE, 1);
                 startActivity(intent);
                 break;
             case R.id.rl_ed3:
                 intent.putExtra(TYPE, 2);
+                intent.putExtra("title", "被告实施商标侵权行为");
                 startActivity(intent);
                 break;
             case R.id.rl_ed4:
                 intent.putExtra(TYPE, 3);
+                intent.putExtra("title", "禁止侵权开支");
                 startActivity(intent);
                 break;
             case R.id.iv_back:

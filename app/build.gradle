@@ -41,6 +41,7 @@ dependencies {
     })
     apt rootProject.ext.dependencies["butterknife-apt"]
     apt rootProject.ext.dependencies["dagger2-apt-compiler"]
+    apt rootProject.ext.dependencies["dagger2"]
     //依赖apt插件
     provided rootProject.ext.dependencies["javax.annotation"]
     //dagger2必须依赖jsr250 annotation

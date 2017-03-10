@@ -9,9 +9,11 @@ import okhttp3.MultipartBody;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -71,10 +73,27 @@ public interface CommonService {
             @Field("password") String newPwd
     );
 
-    @FormUrlEncoded
-    @POST("evidence/getEvidences")
+    /**
+     * 查询需要上传的证据列表
+     * @param type
+     * @return
+     */
+    @GET("evidence/getEvidences")
     Observable<EvidenceList> getEvidences(
-            @Field("type") Integer type
+            @Query("type") int type
+    );
+
+    /**
+     * 查询订单
+     * @param userId
+     * @param orderStatus
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("order/getOrders")
+    Observable getOrders(
+        @Field("userId") Integer userId,
+        @Field("orderStatus") Integer orderStatus
     );
 
     /**
@@ -86,6 +105,23 @@ public interface CommonService {
     @POST("user/updateUser")
     Observable<Result> updateUser(
             @FieldMap Map<String, Object> map
+    );
+
+    /**
+     * 客户提交签约
+     * @param userId
+     * @param companyName
+     * @param trademarkImgUrl
+     * @param propertyImgUrl
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("userSign/submitUserSign")
+    Observable<Result> submitUserSign(
+            @Field("userId") int userId,
+            @Field("companyName") String companyName,
+            @Field("trademarkImgUrl") String trademarkImgUrl,
+            @Field("propertyImgUrl") String propertyImgUrl
     );
 
     /**

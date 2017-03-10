@@ -14,10 +14,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import common.im.NimController;
 import gkzxhn.wqalliance.di.module.CacheModule;
 import gkzxhn.wqalliance.di.module.ServiceModule;
 import gkzxhn.wqalliance.mvp.model.api.Api;
+import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import me.jessyan.rxerrorhandler.handler.listener.ResponseErroListener;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -31,6 +35,12 @@ import timber.log.Timber;
 public class SuperApplication extends BaseApplication {
     private AppComponent mAppComponent;
 //    private RefWatcher mRefWatcher;//leakCanary观察器
+
+    private static List<OrderEvidence> mOrderEvidences = new ArrayList<>(); //证据集合
+
+    public static List<OrderEvidence> getOrderEvidences() {
+        return mOrderEvidences;
+    }
 
     @Override
     public void onCreate() {
@@ -61,7 +71,7 @@ public class SuperApplication extends BaseApplication {
     protected GlobeConfigModule getGlobeConfigModule() {
         return GlobeConfigModule
                 .buidler()
-                .baseurl(Api.APP_BASEURL)
+                .baseurl(Api.BASE_URL)
                 .globeHttpHandler(new GlobeHttpHandler() {// 这里可以提供一个全局处理http响应结果的处理类,
                     // 这里可以比客户端提前一步拿到服务器返回的结果,可以做一些操作,比如token超时,重新获取
                     @Override

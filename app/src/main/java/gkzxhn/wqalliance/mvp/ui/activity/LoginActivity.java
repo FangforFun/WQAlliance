@@ -113,10 +113,12 @@ public class LoginActivity extends SuperActivity {
                     }
 
                     @Override public void onNext(Result result) {
-                        LogUtils.i(TAG, "login request result: " + result.toString());
+//                        LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
-                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
+                            if (result.getData().getFaceImgUrl() != null) {
+                              SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
+                            }
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
                             loginNim(account, pwd);
                         }else{
@@ -139,10 +141,10 @@ public class LoginActivity extends SuperActivity {
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn001", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login("gkzxhn007", "123456", new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn001");
+                NimUIKit.setAccount("gkzxhn007");
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }

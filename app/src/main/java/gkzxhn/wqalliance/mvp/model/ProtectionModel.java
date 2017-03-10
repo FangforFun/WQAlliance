@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
 import gkzxhn.wqalliance.mvp.model.api.cache.CacheManager;
 import gkzxhn.wqalliance.mvp.model.api.service.ServiceManager;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
+import rx.Observable;
 
 
 /**
@@ -45,4 +47,9 @@ public class ProtectionModel extends BaseModel<ServiceManager, CacheManager> imp
         this.mApplication = null;
     }
 
+    @Override
+    public Observable<Result> addOrder(int userId, String title, String description, String orderEvidenceJson) {
+        Observable<Result> result = mServiceManager.getProtectionService().addOrder(userId, title, description, orderEvidenceJson);
+        return result;
+    }
 }

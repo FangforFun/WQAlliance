@@ -1,7 +1,10 @@
 package gkzxhn.wqalliance.mvp.ui.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +15,20 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.jess.arms.utils.UiUtils;
 
+import java.util.List;
+
 import common.AppComponent;
+import common.SuperApplication;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerProtectionComponent;
 import gkzxhn.wqalliance.di.module.ProtectionModule;
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.presenter.ProtectionPresenter;
 import gkzxhn.wqalliance.mvp.ui.activity.UploadEdActivity;
 
@@ -39,9 +49,9 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter> implements ProtectionContract.View, View.OnClickListener {
 
-
     private TextView mTv_checkout;
     private View mContentView;
+    private ProgressDialog mProgressDialog;
 
     public static ProtectionFragment newInstance() {
         ProtectionFragment fragment = new ProtectionFragment();
@@ -73,7 +83,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
     @Override
     protected View initContentView() {
         mContentView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_protection, null, false);
-        mTheme = (EditText) mContentView.findViewById(R.id.et_theme);
+        mTheme = (EditText) mContentView.findViewById(R.id.et_theme);   //主题
         mUploadEd = (RelativeLayout) mContentView.findViewById(R.id.rl_upload_ed);
         mDesc = (EditText) mContentView.findViewById(R.id.desc);
         mCommit = (TextView) mContentView.findViewById(R.id.tv_commit);
@@ -93,7 +103,24 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
                 UiUtils.makeText("commit");
                 //TODO ...提交案件
 //                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
-                showSuccessPopupWindow();
+
+                int userId = (int) SPUtil.get(mActivity, SharedPreferenceConstants.USERID, 0);
+                String title = mTheme.getText().toString().trim();
+                String description = mDesc.getText().toString().trim();
+                List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
+
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || orderEvidences.size() == 0 ) {
+                    UiUtils.makeText("请完善信息");
+                    return;
+                }
+                mProgressDialog = UiUtils.showProgressDialog(mActivity);
+
+                String orderEvidenceJs = new Gson().toJson(orderEvidences);
+                Log.i(TAG, "onClick: orderEvidenceJs       " +orderEvidenceJs);
+                Log.i(TAG, "onClick: userId       " + userId);
+                Log.i(TAG, "onClick: title       " + title);
+                Log.i(TAG, "onClick: description       " + description);
+                mPresenter.addOrder(userId, title, description, orderEvidenceJs);
                 break;
             case R.id.tv_checkout:
                 //TODO ...查看维权提交情况
@@ -204,6 +231,12 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
     @Override
     public void killMyself() {
 
+    }
+
+    public void dismissProgressDialog() {
+        if (mProgressDialog != null) {
+            UiUtils.dismissProgressDialog(mProgressDialog);
+        }
     }
 
 }

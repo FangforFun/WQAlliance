@@ -133,6 +133,45 @@ public class ApiWrap {
                 .subscribe(subscriber);
     }
 
+    /**
+     * 查询订单
+     * @param userId
+     * @param orderStatus
+     * @param subscriber
+     * TODO ...
+     */
+    public static void getOrders(int userId, int orderStatus, SimpleObserver subscriber){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getOrders(userId, orderStatus).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 客户提交签约
+     * @param userId
+     * @param companyName
+     * @param trademarkImgUrl
+     * @param propertyImgUrl
+     * @param subscriber
+     */
+    public static void submitUserSign(int userId, String companyName, String trademarkImgUrl, String propertyImgUrl, SimpleObserver<Result> subscriber){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.submitUserSign(userId, companyName, trademarkImgUrl, propertyImgUrl).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
 
     /**
      * 上传图片

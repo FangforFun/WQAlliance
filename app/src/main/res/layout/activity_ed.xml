@@ -10,7 +10,7 @@
     <android.support.v7.widget.RecyclerView
         android:background="@color/W"
         android:layout_width="match_parent"
-        android:id="@+id/rl_evidence"
+        android:id="@+id/rl_evidence_list"
         android:layout_marginTop="20px"
         android:layout_height="wrap_content">
 
