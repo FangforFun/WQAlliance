@@ -1,16 +1,23 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.app.ProgressDialog;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
 
 /**
  * Author: Huang ZN
@@ -59,27 +66,27 @@ public class ChangePasswordActivity extends BaseContentActivity {
         }
         if (Utils.isAvailableByPing()) {
             updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-//            ApiWrap.updatePassword(phone, pwd, new SimpleObserver<Result>() {
-//                @Override public void onError(Throwable e) {
-//                    UiUtils.dismissProgressDialog(updatePasswordDialog);
-//                    UiUtils.makeText(getString(R.string.timeout_retry));
-//                    LogUtils.e(TAG, "update password exception: " + e.getMessage());
-//                }
-//
-//                @Override public void onNext(Result result) {
-//                    LogUtils.i(TAG, "update password result: " + result.toString());
-//                    UiUtils.dismissProgressDialog(updatePasswordDialog);
-//                    UiUtils.makeText(result.getMsg());
-//                    if (result.getCode() == 0){
-//                        new Handler().postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                ForgetPwdActivity.this.finish();
-//                            }
-//                        }, 500);
-//                    }
-//                }
-//            });
+            ApiWrap.updatePassword((String)(SPUtil.get(this, SharedPreferenceConstants.PHONE, "")),old, newPwd, new SimpleObserver<Result>() {
+                @Override public void onError(Throwable e) {
+                    UiUtils.dismissProgressDialog(updatePasswordDialog);
+                    UiUtils.makeText(getString(R.string.timeout_retry));
+                    LogUtils.e(TAG, "update password exception: " + e.getMessage());
+                }
+
+                @Override public void onNext(Result result) {
+                    LogUtils.i(TAG, "update password result: " + result.toString());
+                    UiUtils.dismissProgressDialog(updatePasswordDialog);
+                    UiUtils.makeText(result.getMsg());
+                    if (result.getCode() == 0){
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                ChangePasswordActivity.this.finish();
+                            }
+                        }, 500);
+                    }
+                }
+            });
         }else {
             UiUtils.makeText(getString(R.string.net_broken));
         }

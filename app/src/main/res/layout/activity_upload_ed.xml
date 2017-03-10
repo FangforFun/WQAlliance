@@ -5,7 +5,7 @@
              android:orientation="vertical">
 
     <FrameLayout
-        style="@style/fl_bacgroud"/>
+        style="@style/fl_backgroud"/>
 
     <LinearLayout
         style="@style/ll_list">

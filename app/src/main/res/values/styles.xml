@@ -19,9 +19,9 @@
     <style name="item_left_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">28px</item>
+        <item name="android:layout_marginLeft">14sp</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">28px</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <!--条目间的分割线-->
@@ -33,16 +33,15 @@
     </style>
 
     <style name="item_right_arrow">
-        <item name="android:layout_width">28px</item>
+        <item name="android:layout_width">14dp</item>
         <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_marginRight">28px</item>
-        <item name="android:layout_height">28px</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_height">14dp</item>
     </style>
 
-    <style name="fl_bacgroud">
+    <style name="fl_backgroud">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_alignBottom">@+id/ll_content</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@color/BJ</item>
@@ -59,7 +58,7 @@
     <style name="rl_item">
         <item name="android:clickable">true</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">88px</item>
+        <item name="android:layout_height">44dp</item>
     </style>
 
     <style name="ll_list_item">
@@ -67,6 +66,15 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="contract_title">
+        <item name="android:layout_margin">20px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">26px</item>
+        <item name="android:textColor">@color/TWO</item>
+        <item name="android:padding">10px</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>

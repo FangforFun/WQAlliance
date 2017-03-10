@@ -53,8 +53,9 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     private EditText et_company_name;
     private LinearLayout ll_sign_contract;
 
-    private String tradeMarkUrl;
-    private String propertyUrl;
+    private String companyName;  //企业名称
+    private String trademarkImgUrl; //商标
+    private String propertyImgUrl;  //知识产权
 
     @Override
     protected View initContentView() {
@@ -83,6 +84,10 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
         ll_sign_contract.setOnClickListener(this);
     }
 
+    public static final String TRADEMARKIMGURL = "trademarkImgUrl";
+    public static final String PROPERTYIMGURL = "propertyImgUrl";
+    public static final String COMPANYNAME = "companyName";
+
     @Override
     public void onClick(View view) {
         super.onClick(view);
@@ -94,7 +99,13 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 choosePhoto(2);
                 break;
             case R.id.ll_sign_contract:
+                companyName = et_company_name.getText().toString().trim();
                 UiUtils.makeText("签订合同");
+                Intent intent = new Intent(this, SignContractActivity.class);
+                intent.putExtra(TRADEMARKIMGURL, trademarkImgUrl);
+                intent.putExtra(PROPERTYIMGURL, propertyImgUrl);
+                intent.putExtra(COMPANYNAME, companyName);
+                UiUtils.startActivity(this, intent);
                 break;
         }
     }
@@ -137,6 +148,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 String path = originalUri.getPath();
                 Log.i(TAG, "originalUri : " + path);
                 // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
+                // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg
                 try {
                     Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
                     DialogUtil.dismissDialog(chooseDialog);
@@ -167,7 +179,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
      * @param path
      * @param requestCode
      */
-    private void uploadImage(final Bitmap photo, String path, final int requestCode) {
+    private void uploadImage(final Bitmap photo, final String path, final int requestCode) {
         uploadDialog = UiUtils.showProgressDialog(this, "");
         ApiWrap.uploadImage(FileUtil.getFilePath(path), FileUtils.getFileName(path), new SimpleObserver<UploadImageResult>(){
             @Override public void onError(Throwable e) {
@@ -182,13 +194,13 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 if (uploadImageResult.getCode() == 0){
                     if (photo != null) {
                         if (requestCode == CHOOSE_PHOTO_1 || requestCode == TAKE_PHOTO_1) {
-                            tradeMarkUrl = uploadImageResult.getData().getImgUrl();
+                            trademarkImgUrl = uploadImageResult.getData().getImgUrl();
                             iv_upload_trademark.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
                         }else {
-                            propertyUrl = uploadImageResult.getData().getImgUrl();
+                            propertyImgUrl = uploadImageResult.getData().getImgUrl();
                             iv_knowledge_right.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
                         }
-                        LogUtils.i(TAG, tradeMarkUrl + "----------------" + propertyUrl);
+                        LogUtils.i(TAG, trademarkImgUrl + "----------------" + propertyImgUrl);
                     } else {
                         LogUtils.i(TAG, "bitmap is null");
                     }

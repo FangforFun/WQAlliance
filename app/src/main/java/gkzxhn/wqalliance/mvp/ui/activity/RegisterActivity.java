@@ -2,6 +2,7 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -77,6 +78,7 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                         }
 
                         @Override public void onNext(Result result) {
+                            Log.i(TAG, "onNext:        " + result.toString());
                             UiUtils.dismissProgressDialog(registerDialog);
                             if (result.getCode() == 0){
                                 UiUtils.makeText(getString(R.string.register_success));

@@ -11,125 +11,31 @@ import java.util.List;
 
 public class EvidenceList {
 
-
     /**
-     * data : [{"id":5,"type":1,"evidenceName":"1959928号商标注册","createdAt":1488619651000,"updatedAt":"1488619651000ll","sysFlag":1}]
+     * data : [{"id":1,"type":0,"evidenceName":"原告营业执照","createdAt":1488619547000,"updatedAt":null,"sysFlag":1},{"id":2,"type":0,"evidenceName":"原告法定代表人证明","createdAt":1488619581000,"updatedAt":null,"sysFlag":1},{"id":3,"type":0,"evidenceName":"被告工商登记信息","createdAt":1488619604000,"updatedAt":null,"sysFlag":1},{"id":4,"type":0,"evidenceName":"被告身份","createdAt":1488619622000,"updatedAt":null,"sysFlag":1}]
      * code : 0
      * msg : 查询需上传的证据列表成功
      */
 
-    private int code;
-    private String msg;
-    /**
-     * id : 5
-     * type : 1
-     * evidenceName : 1959928号商标注册
-     * createdAt : 1488619651000
-     * updatedAt : 1488619651000ll
-     * sysFlag : 1
-     */
-
-    private List<DataBean> data;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public List<DataBean> getData() {
-        return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
-    }
+    public int code;
+    public String msg;
+    public List<DataBean> data;
 
     public static class DataBean {
-        private int id;
-        private int type;
-        private String evidenceName;
-        private long createdAt;
-        private String updatedAt;
-        private int sysFlag;
+        /**
+         * id : 1
+         * type : 0
+         * evidenceName : 原告营业执照
+         * createdAt : 1488619547000
+         * updatedAt : null
+         * sysFlag : 1
+         */
 
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public String getEvidenceName() {
-            return evidenceName;
-        }
-
-        public void setEvidenceName(String evidenceName) {
-            this.evidenceName = evidenceName;
-        }
-
-        public long getCreatedAt() {
-            return createdAt;
-        }
-
-        public void setCreatedAt(long createdAt) {
-            this.createdAt = createdAt;
-        }
-
-        public String getUpdatedAt() {
-            return updatedAt;
-        }
-
-        public void setUpdatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-        }
-
-        public int getSysFlag() {
-            return sysFlag;
-        }
-
-        public void setSysFlag(int sysFlag) {
-            this.sysFlag = sysFlag;
-        }
-
-        @Override
-        public String toString() {
-            return "DataBean{" +
-                    "id=" + id +
-                    ", type=" + type +
-                    ", evidenceName='" + evidenceName + '\'' +
-                    ", createdAt=" + createdAt +
-                    ", updatedAt='" + updatedAt + '\'' +
-                    ", sysFlag=" + sysFlag +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "EvidenceList{" +
-                "code=" + code +
-                ", msg='" + msg + '\'' +
-                ", data.size=" + data.size() +
-                '}';
+        public int id;
+        public int type;
+        public String evidenceName;
+        public long createdAt;
+        public String updatedAt;
+        public int sysFlag;
     }
 }

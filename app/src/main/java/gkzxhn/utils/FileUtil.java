@@ -18,6 +18,9 @@ public class FileUtil {
      */
     public static String getFilePath(String path) {
         if (path.contains(File.separator)){
+            if (path.contains("raw//")) {
+                path = path.replace("raw//", "");
+            }
             return path.substring(0, path.lastIndexOf(File.separator));
         }
         return path;

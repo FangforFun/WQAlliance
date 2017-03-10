@@ -94,13 +94,14 @@
             android:name="com.jess.arms.widget.imageloader.glide.GlideConfiguration"
             android:value="GlideModule" />
 
-        <activity android:name=".mvp.ui.activity.LoginActivity">
+        <activity android:name=".mvp.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mvp.ui.activity.LoginActivity"/>
         <activity android:name=".mvp.ui.activity.RegisterActivity" />
         <activity android:name=".mvp.ui.activity.MainActivity" />
         <activity android:name=".mvp.ui.activity.UploadEdActivity" />
@@ -120,6 +121,8 @@
         <activity android:name=".mvp.ui.activity.NotificationSettingActivity" />
         <activity android:name=".mvp.ui.activity.ChangePasswordActivity" />
         <activity android:name=".mvp.ui.activity.ChangeInfoActivity"></activity>
+        <activity android:name=".mvp.ui.activity.SignContractActivity"/>
+        <activity android:name=".mvp.ui.activity.EdActivity"/>
     </application>
 
 </manifest>

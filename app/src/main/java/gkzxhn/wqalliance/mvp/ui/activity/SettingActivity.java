@@ -18,9 +18,9 @@ import gkzxhn.wqalliance.R;
  */
 public class SettingActivity extends BaseContentActivity implements View.OnClickListener {
 
-    private LinearLayout ll_notification_setting;
-    private LinearLayout ll_change_pwd;
-    private LinearLayout ll_change_info;
+    private LinearLayout ll_notification_setting;//通知设置
+    private LinearLayout ll_change_pwd;//密码修改
+    private LinearLayout ll_change_info;//资料修改
 
     @Override protected void setupActivityComponent(AppComponent appComponent) {}
 

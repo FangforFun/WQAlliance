@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="860px">
+
+        <TextView
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40px"
+        android:layout_height="wrap_content"
+        android:text="维权委托合同"
+        android:textColor="@color/ONE"
+        android:textSize="28px"/>
+
+        <TextView
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:text="@string/contact_content"
+            style="@style/contract_title"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="40px"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/read_contract"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/ONE"
+            android:layout_height="wrap_content"
+            android:textSize="28px"/>
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/iv_read_checkbox"
+            android:clickable="true"
+            android:layout_marginRight="20px"
+            android:src="@drawable/unread"
+            android:layout_width="40px"
+            android:layout_height="40px"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="40px"
+        android:id="@+id/tv_sign_contract"
+        android:layout_width="640px"
+        android:layout_height="100px"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="40px"
+        android:background="@drawable/btn_login_shape"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="确认签约"
+        android:textColor="@color/W"
+        android:textSize="32px"/>
+</LinearLayout>

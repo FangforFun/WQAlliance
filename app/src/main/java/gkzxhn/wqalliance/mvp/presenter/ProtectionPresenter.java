@@ -10,7 +10,12 @@ import com.jess.arms.widget.imageloader.ImageLoader;
 import javax.inject.Inject;
 
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
+import gkzxhn.wqalliance.mvp.ui.fragment.ProtectionFragment;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -34,6 +39,12 @@ public class ProtectionPresenter extends BasePresenter<ProtectionContract.Model,
     private ImageLoader mImageLoader;
     private AppManager mAppManager;
 
+    private final int code_success = 0;  //请求成功
+    private final int code_error = 10001;  //参数错误
+    private final int code_not_exist = 10008;  //用户不存在
+
+    private int code = -1; //网络错误
+
     @Inject
     public ProtectionPresenter(ProtectionContract.Model model, ProtectionContract.View rootView
             , RxErrorHandler handler, Application application
@@ -54,4 +65,27 @@ public class ProtectionPresenter extends BasePresenter<ProtectionContract.Model,
         this.mApplication = null;
     }
 
+    public void addOrder(int userId, String title, String description, String orderEvidenceJson) {
+        mModel.addOrder(userId, title, description, orderEvidenceJson)
+                .subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SimpleObserver<Result>(){
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        code = -1;
+                        mRootView.showMessage("网络错误");
+                        ((ProtectionFragment)mRootView).dismissProgressDialog();
+                    }
+
+                    @Override
+                    public void onNext(Result result) {
+                        super.onNext(result);
+                        code = result.getCode();
+                        mRootView.showMessage("提交成功");
+                        ((ProtectionFragment)mRootView).dismissProgressDialog();
+                        ((ProtectionFragment)mRootView).showSuccessPopupWindow();
+                    }
+                });
+    }
 }
