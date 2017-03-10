@@ -52,6 +52,9 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.tv_order_title.setText(mDataList.get(position).getTitle());
         holder.tv_order_time.setText(DateUtils.getTimeString(mDataList.get(position).getCreatedAt()));
+        if (type == 2){
+            holder.tv_total_spend.setText("总计费用：" + mDataList.get(position).getMoney());
+        }
         setItemStatus(holder);
         holder.tv_label1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +62,9 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 // 查看流程
                 if (type == 0) return;
                 UiUtils.makeText("查看流程： " + position);
-                UiUtils.startActivity(new Intent(mContext, CheckProcessActivity.class));
+                Intent intent = new Intent(mContext, CheckProcessActivity.class);
+                intent.putExtra("orderId", mDataList.get(position).getId());
+                UiUtils.startActivity(intent);
             }
         });
         holder.tv_label2.setOnClickListener(new View.OnClickListener() {
@@ -80,25 +85,25 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
         switch (type){
             case 0:// 待审核
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_border_bg);
-                holder.tv_label1.setText("审核中");
+                holder.tv_label1.setText(R.string.examming);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.B));
                 break;
             case 1:// 处理中
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
             case 2:// 待支付
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 holder.tv_label2.setBackgroundResource(R.drawable.orange_bg);
-                holder.tv_label2.setText("支付订单");
+                holder.tv_label2.setText(R.string.pay_order);
                 holder.tv_label2.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
             case 3:// 已完成
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
             default:

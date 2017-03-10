@@ -6,6 +6,7 @@ import java.util.Map;
 import gkzxhn.wqalliance.mvp.model.api.service.CommonService;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
@@ -185,6 +186,24 @@ public class ApiWrap {
                 .build();
         CommonService service = retrofit.create(CommonService.class);
         service.getUser(userId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取订单流程
+     * @param userId
+     * @param orderId
+     * @param subscriber
+     */
+    public static void getOrderProcedure(int userId, int orderId, SimpleObserver<OrderProcedure> subscriber) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getOrderProcedure(userId, orderId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }

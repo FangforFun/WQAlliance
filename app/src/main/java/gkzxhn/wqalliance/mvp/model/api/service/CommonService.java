@@ -3,6 +3,7 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 import java.util.Map;
 
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
@@ -145,5 +146,17 @@ public interface CommonService {
     @POST("upload")
     Observable<UploadImageResult> upLoadImage(
             @Part MultipartBody.Part photo
+    );
+
+    /**
+     * 获取订单流程
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    @GET("/order/getOrderProcedure")
+    Observable<OrderProcedure> getOrderProcedure(
+        @Query("userId") int userId,
+        @Query("orderId") int orderId
     );
 }

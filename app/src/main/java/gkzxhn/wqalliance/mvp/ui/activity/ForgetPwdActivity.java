@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
-import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -71,7 +71,7 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                 String phone = et_phone_number.getText().toString().trim();
                 String pwd = et_password.getText().toString().trim();
                 updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-                if (Utils.isAvailableByPing()) {
+                if (NetworkUtils.isConnected()) {
                     ApiWrap.forgetPassword(phone, pwd, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(updatePasswordDialog);

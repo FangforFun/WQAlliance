@@ -9,7 +9,7 @@ import java.util.List;
  * Description:
  */
 
-public class OrdeProcedure {
+public class OrderProcedure {
 
     /**
      * order : {"id":4,"userId":2,"lawyerId":2,"title":"邋遢塔","money":0,"orderType":0,"orderStatus":2,"createdAt":1489137437000,"updatedAt":1489144346000,"sysFlag":1,"description":"xxx"}
@@ -293,7 +293,7 @@ public class OrdeProcedure {
 
     @Override
     public String toString() {
-        return "OrdeProcedure{" +
+        return "OrderProcedure{" +
                 "data=" + data.toString() +
                 ", code=" + code +
                 ", msg='" + msg + '\'' +

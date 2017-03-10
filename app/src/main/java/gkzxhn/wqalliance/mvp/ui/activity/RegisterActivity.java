@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
-import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -67,7 +67,7 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
         switch (view.getId()){
             case R.id.tv_register:
                 registerDialog = UiUtils.showProgressDialog(this, "正在注册...");
-                if (Utils.isAvailableByPing()) {
+                if (NetworkUtils.isConnected()) {
                     String phone = et_phone_number.getText().toString().trim();
                     String password = et_password.getText().toString().trim();
                     ApiWrap.register(phone, password, new SimpleObserver<Result>() {

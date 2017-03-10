@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import java.util.HashMap;
@@ -15,7 +16,6 @@ import java.util.Map;
 
 import common.AppComponent;
 import gkzxhn.utils.SPUtil;
-import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
@@ -58,7 +58,7 @@ public class ContactWayActivity extends BaseContentActivity {
             return;
         }
         updateDialog = UiUtils.showProgressDialog(this);
-        if (Utils.isAvailableByPing()){
+        if (NetworkUtils.isConnected()){
             Map<String, Object> map = new HashMap<>();
             map.put("userId", SPUtil.get(this, SharedPreferenceConstants.USERID, 1));
             map.put("email", eMail);
