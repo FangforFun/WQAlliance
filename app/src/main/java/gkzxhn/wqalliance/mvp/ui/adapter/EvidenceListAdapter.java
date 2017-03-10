@@ -70,7 +70,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
         if (mBitmaps.containsKey(position)&&mBitmaps.get(position) != null) {
             viewHolder.upload_ed.setImageBitmap(mBitmaps.get(position));
         }
-        viewHolder.upload_ed.setOnClickListener(new View.OnClickListener() {
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UiUtils.makeText(position+"");
@@ -161,7 +161,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                         orderEvidence.imgUrl = imgUrl;
                         orderEvidences.add(orderEvidence);
 
-                        mBitmaps.put(position, ImageTools.zoomBitmap(photo, photo.getWidth(), photo.getHeight()));
+                        mBitmaps.put(position, ImageTools.zoomBitmap(photo, photo.getWidth()/2, photo.getHeight()/2));
                         notifyDataSetChanged();
                     } else {
                         LogUtils.i(TAG, "bitmap is null");

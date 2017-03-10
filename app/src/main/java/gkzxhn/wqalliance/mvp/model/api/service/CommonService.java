@@ -74,6 +74,18 @@ public interface CommonService {
             @Field("password") String newPwd
     );
 
+
+    /**
+     * 查询客户信息
+     * @param userId
+     * @return
+     */
+    @GET("user/getUser")
+    Observable<Result> getUser(
+            @Query("userId") int userId
+    );
+
+
     /**
      * 查询需要上传的证据列表
      * @param type

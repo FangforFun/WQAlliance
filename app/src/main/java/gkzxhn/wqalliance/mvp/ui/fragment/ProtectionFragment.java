@@ -30,6 +30,7 @@ import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.presenter.ProtectionPresenter;
+import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.UploadEdActivity;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -52,6 +53,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
     private TextView mTv_checkout;
     private View mContentView;
     private ProgressDialog mProgressDialog;
+    private PopupWindow mPopupWindow;
 
     public static ProtectionFragment newInstance() {
         ProtectionFragment fragment = new ProtectionFragment();
@@ -125,6 +127,10 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
             case R.id.tv_checkout:
                 //TODO ...查看维权提交情况
                 UiUtils.makeText("查看详情");
+                mActivity.startActivity(new Intent(mActivity, MyOrderActivity.class));
+                if (mPopupWindow != null) {
+                    mPopupWindow.dismiss();
+                }
                 break;
         }
     }
@@ -139,9 +145,9 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
 
         mTv_checkout.setOnClickListener(this);
 
-        PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow = new PopupWindow(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
-        popupWindow.setTouchable(true);
+        mPopupWindow.setTouchable(true);
 
 //        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
 //
@@ -158,14 +164,14 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
 
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
         // 我觉得这里是API的一个bug
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(
+        mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
                 R.drawable.popupwindow_background));
 
         //设置背景透明度
         backgroundAlpha(0.3f);
 
         //添加pop窗口关闭事件
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+        mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
                 backgroundAlpha(1f);
@@ -173,7 +179,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
         });
 
         // 设置好参数之后再show
-        popupWindow.showAtLocation(mContentView, Gravity.CENTER_HORIZONTAL, 0, -UiUtils.dip2px(20));
+        mPopupWindow.showAtLocation(mContentView, Gravity.CENTER_HORIZONTAL, 0, -UiUtils.dip2px(20));
     }
 
     /**

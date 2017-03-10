@@ -172,6 +172,22 @@ public class ApiWrap {
                 .subscribe(subscriber);
     }
 
+    /**
+     * 查询客户信息
+     * @param userId
+     * @param subscriber
+     */
+    public static void getUser(int userId, SimpleObserver<Result> subscriber) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getUser(userId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 
     /**
      * 上传图片

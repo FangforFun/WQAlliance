@@ -110,6 +110,10 @@ public class EdActivity extends BaseContentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.i(TAG, "onActivityResult: resultCode    " + resultCode);
+
+        if (resultCode == -1) {
+
         int position = requestCode % 1000;
         int type = requestCode / 1000;
         if (type == 0) {
@@ -141,5 +145,7 @@ public class EdActivity extends BaseContentActivity {
                     .getExternalStorageDirectory() + File.separator + "image.jpg";
             mEvidenceListAdapter.uploadImage(BitmapFactory.decodeFile(path), path, position);
         }
+        }
+
     }
 }
