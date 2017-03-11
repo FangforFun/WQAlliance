@@ -141,10 +141,10 @@ public class LoginActivity extends SuperActivity {
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn006", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login("gkzxhn001", "123456", new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn006");
+                NimUIKit.setAccount("gkzxhn001");
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }
