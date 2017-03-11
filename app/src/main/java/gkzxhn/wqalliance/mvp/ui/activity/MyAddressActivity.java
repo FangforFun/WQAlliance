@@ -22,6 +22,8 @@ import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 
+import static gkzxhn.utils.SPUtil.get;
+
 /**
  * Author: Huang ZN
  * Date: 2017/3/6
@@ -45,6 +47,15 @@ public class MyAddressActivity extends BaseContentActivity {
         mTvSubtitle.setText(R.string.save);
     }
 
+    @Override
+    protected void initData() {
+        super.initData();
+        String address = (String) SPUtil.get(this, SharedPreferenceConstants.ADDRESS, "");
+        if (!TextUtils.isEmpty(address)){
+            et_my_addr.setText(address);
+        }
+    }
+
     private ProgressDialog updateDialog;
 
     @Override
@@ -54,7 +65,7 @@ public class MyAddressActivity extends BaseContentActivity {
             updateDialog = UiUtils.showProgressDialog(this);
             if (NetworkUtils.isConnected()){
                 Map<String, Object> map = new HashMap<>();
-                map.put("userId", SPUtil.get(this, SharedPreferenceConstants.USERID, 1));
+                map.put("userId", get(this, SharedPreferenceConstants.USERID, 1));
                 map.put("address", address);
                 ApiWrap.updateUserInfo(map, new SimpleObserver<Result>(){
                     @Override public void onError(Throwable e) {
@@ -68,6 +79,7 @@ public class MyAddressActivity extends BaseContentActivity {
                         UiUtils.dismissProgressDialog(updateDialog);
                         UiUtils.makeText(result.getMsg());
                         if (result.getCode() == 0){
+                            SPUtil.put(MyAddressActivity.this, SharedPreferenceConstants.ADDRESS, result.getData().getAddress());
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {

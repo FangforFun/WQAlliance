@@ -15,6 +15,9 @@ import com.blankj.utilcode.utils.LogUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.utils.UiUtils;
 
+import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -24,6 +27,7 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.InfoChangedEvent;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.LoginActivity;
@@ -51,6 +55,18 @@ public class MineFragment extends android.support.v4.app.Fragment {
 
     private AlertDialog signDialog;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroyView();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,11 +75,22 @@ public class MineFragment extends android.support.v4.app.Fragment {
         return view;
     }
 
+    @Subscriber
+    public void updateInfo(InfoChangedEvent event){
+        if (event != null){
+            Glide.with(getActivity()).load(event.getFaceUrl()).error(R.drawable.avatar_def).into(iv_avatar);
+            tv_login_status.setText(event.getUserName());
+        }
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         String faceImgUrl = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.FACEIMGURL, "");
         int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
+        String userName = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.USERNAME, "");
+        if (!TextUtils.isEmpty(userName))
+            tv_login_status.setText(userName);
         if (!TextUtils.isEmpty(faceImgUrl)){
             LogUtils.i(TAG, faceImgUrl);
             Glide.with(getActivity()).load(faceImgUrl).error(R.drawable.avatar_def).into(iv_avatar);
@@ -77,6 +104,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
             @Override
             public void onNext(Result result) {
                 super.onNext(result);
+                LogUtils.i(TAG, result.toString());
                 int signedStatus = result.getData().getSignedStatus();
                 if (signedStatus == 0) {
                     tv_sign_status.setText("未签约");

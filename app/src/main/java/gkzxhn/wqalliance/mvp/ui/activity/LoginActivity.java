@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,11 +116,7 @@ public class LoginActivity extends SuperActivity {
                     @Override public void onNext(Result result) {
                         LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
-                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
-                            if (result.getData().getFaceImgUrl() != null) {
-                              SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
-                            }
-                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
+                            saveData(result);
                             loginNim(account, pwd);
                         }else{
                             UiUtils.makeText(result.getMsg());
@@ -136,15 +133,38 @@ public class LoginActivity extends SuperActivity {
     }
 
     /**
+     * 保存到sp
+     * @param result
+     */
+    private void saveData(Result result) {
+        SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
+        if (!TextUtils.isEmpty(result.getData().getContactNumber())){
+            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.CONTACTNUMBER, result.getData().getContactNumber());
+        }
+        if (!TextUtils.isEmpty(result.getData().getEmail())){
+            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.EMAIL, result.getData().getEmail());
+        }
+        if (!TextUtils.isEmpty(result.getData().getAddress())){
+            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.ADDRESS, result.getData().getAddress());
+        }
+        if (!TextUtils.isEmpty(result.getData().getFaceImgUrl())) {
+          SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
+        }
+        if (!TextUtils.isEmpty(result.getData().getUserName()))
+            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERNAME, result.getData().getUserName());
+        SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
+    }
+
+    /**
      * 登录云信
      * @param account
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn005", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login("gkzxhn006", "123456", new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn005");
+                NimUIKit.setAccount("gkzxhn006");
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }

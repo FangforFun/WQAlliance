@@ -20,8 +20,27 @@ public class SharedPreferenceConstants {
     public static final String FACEIMGURL = "faceImgUrl";
 
     /**
-     * 用户头像url
+     * 手机
      */
     public static final String PHONE = "PHONE";
 
+    /**
+     * 用户名
+     */
+    public static final String USERNAME = "userName";
+
+    /**
+     * 联系地址
+     */
+    public static final String ADDRESS = "address";
+
+    /**
+     * 联系号码
+     */
+    public static final String CONTACTNUMBER = "contactNumber";
+
+    /**
+     * email
+     */
+    public static final String EMAIL = "email";
 }

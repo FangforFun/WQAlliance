@@ -22,6 +22,8 @@ import com.blankj.utilcode.utils.LogUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.utils.UiUtils;
 
+import org.simple.eventbus.EventBus;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -37,6 +39,7 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.InfoChangedEvent;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import gkzxhn.wqalliance.mvp.widget.CircleImageView;
@@ -84,6 +87,9 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
     protected void initData() {
         super.initData();
         String faceImgUrl = (String) SPUtil.get(this, SharedPreferenceConstants.FACEIMGURL, "");
+        String userName = (String) SPUtil.get(this, SharedPreferenceConstants.USERNAME, "");
+        if (!TextUtils.isEmpty(userName))
+            et_company_name.setText(userName);
         if (!TextUtils.isEmpty(faceImgUrl)){
             LogUtils.i(TAG, faceImgUrl);
             Glide.with(this).load(faceImgUrl).error(R.drawable.avatar_def).into(iv_avatar);
@@ -145,7 +151,7 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
             if (requestCode == CHOOSE_PHOTO){
                 ContentResolver resolver = getContentResolver();
                 Uri originalUri = data.getData();
-                String path = originalUri.getPath();
+                String path = FileUtil.getPath(this, originalUri);
                 Log.i(TAG, "originalUri : " + path);
                 // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
                 try {
@@ -224,9 +230,9 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
         map.put("userId", userId);
         map.put("faceImgUrl", imageUrl);
         String companyName = et_company_name.getText().toString().trim();
-//        if (!TextUtils.isEmpty(companyName)){
-//            map.put("companyName", companyName);
-//        }
+        if (!TextUtils.isEmpty(companyName)){
+            map.put("userName", companyName);
+        }
         LogUtils.i(TAG, userId + " " + imageUrl);
         ApiWrap.updateUserInfo(map, new SimpleObserver<Result>(){
             @Override public void onError(Throwable e) {
@@ -240,12 +246,11 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                 UiUtils.makeText(result.getMsg());
                 UiUtils.dismissProgressDialog(uploadDialog);
                 if (result.getCode() == 0){
-                    // 设置图片到界面头像上
-                    if (photo != null) {
-                        iv_avatar.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
-                    } else {
-                        LogUtils.i(TAG, "bitmap is null");
-                    }
+                    // 保存
+                    SPUtil.put(ChangeInfoActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
+                    SPUtil.put(ChangeInfoActivity.this, SharedPreferenceConstants.USERNAME, result.getData().getUserName());
+                    // 通知mineFragment修改
+                    EventBus.getDefault().post(new InfoChangedEvent(result.getData().getFaceImgUrl(), result.getData().getUserName()));
                 }
             }
         });

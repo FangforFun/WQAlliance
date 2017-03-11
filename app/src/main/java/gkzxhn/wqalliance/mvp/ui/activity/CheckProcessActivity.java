@@ -90,6 +90,7 @@ public class CheckProcessActivity extends BaseContentActivity {
     private void setLayoutData(OrderProcedure dataBean) {
         try {
             tv_case_theme.setText(dataBean.getData().getOrder().getTitle());
+            tv_case_handle_person.setText(dataBean.getData().getLawyer().getLawfirmName() + " " + dataBean.getData().getLawyer().getName());
         }catch (Exception e){
             e.printStackTrace();
         }

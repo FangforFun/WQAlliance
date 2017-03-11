@@ -26,6 +26,7 @@ import java.io.IOException;
 
 import common.AppComponent;
 import gkzxhn.utils.DialogUtil;
+import gkzxhn.utils.FileUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -120,7 +121,7 @@ public class EdActivity extends BaseContentActivity {
             //图库
             ContentResolver resolver = getContentResolver();
             Uri originalUri = data.getData();
-            String path = originalUri.getPath();
+            String path = FileUtil.getPath(this, originalUri);
             Log.i(TAG, "originalUri : " + path);
             // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
             // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg

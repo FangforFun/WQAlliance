@@ -99,7 +99,7 @@ public class MyOrderActivity extends BaseContentActivity<MyOrderPresenter> imple
             order_list.setLayoutManager(new LinearLayoutManager(this));
             order_list.addItemDecoration(new DividerItemDecoration(this,
                     DividerItemDecoration.VERTICAL_LIST));
-            listAdapter = new MyOrderListAdapter(this, 0, data);
+            listAdapter = new MyOrderListAdapter(this, type, data);
             order_list.setAdapter(listAdapter);
         }else {
             listAdapter.switchList(type, data);
