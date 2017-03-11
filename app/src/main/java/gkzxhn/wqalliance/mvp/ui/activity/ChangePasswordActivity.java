@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
 import gkzxhn.utils.SPUtil;
+import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
@@ -64,8 +64,8 @@ public class ChangePasswordActivity extends BaseContentActivity {
             UiUtils.makeText(getString(R.string.pwd_not_same));
             return;
         }
-        updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-        if (NetworkUtils.isConnected()) {
+        if (Utils.isAvailableByPing()) {
+            updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
             ApiWrap.updatePassword((String)(SPUtil.get(this, SharedPreferenceConstants.PHONE, "")),old, newPwd, new SimpleObserver<Result>() {
                 @Override public void onError(Throwable e) {
                     UiUtils.dismissProgressDialog(updatePasswordDialog);
@@ -88,7 +88,6 @@ public class ChangePasswordActivity extends BaseContentActivity {
                 }
             });
         }else {
-            UiUtils.dismissProgressDialog(updatePasswordDialog);
             UiUtils.makeText(getString(R.string.net_broken));
         }
     }

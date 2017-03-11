@@ -3,11 +3,10 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 import java.util.Map;
 
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
-import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
-import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -100,13 +99,25 @@ public interface CommonService {
     /**
      * 查询订单
      * @param userId
-     * @param orderStatus  订单状态：0-审核中；2-处理中；3-待支付；4-已完成；
+     * @param orderStatus
      * @return
      */
-    @GET("order/getOrders")
-    Observable<OrderResult> getOrders(
-        @Query("userId") Integer userId,
-        @Query("orderStatus") Integer orderStatus
+    @FormUrlEncoded
+    @POST("order/getOrders")
+    Observable getOrders(
+        @Field("userId") Integer userId,
+        @Field("orderStatus") Integer orderStatus
+    );
+
+    /**
+     * 发送验证码
+     * @param phone
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("yxmsg/sendMsg")
+    Observable<ResponseBody> sendMsg(
+            @Field("phone") String phone
     );
 
     /**
@@ -146,17 +157,5 @@ public interface CommonService {
     @POST("upload")
     Observable<UploadImageResult> upLoadImage(
             @Part MultipartBody.Part photo
-    );
-
-    /**
-     * 获取订单流程
-     * @param userId
-     * @param orderId
-     * @return
-     */
-    @GET("/order/getOrderProcedure")
-    Observable<OrderProcedure> getOrderProcedure(
-        @Query("userId") int userId,
-        @Query("orderId") int orderId
     );
 }

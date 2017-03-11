@@ -6,13 +6,12 @@ import java.util.Map;
 import gkzxhn.wqalliance.mvp.model.api.service.CommonService;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
-import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
-import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -140,8 +139,9 @@ public class ApiWrap {
      * @param userId
      * @param orderStatus
      * @param subscriber
+     * TODO ...
      */
-    public static void getOrders(int userId, int orderStatus, SimpleObserver<OrderResult> subscriber){
+    public static void getOrders(int userId, int orderStatus, SimpleObserver subscriber){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -191,19 +191,18 @@ public class ApiWrap {
     }
 
     /**
-     * 获取订单流程
-     * @param userId
-     * @param orderId
+     * 发送验证码
+     * @param phone
      * @param subscriber
      */
-    public static void getOrderProcedure(int userId, int orderId, SimpleObserver<OrderProcedure> subscriber) {
+    public static void sendMsg(String phone, SimpleObserver<ResponseBody> subscriber) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.getOrderProcedure(userId, orderId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.sendMsg(phone).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }

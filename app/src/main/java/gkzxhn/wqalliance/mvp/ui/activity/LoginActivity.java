@@ -67,7 +67,7 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("18774810958");
+        mEtAccount.setText("15243686547");
         mEtPassword.setText("123456");
     }
 
@@ -141,10 +141,10 @@ public class LoginActivity extends SuperActivity {
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn005", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login("gkzxhn007", "123456", new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn005");
+                NimUIKit.setAccount("gkzxhn007");
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }
