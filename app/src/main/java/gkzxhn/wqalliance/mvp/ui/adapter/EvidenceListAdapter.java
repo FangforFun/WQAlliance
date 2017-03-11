@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.utils.FileUtils;
 import com.blankj.utilcode.utils.LogUtils;
+import com.bumptech.glide.Glide;
 import com.jess.arms.utils.UiUtils;
 
 import java.io.File;
@@ -45,7 +46,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
     private static final String TAG = "EvidenceListAdapter";
     private static final int TYPE_CHOOSEPHOTO = 0;//图库
     private static final int TYPE_TAKEPHOTO = 1;//相机
-    private final List<EvidenceList.DataBean> mData;
+    private final List<EvidenceList.DataBean> mData; //请求到服务器的data数据
     private final Activity mActivity;
 
     private HashMap<Integer, Bitmap> mBitmaps = new HashMap<>(); //上传图片集合
@@ -67,9 +68,25 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         EvidenceItemViewHolder viewHolder = (EvidenceItemViewHolder) holder;
         viewHolder.mTv_evidence_name.setText(mData.get(position).evidenceName);
-        if (mBitmaps.containsKey(position)&&mBitmaps.get(position) != null) {
-            viewHolder.upload_ed.setImageBitmap(mBitmaps.get(position));
+        int id = mData.get(position).id;
+
+        List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
+
+        //从已传证据里面加载图片
+        for (OrderEvidence orderEvidence : orderEvidences) {
+            if (id == orderEvidence.evidenceId) {
+                Glide.with(mActivity).load(orderEvidence.imgUrl).error(R.drawable.avatar_def).into(viewHolder.mIv_evidence);
+                viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
+                viewHolder.upload_ed.setVisibility(View.GONE);
+            }
         }
+
+        if (mBitmaps.containsKey(position)&&mBitmaps.get(position) != null) {
+            viewHolder.mIv_evidence.setImageBitmap(mBitmaps.get(position));
+            viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
+            viewHolder.upload_ed.setVisibility(View.GONE);
+        }
+        
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,14 +156,6 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                 UiUtils.dismissProgressDialog(uploadDialog);
                 if (uploadImageResult.getCode() == 0){
                     if (photo != null) {
-//                        if (requestCode == CHOOSE_PHOTO_1 || requestCode == TAKE_PHOTO_1) {
-//                            trademarkImgUrl = uploadImageResult.getData().getImgUrl();
-//                            iv_upload_trademark.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
-//                        }else {
-//                            propertyImgUrl = uploadImageResult.getData().getImgUrl();
-//                            iv_knowledge_right.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
-//                        }
-//                        LogUtils.i(TAG, trademarkImgUrl + "----------------" + propertyImgUrl);
                         List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
                         int id = mData.get(position).id;
                         String imgUrl = uploadImageResult.getData().getImgUrl();
@@ -175,13 +184,14 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
     }
 
     private class EvidenceItemViewHolder extends RecyclerView.ViewHolder {
-
         private ImageView upload_ed;
         private final TextView mTv_evidence_name;
+        private final ImageView mIv_evidence;
 
         public EvidenceItemViewHolder(View itemView) {
             super(itemView);
             upload_ed = (ImageView) itemView.findViewById(R.id.iv_upload_ed);
+            mIv_evidence = (ImageView) itemView.findViewById(R.id.iv_evidence);
             mTv_evidence_name = (TextView) itemView.findViewById(R.id.tv_evidence_name);
         }
     }

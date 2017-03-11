@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import java.util.HashMap;
@@ -16,6 +15,7 @@ import java.util.Map;
 
 import common.AppComponent;
 import gkzxhn.utils.SPUtil;
+import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
@@ -38,6 +38,27 @@ public class ContactWayActivity extends BaseContentActivity {
         View view = LayoutInflater.from(this).inflate(R.layout.activity_contact_way, null, false);
         et_phone = (EditText) view.findViewById(R.id.et_phone);
         et_Email = (EditText) view.findViewById(R.id.et_email);
+
+        int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
+        ApiWrap.getUser(userId, new SimpleObserver<Result>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(Result result) {
+                super.onNext(result);
+                String phone = result.getData().getPhone();
+                String email = result.getData().getEmail();
+                if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(email)) {
+                    return;
+                }else {
+                    et_Email.setText(email);
+                    et_phone.setText(phone);
+                }
+            }
+        });
         return view;
     }
 
@@ -68,8 +89,8 @@ public class ContactWayActivity extends BaseContentActivity {
             UiUtils.makeText(getString(R.string.can_not_be_empty));
             return;
         }
-        updateDialog = UiUtils.showProgressDialog(this);
-        if (NetworkUtils.isConnected()){
+        if (Utils.isAvailableByPing()){
+            updateDialog = UiUtils.showProgressDialog(this);
             Map<String, Object> map = new HashMap<>();
             map.put("userId", SPUtil.get(this, SharedPreferenceConstants.USERID, 1));
             map.put("email", eMail);
@@ -97,9 +118,6 @@ public class ContactWayActivity extends BaseContentActivity {
                     }
                 }
             });
-        }else {
-            UiUtils.dismissProgressDialog(updateDialog);
-            UiUtils.makeText(getString(R.string.net_broken));
         }
     }
 

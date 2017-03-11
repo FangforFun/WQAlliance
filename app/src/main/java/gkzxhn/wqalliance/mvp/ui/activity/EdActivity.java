@@ -86,7 +86,6 @@ public class EdActivity extends BaseContentActivity {
                     UiUtils.makeText(evidenceList.msg);
                     mRl_evidence.setLayoutManager(new LinearLayoutManager(EdActivity.this));
                     mEvidenceListAdapter = new EvidenceListAdapter(evidenceList.data, EdActivity.this);
-                    chooseDialog = mEvidenceListAdapter.getChooseDialog();
                     mRl_evidence.setAdapter(mEvidenceListAdapter);
                     UiUtils.dismissProgressDialog(loginDialog);
                 }
@@ -112,6 +111,7 @@ public class EdActivity extends BaseContentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.i(TAG, "onActivityResult: resultCode    " + resultCode);
+        chooseDialog = mEvidenceListAdapter.getChooseDialog();
 
         if (resultCode == -1) {
 

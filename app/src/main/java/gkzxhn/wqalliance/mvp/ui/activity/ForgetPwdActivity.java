@@ -2,16 +2,18 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
+import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -66,13 +68,14 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         super.onClick(view);
+        String phone = et_phone_number.getText().toString().trim();
+        String pwd = et_password.getText().toString().trim();
+        String code = et_auth_code.getText().toString().trim();
         switch (view.getId()){
             case R.id.tv_commit:
-                String phone = et_phone_number.getText().toString().trim();
-                String pwd = et_password.getText().toString().trim();
-                updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-                if (NetworkUtils.isConnected()) {
-                    ApiWrap.forgetPassword(phone, pwd, new SimpleObserver<Result>() {
+                if (Utils.isAvailableByPing()) {
+                    updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
+                    ApiWrap.forgetPassword(phone, pwd, code, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(updatePasswordDialog);
                             UiUtils.makeText(getString(R.string.timeout_retry));
@@ -94,13 +97,46 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                         }
                     });
                 }else {
-                    UiUtils.dismissProgressDialog(updatePasswordDialog);
                     UiUtils.makeText(getString(R.string.net_broken));
                 }
                 break;
             case R.id.tv_send_code:
-
+                if (TextUtils.isEmpty(phone)) {
+                    UiUtils.makeText("请填写手机号");
+                    return;
+                }
+                new Thread(new MyCountDownTimer()).start();
                 break;
+        }
+    }
+    public Handler mHandler = new Handler();
+
+    class MyCountDownTimer implements Runnable {
+        private int time = 60;
+
+        @Override
+        public void run() {
+            while (time > 0) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv_send_code.setEnabled(false);
+                        tv_send_code.setText(time + "秒后重发");
+                        tv_send_code.setBackgroundResource(R.drawable.btn_code_shape);
+                    }
+                });
+                SystemClock.sleep(1000);
+                time -- ;
+            }
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tv_send_code.setText(UiUtils.getString(R.string.send_code));
+                    tv_send_code.setBackgroundResource(R.drawable.btn_login_shape);
+                    tv_send_code.setEnabled(true);
+                }
+            });
+            time = 60;
         }
     }
 }

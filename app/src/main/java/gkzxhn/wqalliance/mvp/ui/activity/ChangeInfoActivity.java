@@ -100,6 +100,8 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
     protected void doSubtitle() {
         if (photo != null && !TextUtils.isEmpty(avatar_path) && canUpload) {
             uploadImage(photo, avatar_path);
+        }else {
+            UiUtils.makeText("请完善信息再保存");
         }
     }
 
