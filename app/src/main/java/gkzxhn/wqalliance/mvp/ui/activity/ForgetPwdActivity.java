@@ -3,6 +3,7 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -67,13 +68,14 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         super.onClick(view);
+        String phone = et_phone_number.getText().toString().trim();
+        String pwd = et_password.getText().toString().trim();
+        String code = et_auth_code.getText().toString().trim();
         switch (view.getId()){
             case R.id.tv_commit:
-                String phone = et_phone_number.getText().toString().trim();
-                String pwd = et_password.getText().toString().trim();
                 if (Utils.isAvailableByPing()) {
                     updatePasswordDialog = UiUtils.showProgressDialog(this, getString(R.string.committing));
-                    ApiWrap.forgetPassword(phone, pwd, new SimpleObserver<Result>() {
+                    ApiWrap.forgetPassword(phone, pwd, code, new SimpleObserver<Result>() {
                         @Override public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(updatePasswordDialog);
                             UiUtils.makeText(getString(R.string.timeout_retry));
@@ -99,8 +101,11 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                 }
                 break;
             case R.id.tv_send_code:
+                if (TextUtils.isEmpty(phone)) {
+                    UiUtils.makeText("请填写手机号");
+                    return;
+                }
                 new Thread(new MyCountDownTimer()).start();
-
                 break;
         }
     }

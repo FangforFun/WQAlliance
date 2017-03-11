@@ -72,6 +72,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
 
         List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
 
+        //从已传证据里面加载图片
         for (OrderEvidence orderEvidence : orderEvidences) {
             if (id == orderEvidence.evidenceId) {
                 Glide.with(mActivity).load(orderEvidence.imgUrl).error(R.drawable.avatar_def).into(viewHolder.mIv_evidence);
@@ -85,7 +86,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
             viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
             viewHolder.upload_ed.setVisibility(View.GONE);
         }
-
+        
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

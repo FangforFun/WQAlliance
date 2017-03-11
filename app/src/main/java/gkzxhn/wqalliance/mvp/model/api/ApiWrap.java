@@ -6,6 +6,8 @@ import java.util.Map;
 import gkzxhn.wqalliance.mvp.model.api.service.CommonService;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MediaType;
@@ -31,16 +33,17 @@ public class ApiWrap {
      * 注册
      * @param phone
      * @param pwd
+     * @param code
      * @param subscriber
      */
-    public static void register(String phone, String pwd, SimpleObserver<Result> subscriber){
+    public static void register(String phone, String pwd, String code, SimpleObserver<Result> subscriber){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.register(phone, pwd).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.register(phone, pwd, code).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
@@ -67,16 +70,17 @@ public class ApiWrap {
      * 忘记密码
      * @param phone
      * @param pwd
+     * @param code
      * @param subscriber
      */
-    public static void forgetPassword(String phone, String pwd, SimpleObserver<Result> subscriber) {
+    public static void forgetPassword(String phone, String pwd, String code, SimpleObserver<Result> subscriber) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.forgetPassword(phone, pwd).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.forgetPassword(phone, pwd, code).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
@@ -135,13 +139,31 @@ public class ApiWrap {
     }
 
     /**
+     * 获取订单流程
+     * @param userId
+     * @param orderId
+     * @param subscriber
+     */
+    public static void getOrderProcedure(int userId, int orderId, SimpleObserver<OrderProcedure> subscriber) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getOrderProcedure(userId, orderId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
      * 查询订单
      * @param userId
      * @param orderStatus
      * @param subscriber
      * TODO ...
      */
-    public static void getOrders(int userId, int orderStatus, SimpleObserver subscriber){
+    public static void getOrders(int userId, int orderStatus, SimpleObserver<OrderResult> subscriber){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

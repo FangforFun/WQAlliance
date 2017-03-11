@@ -76,8 +76,9 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                 if (Utils.isAvailableByPing()) {
                     String phone = et_phone_number.getText().toString().trim();
                     String password = et_password.getText().toString().trim();
+                    String code = et_auth_code.getText().toString().trim();
                     registerDialog = UiUtils.showProgressDialog(this, "正在注册");
-                    ApiWrap.register(phone, password, new SimpleObserver<Result>() {
+                    ApiWrap.register(phone, password, code, new SimpleObserver<Result>() {
                         @Override
                         public void onError(Throwable e) {
                             UiUtils.dismissProgressDialog(registerDialog);
@@ -108,13 +109,14 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                 }
                 break;
             case R.id.tv_send_code:
-                //发送验证码
-                new Thread(new MyCountDownTimer()).start();
                 String phone = et_phone_number.getText().toString().trim();
                 if (TextUtils.isEmpty(phone)) {
                     UiUtils.makeText("请填写手机号");
                     return;
                 }
+
+                //发送验证码
+                new Thread(new MyCountDownTimer()).start();
                 ApiWrap.sendMsg(phone, new SimpleObserver<ResponseBody>(){
                     @Override
                     public void onError(Throwable e) {
@@ -134,11 +136,12 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                         String result = null;
                         try {
                             result = responseBody.string();
-                            if ("success".equals(result)) {
+                            Log.i(TAG, "onNext: send _ code _ result  " + result);
+//                            if ("success".equals(result)) {
                                 UiUtils.makeText("验证码已发送");
-                            }else {
-                                UiUtils.makeText("验证码发送失败");
-                            }
+//                            }else {
+//                                UiUtils.makeText("验证码发送失败");
+//                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

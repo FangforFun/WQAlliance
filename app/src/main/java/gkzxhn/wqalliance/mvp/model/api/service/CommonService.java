@@ -3,6 +3,8 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 import java.util.Map;
 
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import okhttp3.MultipartBody;
@@ -33,7 +35,8 @@ public interface CommonService {
     @POST("user/register")
     Observable<Result> register(
             @Field("phone") String phone,
-            @Field("password") String pwd
+            @Field("password") String pwd,
+            @Field("code") String code
     );
 
     /**
@@ -57,7 +60,9 @@ public interface CommonService {
      */
     @FormUrlEncoded
     @POST("user/forgetPassword")
-    Observable<Result> forgetPassword(@Field("phone") String phone, @Field("password") String pwd);
+    Observable<Result> forgetPassword(@Field("phone") String phone, @Field("password") String pwd,
+                @Field("code") String code
+    );
 
     /**
      * 修改密码
@@ -104,7 +109,7 @@ public interface CommonService {
      */
     @FormUrlEncoded
     @POST("order/getOrders")
-    Observable getOrders(
+    Observable<OrderResult> getOrders(
         @Field("userId") Integer userId,
         @Field("orderStatus") Integer orderStatus
     );
@@ -157,5 +162,17 @@ public interface CommonService {
     @POST("upload")
     Observable<UploadImageResult> upLoadImage(
             @Part MultipartBody.Part photo
+    );
+
+    /**
+     * 获取订单流程
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    @GET("/order/getOrderProcedure")
+    Observable<OrderProcedure> getOrderProcedure(
+            @Query("userId") int userId,
+            @Query("orderId") int orderId
     );
 }

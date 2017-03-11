@@ -10,7 +10,11 @@ import android.widget.TextView;
 
 import com.jess.arms.utils.UiUtils;
 
+import java.util.List;
+
+import gkzxhn.utils.DateUtils;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.ui.activity.CheckProcessActivity;
 
 /**
@@ -24,16 +28,18 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
     private Context mContext;
     /**
      * 列表类型
-     * 1  待审核
-     * 2  处理中
-     * 3  待支付
-     * 4  已完成
+     * 0  待审核
+     * 1  处理中
+     * 2  待支付
+     * 3  已完成
      */
     private int type;
+    private List<OrderResult.DataBean> mDataList;
 
-    public MyOrderListAdapter(Context context, int type){
+    public MyOrderListAdapter(Context context, int type, List<OrderResult.DataBean> list){
         this.mContext = context;
         this.type = type;
+        this.mDataList = list;
     }
 
     @Override
@@ -44,49 +50,60 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
+        holder.tv_order_title.setText(mDataList.get(position).getTitle());
+        holder.tv_order_time.setText(DateUtils.getTimeString(mDataList.get(position).getCreatedAt()));
+        if (type == 2){
+            holder.tv_total_spend.setText("总计费用：" + mDataList.get(position).getMoney());
+        }
         setItemStatus(holder);
         holder.tv_label1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 查看流程
+                if (type == 0) return;
                 UiUtils.makeText("查看流程： " + position);
-                UiUtils.startActivity(new Intent(mContext, CheckProcessActivity.class));
+                Intent intent = new Intent(mContext, CheckProcessActivity.class);
+                intent.putExtra("orderId", mDataList.get(position).getId());
+                UiUtils.startActivity(intent);
             }
         });
         holder.tv_label2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 支付订单
-                UiUtils.makeText("支付订单： " + position);
+                if (type == 2) {
+                    // 待支付  去往支付页面
+                    UiUtils.makeText("支付订单： " + position);
+                }
             }
         });
     }
 
     private void setItemStatus(MyViewHolder holder) {
-        holder.tv_total_spend.setVisibility(type == 1 ? View.GONE : View.VISIBLE);
-        holder.tv_label2.setVisibility(type == 3 ? View.VISIBLE : View.GONE);
+        holder.tv_total_spend.setVisibility(type == 0 ? View.GONE : View.VISIBLE);
+        holder.tv_label2.setVisibility(type == 2 ? View.VISIBLE : View.GONE);
         switch (type){
-            case 1:// 待审核
+            case 0:// 待审核
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_border_bg);
-                holder.tv_label1.setText("审核中");
+                holder.tv_label1.setText(R.string.examming);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.B));
                 break;
-            case 2:// 处理中
+            case 1:// 处理中
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 3:// 待支付
+            case 2:// 待支付
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 holder.tv_label2.setBackgroundResource(R.drawable.orange_bg);
-                holder.tv_label2.setText("支付订单");
+                holder.tv_label2.setText(R.string.pay_order);
                 holder.tv_label2.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 4:// 已完成
+            case 3:// 已完成
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
-                holder.tv_label1.setText("查看流程");
+                holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
             default:
@@ -96,15 +113,16 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
 
     @Override
     public int getItemCount() {
-        return 5;
+        return mDataList.size();
     }
 
     /**
      * 切换列表
      * @param type
      */
-    public void switchList(int type){
+    public void switchList(int type, List<OrderResult.DataBean> data){
         this.type = type;
+        this.mDataList = data;
         notifyDataSetChanged();
     }
 

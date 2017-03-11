@@ -77,4 +77,7 @@
     <string name="read_contract">我已阅读完合同内容</string>
     <string name="uploading">提交中......</string>
     <string name="send_code">发送验证码</string>
+    <string name="examming">待审核</string>
+    <string name="pay_order">待支付</string>
+    <string name="no_order">暂无订单</string>
 </resources>
