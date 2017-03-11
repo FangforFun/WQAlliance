@@ -170,7 +170,7 @@ public interface CommonService {
      * @param orderId
      * @return
      */
-    @GET("/order/getOrderProcedure")
+    @GET("order/getOrderProcedure")
     Observable<OrderProcedure> getOrderProcedure(
             @Query("userId") int userId,
             @Query("orderId") int orderId

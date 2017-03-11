@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
 import java.util.List;
@@ -25,6 +26,7 @@ import gkzxhn.wqalliance.mvp.ui.activity.CheckProcessActivity;
  */
 public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.MyViewHolder>{
 
+    private static final String TAG = "MyOrderListAdapter";
     private Context mContext;
     /**
      * 列表类型
@@ -64,6 +66,7 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 UiUtils.makeText("查看流程： " + position);
                 Intent intent = new Intent(mContext, CheckProcessActivity.class);
                 intent.putExtra("orderId", mDataList.get(position).getId());
+                LogUtils.i(TAG, "orderId is : " + mDataList.get(position).getId());
                 UiUtils.startActivity(intent);
             }
         });

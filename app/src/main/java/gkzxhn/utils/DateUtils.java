@@ -43,4 +43,16 @@ public class DateUtils {
             return simpleDateFormat.format(date);
         }
     }
+
+    /**
+     * 格式化时间
+     * @param time  时间毫秒值
+     * @param pattern 格式
+     * @return 返回格式化后的时间
+     */
+    public static String formatTime(long time, String pattern){
+        Date date = new Date(time);
+        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.getDefault());
+        return format.format(date);
+    }
 }
