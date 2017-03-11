@@ -145,7 +145,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
             if (requestCode == CHOOSE_PHOTO_1 || requestCode == CHOOSE_PHOTO_2){
                 ContentResolver resolver = getContentResolver();
                 Uri originalUri = data.getData();
-                String path = originalUri.getPath();
+                String path = FileUtil.getPath(this, originalUri);
                 Log.i(TAG, "originalUri : " + path);
                 // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
                 // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg

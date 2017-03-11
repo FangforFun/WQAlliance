@@ -73,6 +73,15 @@ public class Result {
         private int sysFlag;
         private String yxAccess;
         private String yxToken;
+        private String userName;
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
 
         public int getId() {
             return id;
@@ -194,6 +203,7 @@ public class Result {
                     ", sysFlag=" + sysFlag +
                     ", yxAccess='" + yxAccess + '\'' +
                     ", yxToken='" + yxToken + '\'' +
+                    ", userName='" + userName + '\'' +
                     '}';
         }
     }

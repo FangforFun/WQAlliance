@@ -68,6 +68,17 @@ public class ContactWayActivity extends BaseContentActivity {
         mTvSubtitle.setText(getString(R.string.save));
     }
 
+    @Override
+    protected void initData() {
+        super.initData();
+        String contactNumber = (String) SPUtil.get(this, SharedPreferenceConstants.CONTACTNUMBER, "");
+        String email = (String) SPUtil.get(this, SharedPreferenceConstants.EMAIL, "");
+        if (!TextUtils.isEmpty(contactNumber))
+            et_phone.setText(contactNumber);
+        if (!TextUtils.isEmpty(email))
+            et_Email.setText(email);
+    }
+
     private ProgressDialog updateDialog;
 
     @Override
@@ -96,6 +107,8 @@ public class ContactWayActivity extends BaseContentActivity {
                     UiUtils.dismissProgressDialog(updateDialog);
                     UiUtils.makeText(result.getMsg());
                     if (result.getCode() == 0){
+                        SPUtil.put(ContactWayActivity.this, SharedPreferenceConstants.EMAIL, result.getData().getEmail());
+                        SPUtil.put(ContactWayActivity.this, SharedPreferenceConstants.CONTACTNUMBER, result.getData().getContactNumber());
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
