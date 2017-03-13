@@ -9,26 +9,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c04ff26a-ffaa-4c7e-91e3-f7e3e208f185" name="Default" comment="合并，完善案件流程界面&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/alipaySingle-20161222.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/pay_way_weixin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/pay_way_zhifubao.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/alipaySingle_20161222.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_0_alpha8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_0_alpha8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/PayWaysActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pay_ways.xml" />
+    <list default="true" id="c04ff26a-ffaa-4c7e-91e3-f7e3e208f185" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/utils/DialogUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/utils/DialogUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SettingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SettingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="WQAlliance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -5736,7 +5718,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489226842009</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="xxx&#10;">
+      <created>1489383612926</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1489383612927</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -5815,7 +5804,8 @@
     <MESSAGE value="获取订单列表接口对接,添加网络判断至进度条对话框内" />
     <MESSAGE value="查询订单流程。。。。&#10;" />
     <MESSAGE value="合并，完善案件流程界面&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并，完善案件流程界面&#10;" />
+    <MESSAGE value="xxx&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="xxx&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
