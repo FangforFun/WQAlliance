@@ -6,17 +6,20 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.blankj.utilcode.utils.FileUtils;
 import com.blankj.utilcode.utils.LogUtils;
@@ -34,6 +37,8 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
+
+import static android.R.attr.type;
 
 
 /**
@@ -128,14 +133,51 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                         startActivityForResult(openAlbumIntent, type == 1 ? CHOOSE_PHOTO_1 : CHOOSE_PHOTO_2);
                         break;
                     case 1:// 相机
-                        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                        startActivityForResult(openCameraIntent, type == 1 ? TAKE_PHOTO_1 : TAKE_PHOTO_2);
+                        //检查权限
+//                        int checkSelfPermission = ContextCompat.checkSelfPermission(SignActivity.this, Manifest.permission.CAMERA);
+//                        //拒绝
+//                        if(checkSelfPermission == PackageManager.PERMISSION_DENIED){
+//                            Log.i(TAG, "onClick: checkSelfPermission   " + checkSelfPermission);
+//                            //申请权限
+//                            ActivityCompat.requestPermissions(SignActivity.this,new String[]{Manifest.permission.CAMERA},100);
+//                        }else if(checkSelfPermission == PackageManager.PERMISSION_GRANTED){//已经授权
+//                            //// TODO: 2016/11/4
+//                            Log.i(TAG, "onCreate: camera _________");
+                            openCamera(type);
+//                        }
+
                         break;
                 }
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 100:
+                Log.i(TAG, "onRequestPermissionsResult: camera--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
+                    // TODO: 2016/11/4
+                    openCamera(type);
+                }
+                break;
+        }
+    }
+
+    /**
+     * 调用相机
+     * @param type
+     */
+    private void openCamera(int type) {
+        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(openCameraIntent, type == 1 ? TAKE_PHOTO_1 : TAKE_PHOTO_2);
+        return;
     }
 
     @Override

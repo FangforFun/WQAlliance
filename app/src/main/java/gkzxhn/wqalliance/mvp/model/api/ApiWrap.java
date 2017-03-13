@@ -258,7 +258,7 @@ public class ApiWrap {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.getUser(userId).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.addOrder(userId, title, description, orderEvidenceJs).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }

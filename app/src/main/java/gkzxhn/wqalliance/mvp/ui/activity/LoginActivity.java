@@ -63,6 +63,7 @@ public class LoginActivity extends SuperActivity {
         getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
                 WindowManager.LayoutParams. FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
