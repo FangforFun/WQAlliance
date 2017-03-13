@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.blankj.utilcode.utils.LogUtils;
-import com.jess.arms.utils.UiUtils;
 
 import java.util.List;
 
@@ -17,6 +16,7 @@ import gkzxhn.utils.DateUtils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.ui.activity.CheckProcessActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.PayWaysActivity;
 
 /**
  * Author: Huang ZN
@@ -63,11 +63,11 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
             public void onClick(View v) {
                 // 查看流程
                 if (type == 0) return;
-                UiUtils.makeText("查看流程： " + position);
+//                UiUtils.makeText("查看流程： " + position);
                 Intent intent = new Intent(mContext, CheckProcessActivity.class);
                 intent.putExtra("orderId", mDataList.get(position).getId());
                 LogUtils.i(TAG, "orderId is : " + mDataList.get(position).getId());
-                UiUtils.startActivity(intent);
+                mContext.startActivity(intent);
             }
         });
         holder.tv_label2.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +76,13 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 // 支付订单
                 if (type == 2) {
                     // 待支付  去往支付页面
-                    UiUtils.makeText("支付订单： " + position);
+//                    UiUtils.makeText("支付订单： " + position);
+                    Intent intent = new Intent(mContext, PayWaysActivity.class);
+                    intent.putExtra("orderId", mDataList.get(position).getId());
+                    intent.putExtra("money", mDataList.get(position).getMoney());
+                    LogUtils.i(TAG, "orderId is: " + mDataList.get(position).getId()
+                            + ", money is : " + mDataList.get(position).getMoney());
+                    mContext.startActivity(intent);
                 }
             }
         });

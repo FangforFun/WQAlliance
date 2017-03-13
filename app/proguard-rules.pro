@@ -32,3 +32,13 @@
 -keep class com.chad.library.adapter.** {
    *;
 }
+
+# 支付宝支付混淆规则
+-libraryjars libs/alipaySDK-20150602.jar
+
+-keep class com.alipay.android.app.IAlixPay{*;}
+-keep class com.alipay.android.app.IAlixPay$Stub{*;}
+-keep class com.alipay.android.app.IRemoteServiceCallback{*;}
+-keep class com.alipay.android.app.IRemoteServiceCallback$Stub{*;}
+-keep class com.alipay.sdk.app.PayTask{ public *;}
+-keep class com.alipay.sdk.app.AuthTask{ public *;}

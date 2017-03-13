@@ -75,4 +75,19 @@
             android:layout_height="wrap_content"
             android:src="@drawable/toright" />
     </LinearLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/bt_checkout_account"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/theme_bg"
+        android:layout_margin="20dp"
+        android:text="@string/checkout_account"
+        android:textColor="@color/W"
+        android:textSize="16sp"/>
 </LinearLayout>

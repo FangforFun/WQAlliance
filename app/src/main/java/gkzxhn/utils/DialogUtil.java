@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 
@@ -103,4 +104,41 @@ public class DialogUtil {
         }
     }
 
+    /**
+     * show对话框  cancelable为默认true
+     * @param context
+     * @param msg
+     * @param okListener
+     * @param cancelListener
+     * @return
+     */
+    public static AlertDialog showAlertDialog(Context context, String msg, DialogInterface.OnClickListener
+            okListener, DialogInterface.OnClickListener cancelListener){
+        return showAlertDialog(context, msg, okListener, cancelListener, true);
+    }
+
+    /**
+     * show对话框  可传入是否cancelable
+     * @param context
+     * @param msg
+     * @param okListener
+     * @param cancelListener
+     * @param cancelable
+     * @return
+     */
+    public static AlertDialog showAlertDialog(Context context, String msg, DialogInterface.OnClickListener
+            okListener, DialogInterface.OnClickListener cancelListener, boolean cancelable){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder
+                .setTitle(R.string.reminder)
+                .setMessage(msg)
+                .setPositiveButton(R.string.ok, okListener)
+                .setCancelable(cancelable);
+        if (cancelListener != null) {
+            builder.setNegativeButton(R.string.cancel, cancelListener);
+        }
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        return dialog;
+    }
 }

@@ -113,6 +113,8 @@ public class LoginActivity extends SuperActivity {
                     }
 
                     @Override public void onNext(Result result) {
+                        // 登录成功之后清除之前存的数据
+                        SPUtil.clear(LoginActivity.this);
                         LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
