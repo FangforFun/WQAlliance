@@ -31,3 +31,4 @@ proguard/
 vp/
 
 indicator_module/
+local.properties

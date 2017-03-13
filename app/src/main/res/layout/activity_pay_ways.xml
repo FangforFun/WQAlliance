@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/BJ"
+    tools:context="gkzxhn.wqalliance.mvp.ui.activity.PayWaysActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/W"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/tv_pay_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pay_note"
+            android:textSize="16sp"
+            android:textColor="@color/TWO"/>
+
+        <TextView
+            android:id="@+id/tv_total_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ONE"
+            android:text="@string/pay_total_money"
+            android:textSize="24sp"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:divider="@drawable/onedp_divider_bg"
+        android:showDividers="middle"
+        android:background="@color/W">
+
+        <LinearLayout
+            android:id="@+id/ll_alipay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/W"
+            android:gravity="center_vertical">
+            
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:src="@drawable/pay_way_zhifubao"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alipay"
+                android:layout_marginLeft="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/TWO"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_wx_pay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/W"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:src="@drawable/pay_way_weixin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wxpay"
+                android:layout_marginLeft="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/TWO"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

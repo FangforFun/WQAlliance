@@ -78,6 +78,12 @@
     <string name="uploading">提交中......</string>
     <string name="send_code">发送验证码</string>
     <string name="examming">待审核</string>
-    <string name="pay_order">待支付</string>
+    <string name="pay_order">支付订单</string>
     <string name="no_order">暂无订单</string>
+    <string name="checkout_account">切换账号</string>
+    <string name="inline_pay">线上支付</string>
+    <string name="alipay">支付宝支付</string>
+    <string name="wxpay">微信支付</string>
+    <string name="pay_note">本案需支付律师案件处理费</string>
+    <string name="pay_total_money">￥ xxxx</string>
 </resources>

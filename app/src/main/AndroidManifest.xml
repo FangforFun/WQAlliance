@@ -31,6 +31,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+
         <!--
              APP key, 可以在这里设置，也可以在 SDKOptions 中提供。
             如果 SDKOptions 中提供了，取 SDKOptions 中的值。
@@ -101,7 +108,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.LoginActivity"/>
+        <activity android:name=".mvp.ui.activity.LoginActivity" />
         <activity android:name=".mvp.ui.activity.RegisterActivity" />
         <activity android:name=".mvp.ui.activity.MainActivity" />
         <activity android:name=".mvp.ui.activity.UploadEdActivity" />
@@ -120,9 +127,10 @@
         <activity android:name=".mvp.ui.activity.ForgetPwdActivity" />
         <activity android:name=".mvp.ui.activity.NotificationSettingActivity" />
         <activity android:name=".mvp.ui.activity.ChangePasswordActivity" />
-        <activity android:name=".mvp.ui.activity.ChangeInfoActivity"></activity>
-        <activity android:name=".mvp.ui.activity.SignContractActivity"/>
-        <activity android:name=".mvp.ui.activity.EdActivity"/>
+        <activity android:name=".mvp.ui.activity.ChangeInfoActivity" />
+        <activity android:name=".mvp.ui.activity.SignContractActivity" />
+        <activity android:name=".mvp.ui.activity.EdActivity" />
+        <activity android:name=".mvp.ui.activity.PayWaysActivity"></activity>
     </application>
 
 </manifest>

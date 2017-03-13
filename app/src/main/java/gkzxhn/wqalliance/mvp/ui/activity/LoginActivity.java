@@ -67,7 +67,7 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("15243686547");
+        mEtAccount.setText("18774810958");
         mEtPassword.setText("123456");
     }
 
@@ -113,6 +113,8 @@ public class LoginActivity extends SuperActivity {
                     }
 
                     @Override public void onNext(Result result) {
+                        // 登录成功之后清除之前存的数据
+                        SPUtil.clear(LoginActivity.this);
                         LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
@@ -123,7 +125,7 @@ public class LoginActivity extends SuperActivity {
                             Log.i(TAG, "onNext: login-------singedStatus   :" + signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
-                            loginNim(account, pwd);
+                            loginNim(result.getData().getYxAccess(), result.getData().getYxToken());
                         }else{
                             UiUtils.makeText(result.getMsg());
                             UiUtils.dismissProgressDialog(loginDialog);
@@ -144,10 +146,10 @@ public class LoginActivity extends SuperActivity {
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn007", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login("gkzxhn001", "123456", new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn007");
+                NimUIKit.setAccount("gkzxhn001");
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }
