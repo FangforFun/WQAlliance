@@ -91,8 +91,21 @@ public class MineFragment extends android.support.v4.app.Fragment {
         String userName = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.USERNAME, "");
 
         int signedStatus = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, 0);
-        tv_sign_status.setText(signedStatus == 1 ? "已签约" : "未签约");
-        
+        switch (signedStatus) {
+            case 0:
+                tv_sign_status.setText("未签约");
+                break;
+            case 1:
+                tv_sign_status.setText("签约中");
+                break;
+            case 2:
+                tv_sign_status.setText("签约失败");
+                break;
+            case 3:
+                tv_sign_status.setText("已签约");
+                break;
+        }
+
         if (!TextUtils.isEmpty(userName))
             tv_login_status.setText(userName);
         if (!TextUtils.isEmpty(faceImgUrl)){
@@ -110,10 +123,19 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 super.onNext(result);
                 LogUtils.i(TAG, result.toString());
                 int signedStatus = result.getData().getSignedStatus();
-                if (signedStatus == 0) {
+                switch (signedStatus) {
+                    case 0:
                     tv_sign_status.setText("未签约");
-                }else {
+                        break;
+                    case 1:
+                    tv_sign_status.setText("签约中");
+                        break;
+                    case 2:
+                    tv_sign_status.setText("签约失败");
+                        break;
+                    case 3:
                     tv_sign_status.setText("已签约");
+                        break;
                 }
             }
         });

@@ -115,8 +115,8 @@ public class SignContractActivity extends BaseContentActivity implements View.On
                     UiUtils.dismissProgressDialog(loginDialog);
                     super.onNext(result);
                     if (result.getCode() == 0) {
-                        UiUtils.makeText("签约成功");
-                        mTv_sign_contract.setText("签约成功");
+                        UiUtils.makeText("签约提交成功");
+                        mTv_sign_contract.setText("提交成功");
                         mTv_sign_contract.setClickable(false);
                     }else {
                         UiUtils.makeText("签约失败, 错误码: " + result.getCode());

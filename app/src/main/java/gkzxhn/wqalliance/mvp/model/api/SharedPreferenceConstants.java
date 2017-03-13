@@ -45,7 +45,7 @@ public class SharedPreferenceConstants {
     public static final String EMAIL = "email";
 
     /**
-     * 签约状态: 0 未签约 ; 1 已签约
+     * 签约状态: 0 未签约 ; 1 签约中; 2 签约失败 ; 3 签约成功
      */
     public static final String SIGNEDSTATUS = "signedStatus";
 }

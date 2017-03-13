@@ -120,6 +120,7 @@ public class LoginActivity extends SuperActivity {
                               SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
                             }
                             int signedStatus = result.getData().getSignedStatus();
+                            Log.i(TAG, "onNext: login-------singedStatus   :" + signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
                             loginNim(account, pwd);

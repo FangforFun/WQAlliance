@@ -70,8 +70,8 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
     @Override
     protected void initData() {
-        mFragments.add(new HomeFragment());
-        mFragments.add(new ProtectionFragment());
+        mFragments.add(HomeFragment.newInstance());
+        mFragments.add(ProtectionFragment.newInstance());
         mFragments.add(new MessageFragment());
         mFragments.add(new MineFragment());
 

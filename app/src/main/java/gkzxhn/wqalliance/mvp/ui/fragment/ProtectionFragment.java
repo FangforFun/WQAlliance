@@ -19,8 +19,6 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.jess.arms.utils.UiUtils;
 
-import org.simple.eventbus.Subscriber;
-
 import java.util.List;
 
 import common.AppComponent;
@@ -32,7 +30,6 @@ import gkzxhn.wqalliance.di.component.DaggerProtectionComponent;
 import gkzxhn.wqalliance.di.module.ProtectionModule;
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
-import gkzxhn.wqalliance.mvp.model.entities.ClickEvent;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.presenter.ProtectionPresenter;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
@@ -87,6 +84,12 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
         mIvBack.setVisibility(View.GONE);
         mTvSubtitle.setVisibility(View.GONE);
         mTvTitle.setText("我要维权");
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
@@ -109,11 +112,8 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
                 startActivity(new Intent(ProtectionFragment.this.getActivity(), UploadEdActivity.class));
                 break;
             case R.id.tv_commit:
-//                UiUtils.makeText("commit");
-                //TODO ...提交案件
 //                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
-
-                comitCase();
+                commitCase();
                 break;
             case R.id.tv_checkout:
                 //TODO ...查看维权提交情况
@@ -129,7 +129,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
     /**
      * 提交案件
      */
-    public void comitCase() {
+    public void commitCase() {
         if (isSigned()) {
 
             int userId = (int) SPUtil.get(mActivity, SharedPreferenceConstants.USERID, 0);
@@ -171,28 +171,16 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
      * @return
      */
     private boolean isSigned() {
-        if (((int)SPUtil.get(mActivity, SharedPreferenceConstants.SIGNEDSTATUS, 0))==1) {
+        if (((int)SPUtil.get(mActivity, SharedPreferenceConstants.SIGNEDSTATUS, 0))==3) {
             return true;
         }
         return false;
     }
 
-    @Subscriber()
-    public void updateClick(ClickEvent event) {
-        Log.i(TAG, "update: clickEvent..........");
-        comitCase();
-    }
-
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EventBus.getDefault().register(this);
-//    }
-//
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        EventBus.getDefault().unregister(this);
+//    @Subscriber()
+//    public void updateClick(ClickEvent event) {
+//        Log.i(TAG, "update: clickEvent..........");
+//        commitCase();
 //    }
 
     /**

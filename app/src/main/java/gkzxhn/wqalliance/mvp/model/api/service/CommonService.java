@@ -175,4 +175,21 @@ public interface CommonService {
             @Query("userId") int userId,
             @Query("orderId") int orderId
     );
+
+    /**
+     * 提交订单
+     * @param userId
+     * @param title
+     * @param description
+     * @param orderEvidenceJson
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("order/addOrder")
+    Observable<Result> addOrder(
+            @Field("userId") Integer userId,
+            @Field("title") String title,
+            @Field("description") String description,
+            @Field("orderEvidenceJson")String orderEvidenceJson
+    );
 }
