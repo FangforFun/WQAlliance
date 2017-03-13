@@ -119,6 +119,8 @@ public class LoginActivity extends SuperActivity {
                             if (result.getData().getFaceImgUrl() != null) {
                               SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
                             }
+                            int signedStatus = result.getData().getSignedStatus();
+                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
                             loginNim(account, pwd);
                         }else{

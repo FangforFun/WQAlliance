@@ -28,7 +28,7 @@ public class PermissionUtil {
     /**
      * 请求摄像头权限
      */
-    public static void launchCamera(final RequestPermission requestPermission, RxPermissions rxPermissions, final BaseView view, RxErrorHandler errorHandler) {
+    public static void launchCamera(final RequestPermission requestPermission, RxPermissions rxPermissions, RxErrorHandler errorHandler) {
         //先确保是否已经申请过摄像头，和写入外部存储的权限
         boolean isPermissionsGranted =
                 rxPermissions
@@ -49,7 +49,7 @@ public class PermissionUtil {
                                 Timber.tag(TAG).d("request WRITE_EXTERNAL_STORAGE and CAMERA success");
                                 requestPermission.onRequestPermissionSuccess();
                             } else {
-                                view.showMessage("request permissons failure");
+                                UiUtils.makeText("request permissons failure");
                             }
                         }
                     });

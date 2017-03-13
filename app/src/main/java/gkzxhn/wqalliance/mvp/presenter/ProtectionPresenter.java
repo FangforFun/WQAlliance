@@ -85,7 +85,9 @@ public class ProtectionPresenter extends BasePresenter<ProtectionContract.Model,
                         mRootView.showMessage("提交成功");
                         ((ProtectionFragment)mRootView).dismissProgressDialog();
                         ((ProtectionFragment)mRootView).showSuccessPopupWindow();
+                        ((ProtectionFragment)mRootView).clearContent();
                     }
                 });
     }
+
 }

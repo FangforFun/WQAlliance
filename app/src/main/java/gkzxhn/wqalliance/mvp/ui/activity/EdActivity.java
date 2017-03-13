@@ -83,7 +83,7 @@ public class EdActivity extends BaseContentActivity {
                 @Override
                 public void onNext(EvidenceList evidenceList) {
                     LogUtils.i(TAG, "show_evidence_list: " + evidenceList.toString());
-                    UiUtils.makeText(evidenceList.msg);
+//                    UiUtils.makeText(evidenceList.msg);
                     mRl_evidence.setLayoutManager(new LinearLayoutManager(EdActivity.this));
                     mEvidenceListAdapter = new EvidenceListAdapter(evidenceList.data, EdActivity.this);
                     mRl_evidence.setAdapter(mEvidenceListAdapter);

@@ -89,6 +89,10 @@ public class MineFragment extends android.support.v4.app.Fragment {
         String faceImgUrl = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.FACEIMGURL, "");
         int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
         String userName = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.USERNAME, "");
+
+        int signedStatus = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, 0);
+        tv_sign_status.setText(signedStatus == 1 ? "已签约" : "未签约");
+        
         if (!TextUtils.isEmpty(userName))
             tv_login_status.setText(userName);
         if (!TextUtils.isEmpty(faceImgUrl)){

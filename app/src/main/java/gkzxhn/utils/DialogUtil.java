@@ -45,6 +45,30 @@ public class DialogUtil {
     }
 
     /**
+     * 显示未签约对话框
+     * @param context
+     * @param cancel
+     * @param comfirm
+     * @return
+     */
+    public static AlertDialog showUnSignedDialog(Context context, View.OnClickListener
+            cancel, View.OnClickListener comfirm){
+        if (!(context instanceof Activity)){
+            throw new IllegalStateException("show dialog must use activity context");
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = View.inflate(context, R.layout.layout_nosign_dialog, null);
+        TextView tv_under_line_sign = (TextView) view.findViewById(R.id.tv_cancer_sign);
+        TextView tv_on_line_sign = (TextView) view.findViewById(R.id.tv_comfirm_sign);
+        tv_under_line_sign.setOnClickListener(cancel);
+        tv_on_line_sign.setOnClickListener(comfirm);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        return dialog;
+    }
+
+    /**
      * 显示正在加载对话框
      * @param context
      * @return

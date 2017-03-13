@@ -20,6 +20,7 @@ import com.blankj.utilcode.utils.FileUtils;
 import com.blankj.utilcode.utils.LogUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.utils.UiUtils;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import java.io.File;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 import static com.jess.arms.utils.UiUtils.getString;
 
@@ -50,9 +52,16 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
     private final Activity mActivity;
 
     private HashMap<Integer, Bitmap> mBitmaps = new HashMap<>(); //上传图片集合
+    private RxPermissions mRxPermissions;
+    private RxErrorHandler mErrorHandler;
 
     public EvidenceListAdapter(List<EvidenceList.DataBean> data, Activity activity) {
         mActivity = activity;
+//        mRxPermissions = new RxPermissions(mActivity);
+//        mErrorHandler = RxErrorHandler
+//                .builder()
+//                .with(mActivity.getApplication())
+//                .build();
         mData = data;
         for (int i = 0; i < mData.size(); i++) {
         }
@@ -90,7 +99,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UiUtils.makeText(position+"");
+//                UiUtils.makeText(position+"");
                 //TODO ...上传照片
                 choosePhoto(position);
             }
@@ -119,14 +128,30 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                         mActivity.startActivityForResult(openAlbumIntent, TYPE_CHOOSEPHOTO * 1000 + position);
                         break;
                     case 1:// 相机
-                        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                        mActivity.startActivityForResult(openCameraIntent, TYPE_TAKEPHOTO * 1000 + position);
+                        //TODO ...
+//                        PermissionUtil.launchCamera(new PermissionUtil.RequestPermission() {
+//                            @Override
+//                            public void onRequestPermissionSuccess() {
+//                                takePhoto(position);//请求权限成功后做一些操作
+//                            }
+//                        }, mRxPermissions, mErrorHandler);
+
+                        takePhoto(position);
                         break;
                 }
             }
         });
+    }
+
+    /**
+     * 从相机拍照获得照片
+     * @param position
+     */
+    private void takePhoto(int position) {
+        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        mActivity.startActivityForResult(openCameraIntent, TYPE_TAKEPHOTO * 1000 + position);
     }
 
     @Override

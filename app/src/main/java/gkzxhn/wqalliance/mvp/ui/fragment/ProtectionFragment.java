@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.fragment;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -18,19 +19,24 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.jess.arms.utils.UiUtils;
 
+import org.simple.eventbus.Subscriber;
+
 import java.util.List;
 
 import common.AppComponent;
 import common.SuperApplication;
+import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerProtectionComponent;
 import gkzxhn.wqalliance.di.module.ProtectionModule;
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.entities.ClickEvent;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.presenter.ProtectionPresenter;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
+import gkzxhn.wqalliance.mvp.ui.activity.SignActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.UploadEdActivity;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -54,6 +60,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
     private View mContentView;
     private ProgressDialog mProgressDialog;
     private PopupWindow mPopupWindow;
+    private AlertDialog mDialog;
 
     public static ProtectionFragment newInstance() {
         ProtectionFragment fragment = new ProtectionFragment();
@@ -102,27 +109,11 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
                 startActivity(new Intent(ProtectionFragment.this.getActivity(), UploadEdActivity.class));
                 break;
             case R.id.tv_commit:
-                UiUtils.makeText("commit");
+//                UiUtils.makeText("commit");
                 //TODO ...提交案件
 //                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
 
-                int userId = (int) SPUtil.get(mActivity, SharedPreferenceConstants.USERID, 0);
-                String title = mTheme.getText().toString().trim();
-                String description = mDesc.getText().toString().trim();
-                List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
-
-                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || orderEvidences.size() == 0 ) {
-                    UiUtils.makeText("请完善信息");
-                    return;
-                }
-                mProgressDialog = UiUtils.showProgressDialog(mActivity);
-
-                String orderEvidenceJs = new Gson().toJson(orderEvidences);
-                Log.i(TAG, "onClick: orderEvidenceJs       " +orderEvidenceJs);
-                Log.i(TAG, "onClick: userId       " + userId);
-                Log.i(TAG, "onClick: title       " + title);
-                Log.i(TAG, "onClick: description       " + description);
-                mPresenter.addOrder(userId, title, description, orderEvidenceJs);
+                comitCase();
                 break;
             case R.id.tv_checkout:
                 //TODO ...查看维权提交情况
@@ -134,6 +125,75 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
                 break;
         }
     }
+
+    /**
+     * 提交案件
+     */
+    public void comitCase() {
+        if (isSigned()) {
+
+            int userId = (int) SPUtil.get(mActivity, SharedPreferenceConstants.USERID, 0);
+            String title = mTheme.getText().toString().trim();
+            String description = mDesc.getText().toString().trim();
+            List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
+
+            if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || orderEvidences.size() == 0) {
+                UiUtils.makeText("请完善信息");
+                return;
+            }
+            mProgressDialog = UiUtils.showProgressDialog(mActivity);
+
+            String orderEvidenceJs = new Gson().toJson(orderEvidences);
+            Log.i(TAG, "onClick: orderEvidenceJs       " + orderEvidenceJs);
+            Log.i(TAG, "onClick: userId       " + userId);
+            Log.i(TAG, "onClick: title       " + title);
+            Log.i(TAG, "onClick: description       " + description);
+            mPresenter.addOrder(userId, title, description, orderEvidenceJs);
+        }else {
+            mDialog = DialogUtil.showUnSignedDialog(mActivity, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogUtil.dismissDialog(mDialog);
+                }
+            }, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogUtil.dismissDialog(mDialog);
+                    launchActivity(new Intent(mActivity, SignActivity.class));
+                }
+            });
+        }
+        return;
+    }
+
+    /**
+     * 是否已签约
+     * @return
+     */
+    private boolean isSigned() {
+        if (((int)SPUtil.get(mActivity, SharedPreferenceConstants.SIGNEDSTATUS, 0))==1) {
+            return true;
+        }
+        return false;
+    }
+
+    @Subscriber()
+    public void updateClick(ClickEvent event) {
+        Log.i(TAG, "update: clickEvent..........");
+        comitCase();
+    }
+
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        EventBus.getDefault().register(this);
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        EventBus.getDefault().unregister(this);
+//    }
 
     /**
      * 弹出提交操作成功的popupwindow
@@ -245,4 +305,12 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
         }
     }
 
+    /**
+     * 提交成功后,清除提交内容
+     */
+    public void clearContent() {
+        mTheme.setText("");
+        mDesc.setText("");
+        SuperApplication.getOrderEvidences().clear();
+    }
 }

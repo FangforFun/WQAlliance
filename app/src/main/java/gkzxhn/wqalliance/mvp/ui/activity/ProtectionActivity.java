@@ -7,10 +7,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jess.arms.utils.UiUtils;
+import org.simple.eventbus.EventBus;
 
 import common.AppComponent;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.entities.ClickEvent;
 
 /**
  * Created by 方 on 2017/3/6.
@@ -22,6 +23,18 @@ public class ProtectionActivity extends BaseContentActivity implements View.OnCl
     private EditText mDesc;//案件详情
     private TextView mCommit;//提交按钮
 
+//    @Nullable
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        EventBus.getDefault().register(this);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        EventBus.getDefault().unregister(this);
+//    }
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -54,10 +67,10 @@ public class ProtectionActivity extends BaseContentActivity implements View.OnCl
                 startActivity(new Intent(this, UploadEdActivity.class));
                 break;
             case R.id.tv_commit:
-                UiUtils.makeText("commit");
+//                UiUtils.makeText("commit");
                 //TODO ...提交案件
 //                new AlertDialog.Builder(getActivity()).setView(R.layout.custom_dialog)
-
+                EventBus.getDefault().post(new ClickEvent());
                 break;
             case R.id.iv_back:
                 finish();

@@ -21,6 +21,7 @@
             android:visibility="gone"
             android:id="@+id/iv_evidence"
             style="@style/item_right_arrow"
+            android:scaleType="fitXY"
             android:layout_centerVertical="true"
             android:layout_width="68px"
             android:layout_height="68px"/>
