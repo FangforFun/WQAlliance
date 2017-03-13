@@ -30,7 +30,6 @@ import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.InfoChangedEvent;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.ui.activity.ContactWayActivity;
-import gkzxhn.wqalliance.mvp.ui.activity.LoginActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyAddressActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.SettingActivity;
@@ -44,14 +43,22 @@ public class MineFragment extends android.support.v4.app.Fragment {
 
     private static final String TAG = "MineFragment";
 
-    @BindView(R.id.iv_avatar) CircleImageView iv_avatar; // 头像
-    @BindView(R.id.tv_sign_status) TextView tv_sign_status; // 签约状态
-    @BindView(R.id.tv_login_status) TextView tv_login_status;// 登录状态
-    @BindView(R.id.ll_my_order) LinearLayout ll_my_order;// 我的订单
-    @BindView(R.id.ll_my_address) LinearLayout ll_my_address; // 我的地址
-    @BindView(R.id.ll_contact_info) LinearLayout ll_contact_info; // 联系方式
-    @BindView(R.id.ll_sign) LinearLayout ll_sign;// 签约
-    @BindView(R.id.ll_setting) LinearLayout ll_setting; // 设置
+    @BindView(R.id.iv_avatar)
+    CircleImageView iv_avatar; // 头像
+    @BindView(R.id.tv_sign_status)
+    TextView tv_sign_status; // 签约状态
+    @BindView(R.id.tv_login_status)
+    TextView tv_login_status;// 登录状态
+    @BindView(R.id.ll_my_order)
+    LinearLayout ll_my_order;// 我的订单
+    @BindView(R.id.ll_my_address)
+    LinearLayout ll_my_address; // 我的地址
+    @BindView(R.id.ll_contact_info)
+    LinearLayout ll_contact_info; // 联系方式
+    @BindView(R.id.ll_sign)
+    LinearLayout ll_sign;// 签约
+    @BindView(R.id.ll_setting)
+    LinearLayout ll_setting; // 设置
 
     private AlertDialog signDialog;
 
@@ -76,8 +83,8 @@ public class MineFragment extends android.support.v4.app.Fragment {
     }
 
     @Subscriber
-    public void updateInfo(InfoChangedEvent event){
-        if (event != null){
+    public void updateInfo(InfoChangedEvent event) {
+        if (event != null) {
             Glide.with(getActivity()).load(event.getFaceUrl()).error(R.drawable.avatar_def).into(iv_avatar);
             tv_login_status.setText(event.getUserName());
         }
@@ -108,11 +115,11 @@ public class MineFragment extends android.support.v4.app.Fragment {
 
         if (!TextUtils.isEmpty(userName))
             tv_login_status.setText(userName);
-        if (!TextUtils.isEmpty(faceImgUrl)){
+        if (!TextUtils.isEmpty(faceImgUrl)) {
             LogUtils.i(TAG, faceImgUrl);
             Glide.with(getActivity()).load(faceImgUrl).error(R.drawable.avatar_def).into(iv_avatar);
         }
-        ApiWrap.getUser(userId, new SimpleObserver<Result>(){
+        ApiWrap.getUser(userId, new SimpleObserver<Result>() {
             @Override
             public void onError(Throwable e) {
                 super.onError(e);
@@ -125,17 +132,21 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 int signedStatus = result.getData().getSignedStatus();
                 switch (signedStatus) {
                     case 0:
-                    tv_sign_status.setText("未签约");
+                        tv_sign_status.setText("未签约");
                         break;
                     case 1:
-                    tv_sign_status.setText("签约中");
+                        tv_sign_status.setText("签约中");
                         break;
                     case 2:
-                    tv_sign_status.setText("签约失败");
+                        tv_sign_status.setText("签约失败");
                         break;
                     case 3:
-                    tv_sign_status.setText("已签约");
+                        tv_sign_status.setText("已签约");
                         break;
+                }
+                String userNameFromData = result.getData().getUserName();
+                if (!TextUtils.isEmpty(userNameFromData)) {
+                    tv_login_status.setText(userNameFromData);
                 }
             }
         });
@@ -143,11 +154,11 @@ public class MineFragment extends android.support.v4.app.Fragment {
 
     @OnClick({R.id.ll_my_order, R.id.ll_my_address, R.id.ll_contact_info,
             R.id.ll_sign, R.id.ll_setting})
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.tv_login_status: //注销账号
-                UiUtils.startActivity(new Intent(getActivity(), LoginActivity.class));
-                getActivity().finish();
+//                UiUtils.startActivity(new Intent(getActivity(), LoginActivity.class));
+//                getActivity().finish();
                 break;
             case R.id.ll_my_order:
                 UiUtils.startActivity(new Intent(getActivity(), MyOrderActivity.class));
@@ -160,11 +171,13 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 break;
             case R.id.ll_sign:
                 signDialog = DialogUtil.showSignDialog(getActivity(), new View.OnClickListener() {
-                    @Override public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
                         UiUtils.makeText("线下");
                     }
                 }, new View.OnClickListener() {
-                    @Override public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
                         UiUtils.startActivity(new Intent(getActivity(), SignActivity.class));
                     }
                 });
