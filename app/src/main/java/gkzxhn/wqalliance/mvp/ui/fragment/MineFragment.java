@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
     LinearLayout ll_setting; // 设置
 
     private AlertDialog signDialog;
+    private int mSignedStatus;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,8 +99,8 @@ public class MineFragment extends android.support.v4.app.Fragment {
         int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
         String userName = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.USERNAME, "");
 
-        int signedStatus = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, 0);
-        switch (signedStatus) {
+        mSignedStatus = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, 0);
+        switch (mSignedStatus) {
             case 0:
                 tv_sign_status.setText("未签约");
                 break;
@@ -169,15 +171,22 @@ public class MineFragment extends android.support.v4.app.Fragment {
             case R.id.ll_contact_info:
                 UiUtils.startActivity(new Intent(getActivity(), ContactWayActivity.class));
                 break;
-            case R.id.ll_sign:
+            case R.id.ll_sign://签约
+                switch (mSignedStatus) {
+                    case 1:  //签约中
+                        UiUtils.makeText("您已提交签约,请等待审核结果");
+                        break;
+                }
                 signDialog = DialogUtil.showSignDialog(getActivity(), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         UiUtils.makeText("线下");
+                        signContractOffline();//线下签约
                     }
                 }, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        DialogUtil.dismissDialog(signDialog);
                         UiUtils.startActivity(new Intent(getActivity(), SignActivity.class));
                     }
                 });
@@ -185,6 +194,31 @@ public class MineFragment extends android.support.v4.app.Fragment {
             case R.id.ll_setting:
                 UiUtils.startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
+        }
+    }
+
+    /**
+     * 线下签约
+     */
+    private void signContractOffline() {
+        int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
+
+        ApiWrap.submitUserSign(userId, null, null, 1, null, new SimpleObserver<Result>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                UiUtils.makeText(UiUtils.getString(R.string.net_broken));
+            }
+
+            @Override
+            public void onNext(Result result) {
+                super.onNext(result);
+                Log.i(TAG, "onNext: subiUserSign....." + result.getCode() + result.getMsg());
+                UiUtils.makeText("已提交线下签约申请");
+            }
+        });
+        if (signDialog != null) {
+            DialogUtil.dismissDialog(signDialog);
         }
     }
 

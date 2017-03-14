@@ -1,20 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/BJ"
-    tools:context="gkzxhn.wqalliance.mvp.ui.fragment.MessageFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/BJ"
+              tools:context="gkzxhn.wqalliance.mvp.ui.fragment.MessageFragment">
 
-    <TextView
-        android:id="@+id/tv_my_msg"
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="96px"
         android:background="@color/B"
-        android:text="@string/my_msg"
-        android:gravity="center"
-        android:textColor="@color/W"
-        android:textSize="18sp"/>
+        android:titleTextColor="@color/W"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="96px">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/my_msg"
+                android:textColor="@color/W"
+                android:textSize="32px"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
 
     <fragment
         android:id="@+id/recent_contacts_fragment"

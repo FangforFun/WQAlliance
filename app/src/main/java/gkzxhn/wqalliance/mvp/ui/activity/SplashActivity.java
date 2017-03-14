@@ -2,6 +2,7 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
@@ -28,19 +29,19 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                SystemClock.sleep(1500);
-//                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-//                finish();
-//            }
-//        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(1500);
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                finish();
+            }
+        }).start();
     }
 
     @OnClick(R.id.iv_splash)
     public void onClick() {
-        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-        finish();
+//        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+//        finish();
     }
 }

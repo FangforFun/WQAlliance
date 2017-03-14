@@ -3,7 +3,6 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -43,7 +42,22 @@ public class MyAddressActivity extends BaseContentActivity {
         et_my_addr = (EditText) view.findViewById(R.id.et_my_addr);
         mTv_my_addr = (TextView) view.findViewById(R.id.tv_my_addr);
 
-        int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
+        String address = (String) SPUtil.get(this, SharedPreferenceConstants.ADDRESS, "");
+        if (TextUtils.isEmpty(address)) {
+            //没有地址显示编辑框
+            et_my_addr.setVisibility(View.VISIBLE);
+            mTv_my_addr.setVisibility(View.GONE);
+            hadAddr = false;
+        } else {
+            //有地址,显示地址
+            et_my_addr.setVisibility(View.GONE);
+            mTv_my_addr.setVisibility(View.VISIBLE);
+            mTv_my_addr.setText(address);
+            mTvSubtitle.setText("编辑");
+            hadAddr = true;
+        }
+
+       /* int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
         ApiWrap.getUser(userId, new SimpleObserver<Result>() {
             @Override
             public void onError(Throwable e) {
@@ -69,7 +83,7 @@ public class MyAddressActivity extends BaseContentActivity {
                     hadAddr = true;
                 }
             }
-        });
+        });*/
         return view;
     }
 

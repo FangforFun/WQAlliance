@@ -82,9 +82,9 @@ public class SignContractActivity extends BaseContentActivity implements View.On
                 Log.i(TAG, "onClick: propertyImgUrl" + propertyImgUrl);
                 Log.i(TAG, "onClick: trademarkImgUrl" + trademarkImgUrl);
 
-                submitUserSign();
+                submitUserSign(0);
                 break;
-            case R.id.tv_subtitle:
+            case R.id.iv_back:
                 finish();
                 break;
         }
@@ -92,11 +92,30 @@ public class SignContractActivity extends BaseContentActivity implements View.On
 
     /**
      * 确认签约
+     * @param signedType 签约方式 0-线上 1-线下
      */
-    private void submitUserSign() {
+    private void submitUserSign(int signedType) {
         if (!isChecked) {
             UiUtils.makeText("请阅读合同内容并勾选");
             return;
+        }
+        userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
+
+        if (signedType == 0) {
+            ApiWrap.submitUserSign(userId, null, null, signedType, null, new SimpleObserver<Result>(){
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    UiUtils.makeText(UiUtils.getString(R.string.net_broken));
+                }
+
+                @Override
+                public void onNext(Result result) {
+                    super.onNext(result);
+                    Log.i(TAG, "onNext: subiUserSign....." + result.getCode() + result.getMsg());
+                    UiUtils.makeText("已提交线下签约申请");
+                }
+            });
         }
 
         //TODO ... 提交签约
@@ -105,11 +124,10 @@ public class SignContractActivity extends BaseContentActivity implements View.On
             UiUtils.makeText("资料未提交完全");
             return;
         }
-        userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
 
         if (NetworkUtils.isConnected()) {
             loginDialog = UiUtils.showProgressDialog(this, getString(R.string.uploading));
-            ApiWrap.submitUserSign(userId, companyName, trademarkImgUrl, propertyImgUrl, new SimpleObserver<Result>() {
+            ApiWrap.submitUserSign(userId, companyName, trademarkImgUrl, signedType, propertyImgUrl, new SimpleObserver<Result>() {
                 @Override
                 public void onNext(Result result) {
                     UiUtils.dismissProgressDialog(loginDialog);

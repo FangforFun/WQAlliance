@@ -141,8 +141,8 @@ public interface CommonService {
      * @param userId
      * @param companyName
      * @param trademarkImgUrl
-     * @param propertyImgUrl
-     * @return
+     * @param signedType
+     *@param propertyImgUrl  @return
      */
     @FormUrlEncoded
     @POST("userSign/submitUserSign")
@@ -150,6 +150,7 @@ public interface CommonService {
             @Field("userId") int userId,
             @Field("companyName") String companyName,
             @Field("trademarkImgUrl") String trademarkImgUrl,
+            @Field("signedType") int signedType,   //签约方式 : 0 线上  1 线下
             @Field("propertyImgUrl") String propertyImgUrl
     );
 

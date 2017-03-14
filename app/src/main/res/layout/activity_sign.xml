@@ -26,12 +26,11 @@
             android:textSize="16sp" />
 
         <ImageView
+            android:scaleType="fitXY"
             android:id="@+id/iv_upload_trademark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:src="@drawable/add_pic_icon"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            style="@style/item_right_arrow"/>
     </LinearLayout>
 
     <LinearLayout
@@ -51,11 +50,10 @@
 
         <ImageView
             android:id="@+id/iv_knowledge_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/add_pic_icon"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/add_pic_icon"/>
+            style="@style/item_right_arrow"/>
     </LinearLayout>
 
     <LinearLayout

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,7 +69,7 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("18774810958");
+        mEtAccount.setText("18163657553");
         mEtPassword.setText("123456");
     }
 
@@ -127,11 +128,33 @@ public class LoginActivity extends SuperActivity {
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
 
+                            String address = result.getData().getAddress();
+                            if (address != null) {
+                                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.ADDRESS, address);
+                            }
+
+                            String contactNumber = result.getData().getContactNumber();
+                            if (address != null) {
+                                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.CONTACTNUMBER, contactNumber);
+                            }
+
+                            String email = result.getData().getAddress();
+                            if (address != null) {
+                                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.EMAIL, email);
+                            }
+
                             String userName = result.getData().getUserName();
                             if (userName != null) {
                                 SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERNAME, userName);
                             }
-                            loginNim(result.getData().getYxAccess(), result.getData().getYxToken());
+
+                            String yxAccess = result.getData().getYxAccess();
+                            String yxToken = result.getData().getYxToken();
+                            if (TextUtils.isEmpty(yxAccess)) {
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                return;
+                            }
+                            loginNim(yxAccess, yxToken);
                         }else{
                             UiUtils.makeText(result.getMsg());
                             UiUtils.dismissProgressDialog(loginDialog);
@@ -152,10 +175,10 @@ public class LoginActivity extends SuperActivity {
      * @param pwd
      */
     private void loginNim(final String account, String pwd) {
-        NimController.login("gkzxhn001", "123456", new RequestCallback<LoginInfo>() {
+        NimController.login(account, pwd, new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
-                NimUIKit.setAccount("gkzxhn001");
+                NimUIKit.setAccount(account);
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }

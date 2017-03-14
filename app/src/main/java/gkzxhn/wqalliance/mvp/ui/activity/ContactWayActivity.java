@@ -39,6 +39,7 @@ public class ContactWayActivity extends BaseContentActivity {
         et_phone = (EditText) view.findViewById(R.id.et_phone);
         et_Email = (EditText) view.findViewById(R.id.et_email);
 
+/*
         int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
         ApiWrap.getUser(userId, new SimpleObserver<Result>(){
             @Override
@@ -59,6 +60,7 @@ public class ContactWayActivity extends BaseContentActivity {
                 }
             }
         });
+*/
         return view;
     }
 

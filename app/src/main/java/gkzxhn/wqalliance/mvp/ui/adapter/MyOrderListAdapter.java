@@ -33,7 +33,8 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
      * 0  待审核
      * 1  处理中
      * 2  待支付
-     * 3  已完成
+     * 3  已支付
+     * 4  已完成
      */
     private int type;
     private List<OrderResult.DataBean> mDataList;
@@ -110,7 +111,12 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 holder.tv_label2.setText(R.string.pay_order);
                 holder.tv_label2.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 3:// 已完成
+            case 3:// 已支付
+                holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
+                holder.tv_label1.setText(R.string.check_process);
+                holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
+                break;
+            case 4:// 已完成
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
                 holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
