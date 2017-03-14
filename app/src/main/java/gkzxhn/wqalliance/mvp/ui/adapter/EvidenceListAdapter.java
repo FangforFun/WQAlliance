@@ -1,14 +1,18 @@
 package gkzxhn.wqalliance.mvp.ui.adapter;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,7 +140,15 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
 //                            }
 //                        }, mRxPermissions, mErrorHandler);
 
-                        takePhoto(position);
+                        //检查权限
+                        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.CAMERA)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            //申请WRITE_EXTERNAL_STORAGE权限
+                            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA},
+                                    position);
+                        }else {
+                            takePhoto(position);
+                        }
                         break;
                 }
             }
@@ -147,7 +159,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
      * 从相机拍照获得照片
      * @param position
      */
-    private void takePhoto(int position) {
+    public void takePhoto(int position) {
         Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);

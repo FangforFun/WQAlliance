@@ -126,7 +126,11 @@ public class LoginActivity extends SuperActivity {
                             Log.i(TAG, "onNext: login-------singedStatus   :" + signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.PHONE, result.getData().getPhone());
-                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERNAME, result.getData().getUserName());
+
+                            String userName = result.getData().getUserName();
+                            if (userName != null) {
+                                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERNAME, userName);
+                            }
                             loginNim(result.getData().getYxAccess(), result.getData().getYxToken());
                         }else{
                             UiUtils.makeText(result.getMsg());

@@ -4,17 +4,20 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.blankj.utilcode.utils.LogUtils;
 import com.blankj.utilcode.utils.NetworkUtils;
@@ -97,6 +100,23 @@ public class EdActivity extends BaseContentActivity {
 
         return contentView;
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                Log.i(TAG, "onRequestPermissionsResult: camera--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
+                    // TODO: 2016/11/4
+                    mEvidenceListAdapter.takePhoto(requestCode);
+                }
+                break;
+        }
+    }
+
 
     @Override
     protected void onDestroy() {

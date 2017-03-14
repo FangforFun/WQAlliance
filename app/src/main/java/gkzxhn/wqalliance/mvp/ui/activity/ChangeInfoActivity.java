@@ -1,21 +1,27 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.blankj.utilcode.utils.FileUtils;
 import com.blankj.utilcode.utils.LogUtils;
@@ -131,19 +137,52 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                                 startActivityForResult(openAlbumIntent, CHOOSE_PHOTO);
                                 break;
                             case 1:// 相机
-                                Intent openCameraIntent = new Intent(
-                                        MediaStore.ACTION_IMAGE_CAPTURE);
-
-                                Uri imageUri = Uri.fromFile(new File(Environment
-                                        .getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg"));
-                                openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                                startActivityForResult(openCameraIntent, TAKE_PHOTO);
+                                //检查权限
+                                if (ContextCompat.checkSelfPermission(ChangeInfoActivity.this, Manifest.permission.CAMERA)
+                                        != PackageManager.PERMISSION_GRANTED) {
+                                    //申请WRITE_EXTERNAL_STORAGE权限
+                                    ActivityCompat.requestPermissions(ChangeInfoActivity.this, new String[]{Manifest.permission.CAMERA},
+                                            1);
+                                }else {
+                                    openCamera();
+                                }
+                                openCamera();
                                 break;
                         }
                     }
                 });
                 break;
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                Log.i(TAG, "onRequestPermissionsResult: camera--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
+                    // TODO: 2016/11/4
+                    openCamera();
+                }
+                break;
+        }
+    }
+
+
+    /**
+     * 打开相机
+     */
+    private void openCamera() {
+        Intent openCameraIntent = new Intent(
+                MediaStore.ACTION_IMAGE_CAPTURE);
+
+        Uri imageUri = Uri.fromFile(new File(Environment
+                .getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg"));
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(openCameraIntent, TAKE_PHOTO);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package common;
 
 import android.content.Context;
+import android.os.Build;
+import android.os.StrictMode;
 import android.text.TextUtils;
 
 import com.blankj.utilcode.utils.LogUtils;
@@ -58,6 +60,13 @@ public class SuperApplication extends BaseApplication {
         // 初始化log  第二个参数为true会将log写入文件  context.getCacheDir()目录下
         LogUtils.init(true, true, 'v', getClass().getName());
         NimController.init(this);
+
+        //Android7.0权限适配  android.os.FileUriExposedException 解决方法
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        if (Build.VERSION.SDK_INT >= 18) {
+            builder.detectFileUriExposure();
+        }
     }
 
     //将AppComponent返回出去,供其它地方使用, AppComponent接口中声明的方法返回的实例, 在getAppComponent()拿到对象后都可以直接使用

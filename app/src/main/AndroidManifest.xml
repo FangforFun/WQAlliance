@@ -131,6 +131,17 @@
         <activity android:name=".mvp.ui.activity.SignContractActivity" />
         <activity android:name=".mvp.ui.activity.EdActivity" />
         <activity android:name=".mvp.ui.activity.PayWaysActivity"></activity>
+
+        <provider
+            android:authorities="WQAlliance.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
+
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -13,6 +14,8 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +40,6 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
-
-import static android.R.attr.type;
 
 
 /**
@@ -93,15 +94,19 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     public static final String PROPERTYIMGURL = "propertyImgUrl";
     public static final String COMPANYNAME = "companyName";
 
+    private int type = 0;
+
     @Override
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()){
             case R.id.iv_upload_trademark:
-                choosePhoto(1);
+                type = 1;
+                choosePhoto(type);
                 break;
             case R.id.iv_knowledge_right:
-                choosePhoto(2);
+                type = 2;
+                choosePhoto(type);
                 break;
             case R.id.ll_sign_contract:
                 companyName = et_company_name.getText().toString().trim();
@@ -134,17 +139,14 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                         break;
                     case 1:// 相机
                         //检查权限
-//                        int checkSelfPermission = ContextCompat.checkSelfPermission(SignActivity.this, Manifest.permission.CAMERA);
-//                        //拒绝
-//                        if(checkSelfPermission == PackageManager.PERMISSION_DENIED){
-//                            Log.i(TAG, "onClick: checkSelfPermission   " + checkSelfPermission);
-//                            //申请权限
-//                            ActivityCompat.requestPermissions(SignActivity.this,new String[]{Manifest.permission.CAMERA},100);
-//                        }else if(checkSelfPermission == PackageManager.PERMISSION_GRANTED){//已经授权
-//                            //// TODO: 2016/11/4
-//                            Log.i(TAG, "onCreate: camera _________");
+                        if (ContextCompat.checkSelfPermission(SignActivity.this, Manifest.permission.CAMERA)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            //申请WRITE_EXTERNAL_STORAGE权限
+                            ActivityCompat.requestPermissions(SignActivity.this, new String[]{Manifest.permission.CAMERA},
+                                    1);
+                        }else {
                             openCamera(type);
-//                        }
+                        }
 
                         break;
                 }
@@ -156,7 +158,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode){
-            case 100:
+            case 1:
                 Log.i(TAG, "onRequestPermissionsResult: camera--------");
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     //执行后续的操作
