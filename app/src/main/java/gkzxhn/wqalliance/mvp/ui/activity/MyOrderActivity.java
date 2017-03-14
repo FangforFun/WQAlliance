@@ -48,7 +48,23 @@ public class MyOrderActivity extends BaseContentActivity<MyOrderPresenter> imple
         table_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override public void onTabSelected(TabLayout.Tab tab) {
                 LogUtils.i(TAG, "position: " + tab.getPosition());
-                getOrderList(tab.getPosition());
+                switch (tab.getPosition()) {
+                    case 0:
+                    getOrderList(tab.getPosition());
+                        break;
+                    case 1:
+                    getOrderList(tab.getPosition() + 1);
+                        break;
+                    case 2:
+                    getOrderList(tab.getPosition() + 1);
+                        break;
+                    case 3:
+                    getOrderList(tab.getPosition() + 1);
+                        break;
+                    case 4:
+                    getOrderList(tab.getPosition() + 1);
+                        break;
+                }
             }
             @Override public void onTabUnselected(TabLayout.Tab tab) {}
             @Override public void onTabReselected(TabLayout.Tab tab) {}

@@ -3,6 +3,7 @@ package gkzxhn.wqalliance.mvp.ui.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import gkzxhn.utils.DateUtils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.ui.activity.CheckProcessActivity;
-import gkzxhn.wqalliance.mvp.ui.activity.PayWaysActivity;
 
 /**
  * Author: Huang ZN
@@ -55,7 +55,8 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.tv_order_title.setText(mDataList.get(position).getTitle());
         holder.tv_order_time.setText(DateUtils.getTimeString(mDataList.get(position).getCreatedAt()));
-        if (type == 2){
+        if (type == 3){
+            Log.i(TAG, "onBindViewHolder: mdataList...." + mDataList.get(position));
             holder.tv_total_spend.setText("总计费用：" + mDataList.get(position).getMoney());
         }
         setItemStatus(holder);
@@ -71,11 +72,12 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 mContext.startActivity(intent);
             }
         });
-        holder.tv_label2.setOnClickListener(new View.OnClickListener() {
+        //TODO. .. .
+        /*holder.tv_label2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 支付订单
-                if (type == 2) {
+                if (type == 3) {
                     // 待支付  去往支付页面
 //                    UiUtils.makeText("支付订单： " + position);
                     Intent intent = new Intent(mContext, PayWaysActivity.class);
@@ -86,24 +88,24 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                     mContext.startActivity(intent);
                 }
             }
-        });
+        });*/
     }
 
     private void setItemStatus(MyViewHolder holder) {
-        holder.tv_total_spend.setVisibility(type == 0 ? View.GONE : View.VISIBLE);
-        holder.tv_label2.setVisibility(type == 2 ? View.VISIBLE : View.GONE);
+        holder.tv_total_spend.setVisibility(type == 0 || type == 2 ? View.GONE : View.VISIBLE);
+        holder.tv_label2.setVisibility(type == 3 ? View.VISIBLE : View.GONE);
         switch (type){
             case 0:// 待审核
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_border_bg);
                 holder.tv_label1.setText(R.string.examming);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.B));
                 break;
-            case 1:// 处理中
+            case 2:// 处理中
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
                 holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 2:// 待支付
+            case 3:// 待支付
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
                 holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
@@ -111,12 +113,12 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
                 holder.tv_label2.setText(R.string.pay_order);
                 holder.tv_label2.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 3:// 已支付
+            case 4:// 已支付
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
                 holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));
                 break;
-            case 4:// 已完成
+            case 5:// 已完成
                 holder.tv_label1.setBackgroundResource(R.drawable.theme_bg);
                 holder.tv_label1.setText(R.string.check_process);
                 holder.tv_label1.setTextColor(mContext.getResources().getColor(R.color.W));

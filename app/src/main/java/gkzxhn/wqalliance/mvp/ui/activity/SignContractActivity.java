@@ -77,12 +77,12 @@ public class SignContractActivity extends BaseContentActivity implements View.On
                 }
                 break;
             case R.id.tv_sign_contract:
+                submitUserSign(0);
+
                 Log.i(TAG, "onClick: userId" + userId);
                 Log.i(TAG, "onClick: companyName" + companyName);
                 Log.i(TAG, "onClick: propertyImgUrl" + propertyImgUrl);
                 Log.i(TAG, "onClick: trademarkImgUrl" + trademarkImgUrl);
-
-                submitUserSign(0);
                 break;
             case R.id.iv_back:
                 finish();
@@ -101,8 +101,8 @@ public class SignContractActivity extends BaseContentActivity implements View.On
         }
         userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
 
-        if (signedType == 0) {
-            ApiWrap.submitUserSign(userId, null, null, signedType, null, new SimpleObserver<Result>(){
+        if (signedType == 1) {
+            ApiWrap.submitUserSign(userId, null, null, null, signedType, new SimpleObserver<Result>(){
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
@@ -127,7 +127,7 @@ public class SignContractActivity extends BaseContentActivity implements View.On
 
         if (NetworkUtils.isConnected()) {
             loginDialog = UiUtils.showProgressDialog(this, getString(R.string.uploading));
-            ApiWrap.submitUserSign(userId, companyName, trademarkImgUrl, signedType, propertyImgUrl, new SimpleObserver<Result>() {
+            ApiWrap.submitUserSign(userId, companyName, trademarkImgUrl, propertyImgUrl, signedType, new SimpleObserver<Result>() {
                 @Override
                 public void onNext(Result result) {
                     UiUtils.dismissProgressDialog(loginDialog);

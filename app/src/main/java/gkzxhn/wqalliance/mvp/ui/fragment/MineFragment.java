@@ -99,6 +99,9 @@ public class MineFragment extends android.support.v4.app.Fragment {
         int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
         String userName = (String) SPUtil.get(getActivity(), SharedPreferenceConstants.USERNAME, "");
 
+        Log.i(TAG, "onActivityCreated: userid   :" + userId );
+        Log.i(TAG, "onActivityCreated: userName   :" + userName );
+        Log.i(TAG, "onActivityCreated: faceImgUrl   :" + faceImgUrl );
         mSignedStatus = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, 0);
         switch (mSignedStatus) {
             case 0:
@@ -203,7 +206,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
     private void signContractOffline() {
         int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
 
-        ApiWrap.submitUserSign(userId, null, null, 1, null, new SimpleObserver<Result>(){
+        ApiWrap.submitUserSign(userId, null, null, null, 1, new SimpleObserver<Result>(){
             @Override
             public void onError(Throwable e) {
                 super.onError(e);

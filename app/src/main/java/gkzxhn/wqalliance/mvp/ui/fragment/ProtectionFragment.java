@@ -137,6 +137,11 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
             String description = mDesc.getText().toString().trim();
             List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
 
+            if (orderEvidences.size()<18) {
+                UiUtils.makeText("请上传所有证据信息");
+                return;
+            }
+
             if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || orderEvidences.size() == 0) {
                 UiUtils.makeText("请完善信息");
                 return;

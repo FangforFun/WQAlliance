@@ -152,6 +152,7 @@ public class LoginActivity extends SuperActivity {
                             String yxToken = result.getData().getYxToken();
                             if (TextUtils.isEmpty(yxAccess)) {
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
                                 return;
                             }
                             loginNim(yxAccess, yxToken);

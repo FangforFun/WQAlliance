@@ -39,7 +39,7 @@ public class SuperApplication extends BaseApplication {
 //    private RefWatcher mRefWatcher;//leakCanary观察器
 
     private static List<OrderEvidence> mOrderEvidences = new ArrayList<>(); //证据集合
-    private static int evidencesLength;
+    private static int evidencesLength = 18;
 
     public static List<OrderEvidence> getOrderEvidences() {
         return mOrderEvidences;

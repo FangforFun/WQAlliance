@@ -180,18 +180,18 @@ public class ApiWrap {
      * @param userId
      * @param companyName
      * @param trademarkImgUrl
-     * @param signedType
      * @param propertyImgUrl
+     * @param signedType
      * @param subscriber
      */
-    public static void submitUserSign(int userId, String companyName, String trademarkImgUrl, int signedType, String propertyImgUrl, SimpleObserver<Result> subscriber){
+    public static void submitUserSign(int userId, String companyName, String trademarkImgUrl, String propertyImgUrl, int signedType, SimpleObserver<Result> subscriber){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.submitUserSign(userId, companyName, trademarkImgUrl, signedType, propertyImgUrl).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.submitUserSign(userId, companyName, trademarkImgUrl, propertyImgUrl, signedType).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
