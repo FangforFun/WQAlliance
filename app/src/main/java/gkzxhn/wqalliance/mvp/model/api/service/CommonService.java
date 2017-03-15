@@ -7,6 +7,7 @@ import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
+import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Field;
@@ -192,5 +193,10 @@ public interface CommonService {
             @Field("title") String title,
             @Field("description") String description,
             @Field("orderEvidenceJson")String orderEvidenceJson
+    );
+
+    @GET("appVersion/versionUpdate")
+    Observable<VersionBean> versionUpdate(
+            @Query("appFlag") int appFlag
     );
 }

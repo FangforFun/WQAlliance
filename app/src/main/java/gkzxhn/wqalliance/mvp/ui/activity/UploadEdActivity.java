@@ -51,7 +51,7 @@ public class UploadEdActivity extends BaseContentActivity implements View.OnClic
         switch (view.getId()) {
             case R.id.rl_ed1:
                 intent.putExtra(TYPE, 0);
-                intent.putExtra("title", "当事人主题资格");
+                intent.putExtra("title", "当事人主体资格");
                 startActivity(intent);
                 break;
             case R.id.rl_ed2:

@@ -105,7 +105,7 @@ public class MyAddressActivity extends BaseContentActivity {
             hadAddr = false;
         } else {
             //保存
-            String address = et_my_addr.getText().toString().trim();
+            final String address = et_my_addr.getText().toString().trim();
             if (!TextUtils.isEmpty(address)) {
                 if (Utils.isAvailableByPing()) {
                     updateDialog = UiUtils.showProgressDialog(this);
@@ -128,6 +128,7 @@ public class MyAddressActivity extends BaseContentActivity {
                             if (result.getCode() == 0) {
                                 hadAddr = true;
                                 mTvSubtitle.setText("编辑");
+                                SPUtil.put(MyAddressActivity.this, SharedPreferenceConstants.ADDRESS, address);
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {

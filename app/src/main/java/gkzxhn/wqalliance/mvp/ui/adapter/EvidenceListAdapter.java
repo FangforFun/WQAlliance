@@ -94,11 +94,11 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
             }
         }
 
-        if (mBitmaps.containsKey(position)&&mBitmaps.get(position) != null) {
-            viewHolder.mIv_evidence.setImageBitmap(mBitmaps.get(position));
-            viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
-            viewHolder.upload_ed.setVisibility(View.GONE);
-        }
+//        if (mBitmaps.containsKey(position)&&mBitmaps.get(position) != null) {
+//            viewHolder.mIv_evidence.setImageBitmap(mBitmaps.get(position));
+//            viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
+//            viewHolder.upload_ed.setVisibility(View.GONE);
+//        }
         
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

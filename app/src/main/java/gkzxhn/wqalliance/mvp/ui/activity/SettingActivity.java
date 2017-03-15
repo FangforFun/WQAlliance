@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import com.jess.arms.utils.UiUtils;
 
 import common.AppComponent;
+import common.SuperApplication;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 
 /**
@@ -64,10 +66,12 @@ public class SettingActivity extends BaseContentActivity implements View.OnClick
                 UiUtils.showAlertDialog(this, "确定切换账号吗？", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        SPUtil.clear(SettingActivity.this);
                         Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         dialog.dismiss();
+                        SuperApplication.getOrderEvidences().clear();
                     }
                 }, new DialogInterface.OnClickListener() {
                     @Override

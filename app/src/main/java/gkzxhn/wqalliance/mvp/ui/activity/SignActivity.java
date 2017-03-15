@@ -62,6 +62,8 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     private String companyName;  //企业名称
     private String trademarkImgUrl; //商标
     private String propertyImgUrl;  //知识产权
+    private LinearLayout mLl_upload_trademark;
+    private LinearLayout mLl_knowledge_right;
 
     @Override
     protected View initContentView() {
@@ -70,6 +72,8 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
         iv_knowledge_right = (ImageView) view.findViewById(R.id.iv_knowledge_right);
         et_company_name = (EditText) view.findViewById(R.id.et_company_name);
         ll_sign_contract = (LinearLayout) view.findViewById(R.id.ll_sign_contract);
+        mLl_upload_trademark = (LinearLayout) view.findViewById(R.id.ll_upload_trademark);
+        mLl_knowledge_right = (LinearLayout) view.findViewById(R.id.ll_knowledge_right);
         return view;
     }
 
@@ -85,8 +89,8 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     @Override
     protected void initData() {
         super.initData();
-        iv_upload_trademark.setOnClickListener(this);
-        iv_knowledge_right.setOnClickListener(this);
+        mLl_upload_trademark.setOnClickListener(this);
+        mLl_knowledge_right.setOnClickListener(this);
         ll_sign_contract.setOnClickListener(this);
     }
 
@@ -100,11 +104,11 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()){
-            case R.id.iv_upload_trademark:
+            case R.id.ll_upload_trademark:
                 type = 1;
                 choosePhoto(type);
                 break;
-            case R.id.iv_knowledge_right:
+            case R.id.ll_knowledge_right:
                 type = 2;
                 choosePhoto(type);
                 break;

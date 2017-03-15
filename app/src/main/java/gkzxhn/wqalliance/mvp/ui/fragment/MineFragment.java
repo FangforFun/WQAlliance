@@ -135,6 +135,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 super.onNext(result);
                 LogUtils.i(TAG, result.toString());
                 int signedStatus = result.getData().getSignedStatus();
+                SPUtil.put(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
                 switch (signedStatus) {
                     case 0:
                         tv_sign_status.setText("未签约");

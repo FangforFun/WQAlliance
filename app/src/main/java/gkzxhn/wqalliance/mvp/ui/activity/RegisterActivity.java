@@ -115,6 +115,10 @@ public class RegisterActivity extends BaseContentActivity implements View.OnClic
                     return;
                 }
 
+                if (phone.length() != 11) {
+                    UiUtils.makeText("手机号码有误");
+                }
+
                 //发送验证码
                 new Thread(new MyCountDownTimer()).start();
                 ApiWrap.sendMsg(phone, new SimpleObserver<ResponseBody>(){

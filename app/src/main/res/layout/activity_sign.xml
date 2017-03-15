@@ -11,6 +11,8 @@
     tools:context="gkzxhn.wqalliance.mvp.ui.activity.SignActivity">
 
     <LinearLayout
+        android:id="@+id/ll_upload_trademark"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@color/W">
@@ -34,6 +36,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_knowledge_right"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@color/W">

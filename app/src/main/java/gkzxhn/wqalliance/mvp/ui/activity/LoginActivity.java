@@ -69,8 +69,8 @@ public class LoginActivity extends SuperActivity {
 
     @Override
     protected void initData() {
-        mEtAccount.setText("18163657553");
-        mEtPassword.setText("123456");
+//        mEtAccount.setText("18163657553");
+//        mEtPassword.setText("123456");
     }
 
     @OnClick({R.id.tv_forget_psw, R.id.btn_login, R.id.btn_register})
@@ -134,12 +134,12 @@ public class LoginActivity extends SuperActivity {
                             }
 
                             String contactNumber = result.getData().getContactNumber();
-                            if (address != null) {
+                            if (contactNumber != null) {
                                 SPUtil.put(LoginActivity.this, SharedPreferenceConstants.CONTACTNUMBER, contactNumber);
                             }
 
                             String email = result.getData().getAddress();
-                            if (address != null) {
+                            if (email != null) {
                                 SPUtil.put(LoginActivity.this, SharedPreferenceConstants.EMAIL, email);
                             }
 

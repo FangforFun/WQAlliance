@@ -1,6 +1,7 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -105,6 +106,8 @@ public class CheckProcessActivity extends BaseContentActivity {
                     TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
                     TextView tv_date_hour = (TextView) view.findViewById(R.id.tv_date_hour);
                     TextView tv_date_year = (TextView) view.findViewById(R.id.tv_date_year);
+
+                    Log.i(TAG, "setLayoutData: type+++++++: " + bean.getType());
                     tv_title.setText(getTitle(bean.getType()));
                     tv_date_hour.setText(DateUtils.formatTime(bean.getCreatedAt(), "HH:mm"));
                     tv_date_year.setText(DateUtils.formatTime(bean.getCreatedAt(), "yyyy-MM-dd"));
@@ -122,7 +125,7 @@ public class CheckProcessActivity extends BaseContentActivity {
     }
 
     /**
-     * // type  0-提交；1-审核拒绝；2-审核同意；3-报价；4-完成
+     * // type  0-提交；1-审核拒绝；2-审核同意；3-报价；4-已支付; 5-已完成;
      * @param type
      * @return
      */
@@ -142,7 +145,10 @@ public class CheckProcessActivity extends BaseContentActivity {
                 result = "案件报价";
                 break;
             case 4:
-                result = "完成";
+                result = "已支付";
+                break;
+            case 5:
+                result = "已完成";
                 break;
             default:
                 result = "未知";

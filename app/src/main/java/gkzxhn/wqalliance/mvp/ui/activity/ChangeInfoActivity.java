@@ -146,7 +146,6 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                                 }else {
                                     openCamera();
                                 }
-                                openCamera();
                                 break;
                         }
                     }
@@ -176,11 +175,13 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
      * 打开相机
      */
     private void openCamera() {
-        Intent openCameraIntent = new Intent(
-                MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         Uri imageUri = Uri.fromFile(new File(Environment
                 .getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg"));
+
+        Log.i(TAG, "openCamera: uri-------" + imageUri);
+
         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(openCameraIntent, TAKE_PHOTO);
     }
@@ -219,6 +220,8 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                 DialogUtil.dismissDialog(chooseImageDialog);
                 avatar_path = Environment
                         .getExternalStorageDirectory() + File.separator + "image.jpg";
+
+                Log.i(TAG, "onActivityResult: avatar_path === " + avatar_path);
                 photo = BitmapFactory.decodeFile(avatar_path);
                 iv_avatar.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
                 canUpload = photo != null;

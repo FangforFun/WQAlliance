@@ -17,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import common.AppComponent;
 import common.SuperActivity;
+import common.SuperApplication;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerMainComponent;
 import gkzxhn.wqalliance.di.module.MainModule;
@@ -174,5 +175,11 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         }else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SuperApplication.getOrderEvidences().clear();
     }
 }

@@ -55,9 +55,15 @@ public class MyOrderListAdapter extends RecyclerView.Adapter<MyOrderListAdapter.
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.tv_order_title.setText(mDataList.get(position).getTitle());
         holder.tv_order_time.setText(DateUtils.getTimeString(mDataList.get(position).getCreatedAt()));
-        if (type == 3){
-            Log.i(TAG, "onBindViewHolder: mdataList...." + mDataList.get(position));
-            holder.tv_total_spend.setText("总计费用：" + mDataList.get(position).getMoney());
+        Log.i(TAG, "onBindViewHolder: mdataList...." + mDataList.get(position));
+        if (type == 3 || type == 4 || type == 5){
+            int money = ((int)(mDataList.get(position).getMoney() / 100));
+            int mMoney = mDataList.get(position).getMoney() % 100;
+            if (mMoney / 10 == 0) {
+                holder.tv_total_spend.setText("总计费用：" + money + ".0" + mMoney);
+            }else {
+                holder.tv_total_spend.setText("总计费用：" + money + "." + mMoney);
+            }
         }
         setItemStatus(holder);
         holder.tv_label1.setOnClickListener(new View.OnClickListener() {

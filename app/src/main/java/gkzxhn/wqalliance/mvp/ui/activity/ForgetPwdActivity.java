@@ -105,6 +105,9 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                     UiUtils.makeText("请填写手机号");
                     return;
                 }
+                if (phone.length() != 11) {
+                    UiUtils.makeText("手机号码有误");
+                }
                 new Thread(new MyCountDownTimer()).start();
                 break;
         }

@@ -86,4 +86,14 @@
     <string name="wxpay">微信支付</string>
     <string name="pay_note">本案需支付律师案件处理费</string>
     <string name="pay_total_money">￥ xxxx</string>
+
+    <string name="update_version_hint">维权联盟更新</string>
+    <string name="new_version_colon">新版本：</string>
+    <string name="has_last_version">已经是最新版本</string>
+    <string name="download">下载</string>
+    <string name="check_update">检测更新</string>
+    <string name="check_updating">正在检测最新版本...</string>
+
+    <string name="download_failed">下载失败</string>
+
 </resources>
