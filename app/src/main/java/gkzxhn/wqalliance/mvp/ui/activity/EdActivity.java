@@ -6,7 +6,6 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -28,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import common.AppComponent;
+import gkzxhn.utils.BitmapUtils;
 import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.FileUtil;
 import gkzxhn.wqalliance.R;
@@ -147,6 +147,9 @@ public class EdActivity extends BaseContentActivity {
             // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg
             try {
                 Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+
+                photo = BitmapUtils.getSmallBitmap(path);
+
                 DialogUtil.dismissDialog(chooseDialog);
                 if (photo != null) {
                     // 先上传  上传成功再更新数据  更新成功再显示在界面上
@@ -164,7 +167,7 @@ public class EdActivity extends BaseContentActivity {
             DialogUtil.dismissDialog(chooseDialog);
             String path = Environment
                     .getExternalStorageDirectory() + File.separator + "image.jpg";
-            mEvidenceListAdapter.uploadImage(BitmapFactory.decodeFile(path), path, position);
+            mEvidenceListAdapter.uploadImage(BitmapUtils.getSmallBitmap(path), path, position);
         }
         }
 

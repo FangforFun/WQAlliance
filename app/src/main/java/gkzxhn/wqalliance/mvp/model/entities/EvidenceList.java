@@ -37,5 +37,26 @@ public class EvidenceList {
         public long createdAt;
         public String updatedAt;
         public int sysFlag;
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id=" + id +
+                    ", type=" + type +
+                    ", evidenceName='" + evidenceName + '\'' +
+                    ", createdAt=" + createdAt +
+                    ", updatedAt='" + updatedAt + '\'' +
+                    ", sysFlag=" + sysFlag +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "EvidenceList{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

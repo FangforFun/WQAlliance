@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,6 @@ import java.util.List;
 
 import common.SuperApplication;
 import gkzxhn.utils.FileUtil;
-import gkzxhn.utils.ImageTools;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
@@ -76,6 +76,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         EvidenceItemViewHolder viewHolder = (EvidenceItemViewHolder) holder;
         viewHolder.mTv_evidence_name.setText(mData.get(position).evidenceName);
+        Log.i(TAG, "onBindViewHolder: EvidenceList.mData-----" + mData);
         int id = mData.get(position).id;
 
         List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
@@ -194,6 +195,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                         for (OrderEvidence orderEvidence : orderEvidences) {
                             if (orderEvidence.evidenceId == id) {
                                 orderEvidence.imgUrl = imgUrl;
+                                notifyDataSetChanged();
                                 return;
                             }
                         }
@@ -202,7 +204,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                         orderEvidence.imgUrl = imgUrl;
                         orderEvidences.add(orderEvidence);
 
-                        mBitmaps.put(position, ImageTools.zoomBitmap(photo, photo.getWidth()/2, photo.getHeight()/2));
+//                        mBitmaps.put(position, ImageTools.zoomBitmap(photo, photo.getWidth()/2, photo.getHeight()/2));
                         notifyDataSetChanged();
                     } else {
                         LogUtils.i(TAG, "bitmap is null");
