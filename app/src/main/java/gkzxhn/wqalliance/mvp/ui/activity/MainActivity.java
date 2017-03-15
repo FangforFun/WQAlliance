@@ -1,8 +1,11 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +25,15 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerMainComponent;
 import gkzxhn.wqalliance.di.module.MainModule;
 import gkzxhn.wqalliance.mvp.contract.MainContract;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import gkzxhn.wqalliance.mvp.presenter.MainPresenter;
 import gkzxhn.wqalliance.mvp.ui.fragment.HomeFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.MessageFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.MineFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.ProtectionFragment;
+import gkzxhn.wqalliance.mvp.widget.UpdateDialog;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -76,6 +83,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         mFragments.add(new MessageFragment());
         mFragments.add(new MineFragment());
 
+        checkVersion();
         setListener();
     }
 
@@ -182,4 +190,62 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         super.onDestroy();
         SuperApplication.getOrderEvidences().clear();
     }
+
+    /**
+     * 升级对话框
+     */
+    private UpdateDialog updateDialog;
+
+    /**
+     * 检查版本
+     */
+    private void checkVersion() {
+        ApiWrap.versionUpdate(new SimpleObserver<VersionBean>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                Log.i(TAG, "onError: checkVersion  : " + e.getMessage());
+            }
+
+            @Override
+            public void onNext(VersionBean versionBean) {
+                super.onNext(versionBean);
+                Log.i(TAG, "onNext: versionBean      " + versionBean);
+                if (versionBean.code == 0) {
+                    int newVersion = versionBean.data.versionNo;
+                    PackageManager pm = getPackageManager();
+                    PackageInfo packageInfo = null;
+                    try {
+                        packageInfo = pm.getPackageInfo(getPackageName(),
+                                PackageManager.GET_CONFIGURATIONS);
+                        int currentVersion = packageInfo.versionCode;
+                        if (newVersion > currentVersion) {
+                            String versionName = versionBean.data.versionName;
+                            String downloadUrl = versionBean.data.downloadUrl;
+                            boolean isForceUpdate = versionBean.data.forceFlag == 0 ? false : true;
+                            updateDialog = new UpdateDialog(MainActivity.this);
+
+                            updateDialog.setForceUpdate(isForceUpdate);
+                            updateDialog.setDownloadInfor(versionName,downloadUrl);
+                            updateDialog.setOnDownloadListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if(updateDialog !=null&& updateDialog.isShowing()) updateDialog.dismiss();
+
+                                }
+                            });
+                            updateDialog.show();
+                        }else{
+                            Log.i(TAG, "onNext: versionUpdate....已是最新版本.." + versionBean.data.versionName);
+                        }
+                    }catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    UiUtils.makeText(versionBean.msg);
+                }
+            }
+        });
+    }
+
 }

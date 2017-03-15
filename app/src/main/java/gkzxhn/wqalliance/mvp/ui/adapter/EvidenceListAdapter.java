@@ -61,11 +61,6 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
 
     public EvidenceListAdapter(List<EvidenceList.DataBean> data, Activity activity) {
         mActivity = activity;
-//        mRxPermissions = new RxPermissions(mActivity);
-//        mErrorHandler = RxErrorHandler
-//                .builder()
-//                .with(mActivity.getApplication())
-//                .build();
         mData = data;
         for (int i = 0; i < mData.size(); i++) {
         }

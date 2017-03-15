@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,6 +22,7 @@ import gkzxhn.wqalliance.mvp.model.api.HttpStatus;
  */
 
 public class DownLoadHelper {
+    private static final String TAG = "DownLoadHelper";
     private SuperApplication application;
     private DownloadFinishListener listener;
     private DownloadAsyn downloadAsyn;
@@ -120,10 +122,11 @@ public class DownLoadHelper {
             int responseCode=0;
             File tmpFile = new File(Constants.SD_FILE_CACHE_PATH);
             if (!tmpFile.exists()) {
-                tmpFile.mkdir();
+                tmpFile.mkdirs();
             }
-            final File file = new File(Constants.SD_FILE_CACHE_PATH + "/" + "WQLMLawyer.apk");
+            final File file = new File(Constants.SD_FILE_CACHE_PATH + "/" + "WQAlliance.apk");
             filePath=file.getAbsolutePath();
+            Log.i(TAG, "doInBackground: filePath------" + filePath);
             try {
                 URL url = new URL(mUrl);
                 HttpURLConnection connection = (HttpURLConnection) url

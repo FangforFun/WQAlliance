@@ -49,9 +49,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 SystemClock.sleep(1000);
-
-                checkVersion();
-
                 String phone = (String) SPUtil.get(SplashActivity.this, SharedPreferenceConstants.PHONE, "");
                 if (!TextUtils.isEmpty(phone)) {
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));

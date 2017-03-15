@@ -34,5 +34,27 @@ public class VersionBean {
         public int forceFlag;
         public int sysFlag;
         public String downloadUrl;
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id=" + id +
+                    ", versionNo=" + versionNo +
+                    ", versionName='" + versionName + '\'' +
+                    ", appFlag=" + appFlag +
+                    ", forceFlag=" + forceFlag +
+                    ", sysFlag=" + sysFlag +
+                    ", downloadUrl='" + downloadUrl + '\'' +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "VersionBean{" +
+                "msg='" + msg + '\'' +
+                ", code=" + code +
+                ", data=" + data +
+                '}';
     }
 }
