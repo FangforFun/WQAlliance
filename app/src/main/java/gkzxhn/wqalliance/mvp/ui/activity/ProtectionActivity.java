@@ -15,6 +15,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.LogUtils;
 import com.google.gson.Gson;
 import com.jess.arms.utils.UiUtils;
 
@@ -56,6 +57,31 @@ public class ProtectionActivity extends BaseContentActivity implements View.OnCl
     protected void setTitleData() {
         mTvTitle.setText("我要维权");
         mTvSubtitle.setVisibility(View.GONE);
+
+        int userId = (int) SPUtil.get(this, SharedPreferenceConstants.USERID, 0);
+        getSignStatusFromNet(userId);
+    }
+
+    /**
+     * 从网络获取签约状态
+     * @param userId
+     */
+    private void getSignStatusFromNet(int userId) {
+        ApiWrap.getUser(userId, new SimpleObserver<Result>() {
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(Result result) {
+                super.onNext(result);
+                LogUtils.i(TAG, result.toString());
+                int signedStatus = result.getData().getSignedStatus();
+                SPUtil.put(ProtectionActivity.this, SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
+            }
+        });
+
     }
 
     @Override

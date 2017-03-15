@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.netease.nim.uikit.NimUIKit;
+
 import butterknife.ButterKnife;
 import gkzxhn.wqalliance.R;
 

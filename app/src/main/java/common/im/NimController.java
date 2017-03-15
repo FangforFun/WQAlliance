@@ -40,9 +40,9 @@ public class NimController {
 
     public static final String TAG = "NimController";
 
-    public static void init(final Context context){
+    public static void init(final Context context, LoginInfo loginInfo){
         // sdk初始化
-        NIMClient.init(context, null, options(context));
+        NIMClient.init(context, loginInfo, options(context));
         if (inMainProcess()) {
             NimUIKit.init(context);
             NIMClient.getService(AuthServiceObserver.class).observeOnlineStatus(

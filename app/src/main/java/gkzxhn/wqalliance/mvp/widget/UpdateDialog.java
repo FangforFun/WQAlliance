@@ -1,6 +1,5 @@
 package gkzxhn.wqalliance.mvp.widget;
 
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +34,7 @@ public class UpdateDialog extends Dialog{
 	public UpdateDialog(Context context) {
 		super(context, R.style.update_dialog_style);
 		this.context=context;
-		mHelper=new DownLoadHelper(downloadFinishListener);
+		mHelper=new DownLoadHelper();
 	}
 	public void setDownloadInfor(String versionName,String downloadUrl) {
 		this.downloadUrl = downloadUrl;
@@ -80,8 +79,11 @@ public class UpdateDialog extends Dialog{
 		this.isForceUpdate=isForceUpdate;
 		if(tvDownload!=null) {
 			setCanceledOnTouchOutside(!isForceUpdate);
-			findViewById(R.id.update_dialog_layout_tv_cancel).setVisibility(isForceUpdate ? View.GONE : View.VISIBLE);
-			findViewById(R.id.update_dialog_layout_v_mid).setVisibility(isForceUpdate ? View.GONE : View.VISIBLE);
+			tvCancel.setVisibility(isForceUpdate ? View.GONE : View.VISIBLE);
+			vMidLine.setVisibility(isForceUpdate ? View.GONE : View.VISIBLE);
+			tvDownload.setEnabled(true);
+			tvProgress.setVisibility(View.GONE);
+			mProgress.setVisibility(View.GONE);
 		}
 	}
 
@@ -91,6 +93,7 @@ public class UpdateDialog extends Dialog{
 
 			@Override
 			public void onClick(View v) {
+				mHelper.setListener(downloadFinishListener);
 				tvDownload.setEnabled(false);
 				tvProgress.setVisibility(View.VISIBLE);
 				mProgress.setVisibility(View.VISIBLE);
@@ -102,9 +105,16 @@ public class UpdateDialog extends Dialog{
 			@Override
 			public void onClick(View v) {
 				dismiss();
+				if(mHelper!=null)mHelper.onStop();
 				if(listener!=null)listener.onClick(v);
 			}
 		});
+	}
+
+	@Override
+	public void setOnDismissListener(OnDismissListener listener) {
+		super.setOnDismissListener(listener);
+		if(mHelper!=null)mHelper.onStop();
 	}
 
 	@Override
@@ -116,7 +126,6 @@ public class UpdateDialog extends Dialog{
 	private DownLoadHelper.DownloadFinishListener downloadFinishListener=new DownLoadHelper.DownloadFinishListener() {
 		@Override
 		public void onSuccess(String filePath) {
-			dismiss();
 			//安装apk
 			File apkfile = new File(filePath);
 			if (!apkfile.exists()) {
@@ -127,6 +136,7 @@ public class UpdateDialog extends Dialog{
 			i.setDataAndType(Uri.parse("file://" + apkfile.toString()),
 					"application/vnd.android.package-archive");
 			context.startActivity(i);
+			dismiss();
 		}
 
 		@Override
@@ -138,10 +148,10 @@ public class UpdateDialog extends Dialog{
 
 		@Override
 		public void onProgress(int currentSize, int totalSize) {
-			totalSize=totalSize/1024 / 1024;
-			currentSize = currentSize / 1024 / 1024;
-			mProgress.setProgress((int) (currentSize / totalSize * 100));
-			tvProgress.setText(String.format("%sMB/%sMB", currentSize > totalSize ? totalSize : currentSize, totalSize));
+			float total=(float)totalSize/1024 / 1024;
+			float current= (float)currentSize / 1024 / 1024;
+			mProgress.setProgress((int) (current / total * 100));
+			tvProgress.setText(String.format("%.2fMB/%.2fMB", current> total ? total: current, total));
 
 		}
 	};

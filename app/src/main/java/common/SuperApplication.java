@@ -11,6 +11,7 @@ import com.jess.arms.base.BaseApplication;
 import com.jess.arms.di.module.GlobeConfigModule;
 import com.jess.arms.http.GlobeHttpHandler;
 import com.jess.arms.utils.UiUtils;
+import com.netease.nimlib.sdk.auth.LoginInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,9 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.im.NimController;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.di.module.CacheModule;
 import gkzxhn.wqalliance.di.module.ServiceModule;
 import gkzxhn.wqalliance.mvp.model.api.Api;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import me.jessyan.rxerrorhandler.handler.listener.ResponseErroListener;
 import okhttp3.Interceptor;
@@ -60,7 +63,7 @@ public class SuperApplication extends BaseApplication {
         Utils.init(this);
         // 初始化log  第二个参数为true会将log写入文件  context.getCacheDir()目录下
         LogUtils.init(true, true, 'v', getClass().getName());
-        NimController.init(this);
+        NimController.init(this, loginInfo());
 
         //Android7.0权限适配  android.os.FileUriExposedException 解决方法
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
@@ -68,6 +71,21 @@ public class SuperApplication extends BaseApplication {
         if (Build.VERSION.SDK_INT >= 18) {
             builder.detectFileUriExposure();
         }
+    }
+
+    /**
+     * 登录云信账号
+     */
+    private LoginInfo loginInfo() {
+        // 从本地读取上次登录成功时保存的用户登录信息
+        String account = (String) SPUtil.get(this, SharedPreferenceConstants.USER_YXACCESS, "");
+        String token = (String) SPUtil.get(this, SharedPreferenceConstants.USER_YXTOKEN, "");
+        if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(token)) {
+            return new LoginInfo(account, token);
+        } else {
+            return null;
+        }
+
     }
 
     //将AppComponent返回出去,供其它地方使用, AppComponent接口中声明的方法返回的实例, 在getAppComponent()拿到对象后都可以直接使用

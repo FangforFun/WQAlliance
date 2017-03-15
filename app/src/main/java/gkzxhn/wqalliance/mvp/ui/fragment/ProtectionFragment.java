@@ -16,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.LogUtils;
 import com.google.gson.Gson;
 import com.jess.arms.utils.UiUtils;
 
@@ -29,8 +30,11 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.di.component.DaggerProtectionComponent;
 import gkzxhn.wqalliance.di.module.ProtectionModule;
 import gkzxhn.wqalliance.mvp.contract.ProtectionContract;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.presenter.ProtectionPresenter;
 import gkzxhn.wqalliance.mvp.ui.activity.MyOrderActivity;
 import gkzxhn.wqalliance.mvp.ui.activity.SignActivity;
@@ -85,6 +89,30 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
         mTvSubtitle.setVisibility(View.GONE);
         mTvTitle.setText("我要维权");
 
+        int userId = (int) SPUtil.get(getActivity(), SharedPreferenceConstants.USERID, 0);
+        getSignStatusFromNet(userId);
+    }
+
+    /**
+     * 从网络获取签约状态
+     * @param userId
+     */
+    private void getSignStatusFromNet(int userId) {
+        ApiWrap.getUser(userId, new SimpleObserver<Result>() {
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(Result result) {
+                super.onNext(result);
+                LogUtils.i(TAG, result.toString());
+                int signedStatus = result.getData().getSignedStatus();
+                SPUtil.put(getActivity(), SharedPreferenceConstants.SIGNEDSTATUS, signedStatus);
+            }
+        });
+
     }
 
     @Override
@@ -137,7 +165,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
             String description = mDesc.getText().toString().trim();
             List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
 
-            if (orderEvidences.size()<18) {
+            if (orderEvidences.size() < 18) {
                 UiUtils.makeText("请上传所有证据信息");
                 return;
             }

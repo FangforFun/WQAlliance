@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -12,12 +13,15 @@ import android.widget.TextView;
 import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
+import java.io.IOException;
+
 import common.AppComponent;
 import gkzxhn.utils.Utils;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
+import okhttp3.ResponseBody;
 
 /**
  * Author: Huang ZN
@@ -109,6 +113,37 @@ public class ForgetPwdActivity extends BaseContentActivity implements View.OnCli
                     UiUtils.makeText("手机号码有误");
                 }
                 new Thread(new MyCountDownTimer()).start();
+                ApiWrap.sendMsg(phone, new SimpleObserver<ResponseBody>(){
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: send_code   " + e.getMessage());
+                        super.onError(e);
+                    }
+
+//                    @Override
+//                    public void onNext(Code code) {
+//                        super.onNext(code);
+//                        Log.i(TAG, "onNext: code" + code.code);
+//                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        super.onNext(responseBody);
+                        String result = null;
+                        try {
+                            result = responseBody.string();
+                            Log.i(TAG, "onNext: send _ code _ result  " + result);
+//                            if ("success".equals(result)) {
+                            UiUtils.makeText("验证码已发送");
+//                            }else {
+//                                UiUtils.makeText("验证码发送失败");
+//                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i(TAG, "onNext: send_code   " + result);
+                    }
+                });
                 break;
         }
     }

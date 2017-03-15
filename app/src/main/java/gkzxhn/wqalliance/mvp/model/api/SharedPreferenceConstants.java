@@ -48,4 +48,18 @@ public class SharedPreferenceConstants {
      * 签约状态: 0 未签约 ; 1 签约中; 2 签约失败 ; 3 签约成功
      */
     public static final String SIGNEDSTATUS = "signedStatus";
+
+    /**
+     * 新消息提醒
+     */
+    public static final String NOTIFICATION = "notification";
+    /**
+     * 云信账号
+     */
+    public static final String USER_YXACCESS = "USER_YXACCESS";
+
+    /**
+     * 云信密码
+     */
+    public static final String USER_YXTOKEN = "user_yxtoken";
 }

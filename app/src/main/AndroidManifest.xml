@@ -102,36 +102,60 @@
             android:name="com.jess.arms.widget.imageloader.glide.GlideConfiguration"
             android:value="GlideModule" />
 
-        <activity android:name=".mvp.ui.activity.SplashActivity">
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.LoginActivity" />
-        <activity android:name=".mvp.ui.activity.RegisterActivity" />
-        <activity android:name=".mvp.ui.activity.MainActivity" />
-        <activity android:name=".mvp.ui.activity.UploadEdActivity" />
-        <activity android:name=".mvp.ui.activity.Ed1Activity" />
-        <activity android:name=".mvp.ui.activity.Ed2Activity" />
-        <activity android:name=".mvp.ui.activity.Ed3Activity" />
-        <activity android:name=".mvp.ui.activity.Ed4Activity" />
-        <activity android:name=".mvp.ui.activity.MessageActivity" />
-        <activity android:name=".mvp.ui.activity.ProtectionActivity" />
-        <activity android:name=".mvp.ui.activity.MyOrderActivity" />
-        <activity android:name=".mvp.ui.activity.MyAddressActivity" />
-        <activity android:name=".mvp.ui.activity.ContactWayActivity" />
-        <activity android:name=".mvp.ui.activity.SignActivity" />
-        <activity android:name=".mvp.ui.activity.SettingActivity" />
-        <activity android:name=".mvp.ui.activity.CheckProcessActivity" />
-        <activity android:name=".mvp.ui.activity.ForgetPwdActivity" />
-        <activity android:name=".mvp.ui.activity.NotificationSettingActivity" />
-        <activity android:name=".mvp.ui.activity.ChangePasswordActivity" />
-        <activity android:name=".mvp.ui.activity.ChangeInfoActivity" />
-        <activity android:name=".mvp.ui.activity.SignContractActivity" />
-        <activity android:name=".mvp.ui.activity.EdActivity" />
-        <activity android:name=".mvp.ui.activity.PayWaysActivity"></activity>
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.LoginActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.RegisterActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.MainActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.UploadEdActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.Ed1Activity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.Ed2Activity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.Ed3Activity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.Ed4Activity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.MessageActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.ProtectionActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.MyOrderActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.MyAddressActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.ContactWayActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.SignActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.SettingActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.CheckProcessActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.ForgetPwdActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.NotificationSettingActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.ChangePasswordActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.ChangeInfoActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.SignContractActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.EdActivity" />
+        <activity         android:screenOrientation="portrait"
+                          android:name=".mvp.ui.activity.PayWaysActivity"/>
 
         <provider
             android:authorities="WQAlliance.fileprovider"

@@ -119,6 +119,10 @@ public class LoginActivity extends SuperActivity {
                         SPUtil.clear(LoginActivity.this);
                         LogUtils.i(TAG, "login request result: " + result.toString());
                         if (result.getCode() == 0){
+                            //是否开启新消息提醒
+                            boolean notification = (boolean) SPUtil.get(LoginActivity.this, SharedPreferenceConstants.NOTIFICATION, true);
+                            SPUtil.put(LoginActivity.this, SharedPreferenceConstants.NOTIFICATION, notification);
+
                             SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USERID, result.getData().getId());
                             if (result.getData().getFaceImgUrl() != null) {
                               SPUtil.put(LoginActivity.this, SharedPreferenceConstants.FACEIMGURL, result.getData().getFaceImgUrl());
@@ -175,11 +179,13 @@ public class LoginActivity extends SuperActivity {
      * @param account
      * @param pwd
      */
-    private void loginNim(final String account, String pwd) {
+    private void loginNim(final String account, final String pwd) {
         NimController.login(account, pwd, new RequestCallback<LoginInfo>() {
             @Override public void onSuccess(LoginInfo param) {
                 UiUtils.dismissProgressDialog(loginDialog);
                 NimUIKit.setAccount(account);
+                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USER_YXACCESS, account);
+                SPUtil.put(LoginActivity.this, SharedPreferenceConstants.USER_YXTOKEN, pwd);
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 LoginActivity.this.finish();
             }

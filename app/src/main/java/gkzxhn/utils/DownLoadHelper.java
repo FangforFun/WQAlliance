@@ -39,17 +39,21 @@ public class DownLoadHelper {
     };
 
 
-    public DownLoadHelper(DownloadFinishListener listener){
+    public DownLoadHelper(){
         application= (SuperApplication) SuperApplication.getContext();
-        this.listener=listener;
-
     }
+
+    public void setListener(DownloadFinishListener listener) {
+        this.listener = listener;
+    }
+
     public void download(String filePath){
         this.mUrl=filePath;
         startAsynTask();
     }
 
     public void onStop(){
+        listener = null;
         if (downloadAsyn != null) {
             if (downloadAsyn.getStatus() == AsyncTask.Status.RUNNING) downloadAsyn.cancel(true);
             downloadAsyn = null;

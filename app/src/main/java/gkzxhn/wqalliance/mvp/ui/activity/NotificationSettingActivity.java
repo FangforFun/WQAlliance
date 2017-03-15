@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import com.jess.arms.utils.UiUtils;
-
 import common.AppComponent;
+import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
+import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 
 /**
  * Author: Huang ZN
@@ -32,6 +32,8 @@ public class NotificationSettingActivity extends BaseContentActivity {
     protected View initContentView() {
         View view = LayoutInflater.from(this).inflate(R.layout.activity_notification_setting, null, false);
         aSwitch_new_msg_remind = (Switch) view.findViewById(R.id.aSwitch_new_msg_remind);
+        Boolean checked = (Boolean) SPUtil.get(this, SharedPreferenceConstants.NOTIFICATION, true);
+        aSwitch_new_msg_remind.setChecked(checked);
         return view;
     }
 
@@ -41,7 +43,8 @@ public class NotificationSettingActivity extends BaseContentActivity {
         aSwitch_new_msg_remind.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                UiUtils.makeText(isChecked ? "已开启" : "已关闭");
+//                UiUtils.makeText(isChecked ? "已开启" : "已关闭");
+                SPUtil.put(NotificationSettingActivity.this, SharedPreferenceConstants.NOTIFICATION, isChecked);
             }
         });
     }
