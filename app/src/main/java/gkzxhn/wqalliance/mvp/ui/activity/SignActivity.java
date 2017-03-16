@@ -209,6 +209,15 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                     Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
 
                     photo = BitmapUtils.getSmallBitmap(path);
+                    try {
+                        //图片压缩存储
+                        String fileName = String.valueOf(System.currentTimeMillis() + "sign.jpg");
+                        File avatarFile = BitmapUtils.saveFile(photo, Constants.SD_FILE_CACHE_PATH, fileName);
+                        path = Constants.SD_FILE_CACHE_PATH + File.separator + fileName;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     DialogUtil.dismissDialog(chooseDialog);
                     if (photo != null) {
                         // 先上传  上传成功再更新数据  更新成功再显示在界面上
@@ -225,8 +234,15 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 // 上传
                 DialogUtil.dismissDialog(chooseDialog);
                 String path = Constants.SD_FILE_CACHE_PATH + File.separator + fileName;
+                Bitmap photo = BitmapUtils.getSmallBitmap(path);
+                try {
+                    //图片压缩存储
+                    File avatarFile = BitmapUtils.saveFile(photo, Constants.SD_FILE_CACHE_PATH, fileName);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-                uploadImage(BitmapUtils.getSmallBitmap(path), path, requestCode);
+                uploadImage(photo, path, requestCode);
             }
         }
     }

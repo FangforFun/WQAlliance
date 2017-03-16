@@ -51,14 +51,19 @@ public class SplashActivity extends AppCompatActivity {
         int userId = (int) SPUtil.get(SplashActivity.this, SharedPreferenceConstants.USERID, 0);
         if (!TextUtils.isEmpty(phone) && userId != 0) {
             UiUtils.makeText("自动登录...");
-            ApiWrap.getUser(userId, new SimpleObserver<Result>(){
+            ApiWrap.getUser(userId, new SimpleObserver<Result>() {
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            UiUtils.makeText("网络异常,自动登录失败...");
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    UiUtils.makeText("网络异常,自动登录失败...");
+                                }
+                            });
                             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                             finish();
                         }

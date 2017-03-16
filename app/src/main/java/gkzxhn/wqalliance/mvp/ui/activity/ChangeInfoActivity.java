@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import common.AppComponent;
+import gkzxhn.utils.BitmapUtils;
 import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.FileUtil;
 import gkzxhn.utils.ImageTools;
@@ -228,6 +229,16 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
 
                 Log.i(TAG, "onActivityResult: avatar_path === " + avatar_path);
                 photo = BitmapFactory.decodeFile(avatar_path);
+
+                photo = BitmapUtils.getSmallBitmap(avatar_path);
+
+                try {
+                    //图片压缩存储
+                    File avatarFile = BitmapUtils.saveFile(photo, Constants.SD_FILE_CACHE_PATH, fileName);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 iv_avatar.setImageBitmap(ImageTools.zoomBitmap(photo, photo.getWidth() / 5, photo.getHeight() / 5));
                 canUpload = photo != null;
             }

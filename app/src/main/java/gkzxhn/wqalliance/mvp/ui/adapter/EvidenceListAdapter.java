@@ -85,8 +85,12 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
         //从已传证据里面加载图片
         for (OrderEvidence orderEvidence : orderEvidences) {
             if (id == orderEvidence.evidenceId) {
-                Log.i(TAG, "onBindViewHolder: onVindViewHodler_imgUrl---- " + orderEvidence.imgUrl);
-                Glide.with(mActivity).load(orderEvidence.imgUrl).error(R.drawable.avatar_def).into(viewHolder.mIv_evidence);
+                Log.i(TAG, "onBindViewHolder: onVindViewHodler_imgUrl---- " + position + " :  " + orderEvidence.imgUrl);
+                Glide.with(mActivity)
+                        .load(orderEvidence.imgUrl)
+                        .error(R.drawable.avatar_def)
+                        .override(640, 480)
+                        .into(viewHolder.mIv_evidence);
                 viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
                 viewHolder.upload_ed.setVisibility(View.GONE);
             }
