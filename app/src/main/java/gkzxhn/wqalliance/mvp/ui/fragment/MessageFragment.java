@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.netease.nim.uikit.NimUIKit;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import gkzxhn.wqalliance.R;
 
 /**
@@ -30,8 +31,8 @@ public class MessageFragment extends android.support.v4.app.Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-//    @OnClick(R.id.tv_title)
-//    public void onclick(View view){
-//        NimUIKit.startP2PSession(getActivity(), "gkzxhn002");
-//    }
+    @OnClick(R.id.tv_title)
+    public void onclick(View view){
+        NimUIKit.startP2PSession(getActivity(), "gkzxhn005");
+    }
 }

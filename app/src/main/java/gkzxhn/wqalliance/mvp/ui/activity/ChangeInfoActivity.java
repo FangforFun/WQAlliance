@@ -134,9 +134,7 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                         LogUtils.i(TAG, "checked position: " + which);
                         switch (which){
                             case 0:// 图库
-                                Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                                openAlbumIntent.setType("image/*");
-                                startActivityForResult(openAlbumIntent, CHOOSE_PHOTO);
+                                addStoragePermission();
                                 break;
                             case 1:// 相机
                                 //检查权限
@@ -156,6 +154,34 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
         }
     }
 
+    /**
+     * 打开相册
+     */
+    private void openAlbum() {
+        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        openAlbumIntent.setType("image/*");
+        startActivityForResult(openAlbumIntent, CHOOSE_PHOTO);
+    }
+
+    /**
+     * 检查存储权限
+     */
+    private void addStoragePermission() {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请WRITE_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+        }
+        else if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请READ_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }else {
+            openAlbum();
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -167,6 +193,14 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
                     Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
                     // TODO: 2016/11/4
                     openCamera();
+                }
+                break;
+            case 2:
+                Log.i(TAG, "onRequestPermissionsResult: storage--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    // TODO: 2016/11/4
+                    openAlbum();
                 }
                 break;
         }

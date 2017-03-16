@@ -87,6 +87,8 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         setListener();
     }
 
+
+
     private void setListener() {
         int childCount = mMainBottomeSwitcherContainer.getChildCount();
         for (int i = 0; i < childCount; i++) {

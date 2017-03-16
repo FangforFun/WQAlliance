@@ -138,9 +138,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 LogUtils.i(TAG, "checked position: " + which);
                 switch (which){
                     case 0:// 图库
-                        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                        openAlbumIntent.setType("image/*");
-                        startActivityForResult(openAlbumIntent, type == 1 ? CHOOSE_PHOTO_1 : CHOOSE_PHOTO_2);
+                        addStoragePermission(type);
                         break;
                     case 1:// 相机
                         //检查权限
@@ -159,6 +157,35 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
         });
     }
 
+    /**
+     * 打开相册
+     * @param type
+     */
+    private void openAlbum(int type) {
+        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        openAlbumIntent.setType("image/*");
+        startActivityForResult(openAlbumIntent, type == 1 ? CHOOSE_PHOTO_1 : CHOOSE_PHOTO_2);
+    }
+
+    /**
+     * 检查存储权限
+     */
+    private void addStoragePermission(int type) {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请WRITE_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+        }
+        else if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请READ_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }else {
+            openAlbum(type);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -170,6 +197,14 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                     Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
                     // TODO: 2016/11/4
                     openCamera(type);
+                }
+                break;
+            case 2:
+                Log.i(TAG, "onRequestPermissionsResult: storage--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    // TODO: 2016/11/4
+                    openAlbum(type);
                 }
                 break;
         }

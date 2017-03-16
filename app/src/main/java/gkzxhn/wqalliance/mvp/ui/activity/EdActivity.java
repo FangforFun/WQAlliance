@@ -46,6 +46,7 @@ public class EdActivity extends BaseContentActivity {
     private EvidenceListAdapter mEvidenceListAdapter;
     private int mType;
     private String mFileName;
+    private int mClickPosition;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -114,6 +115,14 @@ public class EdActivity extends BaseContentActivity {
                     Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
                     // TODO: 2016/11/4
                     mEvidenceListAdapter.takePhoto(requestCode);
+                }
+                break;
+            case 2:
+                Log.i(TAG, "onRequestPermissionsResult: storage--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    // TODO: 2016/11/4
+                    mEvidenceListAdapter.openAlbum(mClickPosition);
                 }
                 break;
         }
@@ -196,5 +205,9 @@ public class EdActivity extends BaseContentActivity {
 
     public void setFileName(String fileName) {
         mFileName = fileName;
+    }
+
+    public void setClickPosition(int clickPosition) {
+        mClickPosition = clickPosition;
     }
 }

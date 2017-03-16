@@ -129,9 +129,8 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                 LogUtils.i(TAG, "checked position: " + which);
                 switch (which){
                     case 0:// 图库
-                        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                        openAlbumIntent.setType("image/*");
-                        mActivity.startActivityForResult(openAlbumIntent, TYPE_CHOOSEPHOTO * 1000 + position);
+                        ((EdActivity)mActivity).setClickPosition(position);
+                        addStoragePermission(position);
                         break;
                     case 1:// 相机
                         //TODO ...
@@ -155,6 +154,35 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                 }
             }
         });
+    }
+
+    /**
+     * 打开相册
+     * @param position
+     */
+    public void openAlbum(int position) {
+        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        openAlbumIntent.setType("image/*");
+        mActivity.startActivityForResult(openAlbumIntent, TYPE_CHOOSEPHOTO * 1000 + position);
+    }
+
+    /**
+     * 检查存储权限
+     */
+    private void addStoragePermission(int position) {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请WRITE_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+        }
+        else if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请READ_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }else {
+            openAlbum(position);
+        }
     }
 
     /**
