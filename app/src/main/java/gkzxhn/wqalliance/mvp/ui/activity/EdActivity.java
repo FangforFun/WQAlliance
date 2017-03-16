@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -32,6 +31,7 @@ import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.FileUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.ui.adapter.EvidenceListAdapter;
@@ -45,6 +45,7 @@ public class EdActivity extends BaseContentActivity {
     private RecyclerView mRl_evidence;
     private EvidenceListAdapter mEvidenceListAdapter;
     private int mType;
+    private String mFileName;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -82,7 +83,8 @@ public class EdActivity extends BaseContentActivity {
                         }
                     }, 500);
                 }
-//
+
+                //
                 @Override
                 public void onNext(EvidenceList evidenceList) {
                     LogUtils.i(TAG, "show_evidence_list: " + evidenceList.toString());
@@ -93,7 +95,7 @@ public class EdActivity extends BaseContentActivity {
                     UiUtils.dismissProgressDialog(loginDialog);
                 }
             });
-        }else {
+        } else {
             UiUtils.makeText(getResources().getString(R.string.net_broken));
             Log.i(TAG, "initContentView: 网络异常");
         }
@@ -104,10 +106,10 @@ public class EdActivity extends BaseContentActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case 1:
                 Log.i(TAG, "onRequestPermissionsResult: camera--------");
-                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //执行后续的操作
                     Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
                     // TODO: 2016/11/4
@@ -135,41 +137,47 @@ public class EdActivity extends BaseContentActivity {
 
         if (resultCode == -1) {
 
-        int position = requestCode % 1000;
-        int type = requestCode / 1000;
-        if (type == 0) {
-            //图库
-            ContentResolver resolver = getContentResolver();
-            Uri originalUri = data.getData();
-            String path = FileUtil.getPath(this, originalUri);
-            Log.i(TAG, "originalUri : " + path);
-            // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
-            // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg
-            try {
-                Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+            int position = requestCode % 1000;
+            int type = requestCode / 1000;
+            if (type == 0) {
+                //图库
+                ContentResolver resolver = getContentResolver();
+                Uri originalUri = data.getData();
+                String path = FileUtil.getPath(this, originalUri);
+                Log.i(TAG, "originalUri : " + path);
+                // /storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1488807352169.jpg
+                // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg
+                try {
+                    Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
 
-                photo = BitmapUtils.getSmallBitmap(path);
+                    photo = BitmapUtils.getSmallBitmap(path);
 
-                DialogUtil.dismissDialog(chooseDialog);
-                if (photo != null) {
-                    // 先上传  上传成功再更新数据  更新成功再显示在界面上
-                    mEvidenceListAdapter.uploadImage(photo, path, position);
-                }else {
+                    DialogUtil.dismissDialog(chooseDialog);
+                    if (photo != null) {
+                        // 先上传  上传成功再更新数据  更新成功再显示在界面上
+                        mEvidenceListAdapter.uploadImage(photo, path, position);
+                    } else {
+                        UiUtils.makeText(getString(R.string.read_file_error));
+                    }
+                } catch (FileNotFoundException e) {
+                    UiUtils.makeText(getString(R.string.file_not_exist));
+                } catch (IOException e) {
                     UiUtils.makeText(getString(R.string.read_file_error));
                 }
-            } catch (FileNotFoundException e) {
-                UiUtils.makeText(getString(R.string.file_not_exist));
-            } catch (IOException e) {
-                UiUtils.makeText(getString(R.string.read_file_error));
+            } else {
+                //相机
+                DialogUtil.dismissDialog(chooseDialog);
+                if (mFileName != null) {
+                    String path = Constants.SD_FILE_CACHE_PATH + File.separator + mFileName;
+                    Log.i(TAG, "onActivityResult: path = " + path);
+                    mEvidenceListAdapter.uploadImage(BitmapUtils.getSmallBitmap(path), path, position);
+                }
             }
-        }else {
-            //相机
-            DialogUtil.dismissDialog(chooseDialog);
-            String path = Environment
-                    .getExternalStorageDirectory() + File.separator + "image.jpg";
-            mEvidenceListAdapter.uploadImage(BitmapUtils.getSmallBitmap(path), path, position);
-        }
         }
 
+    }
+
+    public void setFileName(String fileName) {
+        mFileName = fileName;
     }
 }

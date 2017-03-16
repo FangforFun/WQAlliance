@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -35,10 +34,12 @@ import common.SuperApplication;
 import gkzxhn.utils.FileUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
+import gkzxhn.wqalliance.mvp.ui.activity.EdActivity;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 import static com.jess.arms.utils.UiUtils.getString;
@@ -84,6 +85,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
         //从已传证据里面加载图片
         for (OrderEvidence orderEvidence : orderEvidences) {
             if (id == orderEvidence.evidenceId) {
+                Log.i(TAG, "onBindViewHolder: onVindViewHodler_imgUrl---- " + orderEvidence.imgUrl);
                 Glide.with(mActivity).load(orderEvidence.imgUrl).error(R.drawable.avatar_def).into(viewHolder.mIv_evidence);
                 viewHolder.mIv_evidence.setVisibility(View.VISIBLE);
                 viewHolder.upload_ed.setVisibility(View.GONE);
@@ -157,7 +159,16 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
      */
     public void takePhoto(int position) {
         Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+        File tmpFile = new File(Constants.SD_FILE_CACHE_PATH);
+        if (!tmpFile.exists()) {
+            tmpFile.mkdirs();
+        }
+        String fileName = String.valueOf(System.currentTimeMillis()) + "evidence.jpg";
+        ((EdActivity)mActivity).setFileName(fileName);
+        File file = new File(Constants.SD_FILE_CACHE_PATH, fileName);
+
+        Uri imageUri = Uri.fromFile(file);
+
         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         mActivity.startActivityForResult(openCameraIntent, TYPE_TAKEPHOTO * 1000 + position);
     }

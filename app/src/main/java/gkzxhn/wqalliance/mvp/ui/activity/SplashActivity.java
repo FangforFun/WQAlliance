@@ -23,6 +23,7 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.Result;
 import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import gkzxhn.wqalliance.mvp.widget.UpdateDialog;
 
@@ -45,24 +46,47 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SystemClock.sleep(1000);
-                String phone = (String) SPUtil.get(SplashActivity.this, SharedPreferenceConstants.PHONE, "");
-                if (!TextUtils.isEmpty(phone)) {
+
+        String phone = (String) SPUtil.get(SplashActivity.this, SharedPreferenceConstants.PHONE, "");
+        int userId = (int) SPUtil.get(SplashActivity.this, SharedPreferenceConstants.USERID, 0);
+        if (!TextUtils.isEmpty(phone) && userId != 0) {
+            UiUtils.makeText("自动登录...");
+            ApiWrap.getUser(userId, new SimpleObserver<Result>(){
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            UiUtils.makeText("网络异常,自动登录失败...");
+                            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                            finish();
+                        }
+                    }).start();
+                }
+
+                @Override
+                public void onNext(Result result) {
+                    //表示可以成功连上服务器
+                    super.onNext(result);
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     finish();
-                }else {
+                }
+            });
+        } else {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    SystemClock.sleep(1000);
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 
     private void checkVersion() {
-        ApiWrap.versionUpdate(new SimpleObserver<VersionBean>(){
+        ApiWrap.versionUpdate(new SimpleObserver<VersionBean>() {
             @Override
             public void onError(Throwable e) {
                 super.onError(e);
@@ -87,22 +111,23 @@ public class SplashActivity extends AppCompatActivity {
                             updateDialog = new UpdateDialog(SplashActivity.this);
 
                             updateDialog.setForceUpdate(isForceUpdate);
-                            updateDialog.setDownloadInfor(versionName,downloadUrl);
+                            updateDialog.setDownloadInfor(versionName, downloadUrl);
                             updateDialog.setOnDownloadListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    if(updateDialog !=null&& updateDialog.isShowing()) updateDialog.dismiss();
+                                    if (updateDialog != null && updateDialog.isShowing())
+                                        updateDialog.dismiss();
 
                                 }
                             });
                             updateDialog.show();
-                        }else{
+                        } else {
                             Log.i(TAG, "onNext: versionUpdate....已是最新版本.." + versionBean.data.versionName);
                         }
-                    }catch (PackageManager.NameNotFoundException e) {
+                    } catch (PackageManager.NameNotFoundException e) {
                         e.printStackTrace();
                     }
-                }else {
+                } else {
                     UiUtils.makeText(versionBean.msg);
                 }
             }

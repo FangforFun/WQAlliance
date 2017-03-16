@@ -9,9 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -33,11 +31,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import common.AppComponent;
+import gkzxhn.utils.BitmapUtils;
 import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.FileUtil;
 import gkzxhn.utils.ImageTools;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 
@@ -64,6 +64,7 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
     private String propertyImgUrl;  //知识产权
     private LinearLayout mLl_upload_trademark;
     private LinearLayout mLl_knowledge_right;
+    private String fileName;
 
     @Override
     protected View initContentView() {
@@ -180,7 +181,14 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
      */
     private void openCamera(int type) {
         Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+        File tmpFile = new File(Constants.SD_FILE_CACHE_PATH);
+        if (!tmpFile.exists()) {
+            tmpFile.mkdirs();
+        }
+        fileName = String.valueOf(System.currentTimeMillis()) + "sign.jpg";
+        File file = new File(Constants.SD_FILE_CACHE_PATH, fileName);
+
+        Uri imageUri = Uri.fromFile(file);
         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(openCameraIntent, type == 1 ? TAKE_PHOTO_1 : TAKE_PHOTO_2);
         return;
@@ -199,6 +207,8 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
                 // raw//storage/emulated/0/DCIM/Camera/IMG_20170309_080815.jpg
                 try {
                     Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+
+                    photo = BitmapUtils.getSmallBitmap(path);
                     DialogUtil.dismissDialog(chooseDialog);
                     if (photo != null) {
                         // 先上传  上传成功再更新数据  更新成功再显示在界面上
@@ -214,9 +224,9 @@ public class SignActivity extends BaseContentActivity implements View.OnClickLis
             }else if (requestCode == TAKE_PHOTO_1 || requestCode == TAKE_PHOTO_2){
                 // 上传
                 DialogUtil.dismissDialog(chooseDialog);
-                String path = Environment
-                        .getExternalStorageDirectory() + File.separator + "image.jpg";
-                uploadImage(BitmapFactory.decodeFile(path), path, requestCode);
+                String path = Constants.SD_FILE_CACHE_PATH + File.separator + fileName;
+
+                uploadImage(BitmapUtils.getSmallBitmap(path), path, requestCode);
             }
         }
     }

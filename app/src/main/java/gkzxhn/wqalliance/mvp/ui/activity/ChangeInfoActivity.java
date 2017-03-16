@@ -11,7 +11,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -43,6 +42,7 @@ import gkzxhn.utils.ImageTools;
 import gkzxhn.utils.SPUtil;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.SharedPreferenceConstants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
 import gkzxhn.wqalliance.mvp.model.entities.InfoChangedEvent;
@@ -67,6 +67,7 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
     private String avatar_path;
 
     private boolean canUpload = false;
+    private String fileName;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -176,9 +177,14 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
      */
     private void openCamera() {
         Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File tmpFile = new File(Constants.SD_FILE_CACHE_PATH);
+        if (!tmpFile.exists()) {
+            tmpFile.mkdirs();
+        }
+        fileName = String.valueOf(System.currentTimeMillis()) + "avatar.jpg";
+        File file = new File(Constants.SD_FILE_CACHE_PATH, fileName);
 
-        Uri imageUri = Uri.fromFile(new File(Environment
-                .getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg"));
+        Uri imageUri = Uri.fromFile(file);
 
         Log.i(TAG, "openCamera: uri-------" + imageUri);
 
@@ -218,8 +224,7 @@ public class ChangeInfoActivity extends BaseContentActivity implements View.OnCl
             }else if (requestCode == TAKE_PHOTO){
                 // 上传
                 DialogUtil.dismissDialog(chooseImageDialog);
-                avatar_path = Environment
-                        .getExternalStorageDirectory() + File.separator + "image.jpg";
+                avatar_path = Constants.SD_FILE_CACHE_PATH + File.separator + fileName;
 
                 Log.i(TAG, "onActivityResult: avatar_path === " + avatar_path);
                 photo = BitmapFactory.decodeFile(avatar_path);
