@@ -23,7 +23,6 @@ public class MessageActivity extends BaseContentActivity{
     protected void setTitleData() {
         mTvTitle.setText(UiUtils.getString(R.string.my_msg));
         mTvSubtitle.setVisibility(View.GONE);
-        NimUIKit.startP2PSession(this,"Raleigh");
     }
 
     @Override
