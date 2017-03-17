@@ -1,6 +1,9 @@
 package com.netease.nim.uikit.session.actions;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -30,6 +33,9 @@ public abstract class PickImageAction extends BaseAction {
     public static final String MIME_JPEG = "image/jpeg";
     public static final String JPG = ".jpg";
 
+    public static final int TAKE_PHOTO = 101;
+    public static final int ALBUM = 102;
+
     private boolean multiSelect;
     private boolean crop = false;
 
@@ -51,6 +57,41 @@ public abstract class PickImageAction extends BaseAction {
         return StorageUtil.getWritePath(filename, StorageType.TYPE_TEMP);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        int mRequestCode = makeRequestCode(RequestCode.PICK_IMAGE);
+        if(grantResults.length>0&&grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            PickImageHelper.PickImageOption option = new PickImageHelper.PickImageOption();
+            option.titleResId = getTitleId();
+            option.multiSelect = multiSelect;
+            option.multiSelectMaxCount = PICK_IMAGE_COUNT;
+            option.crop = crop;
+            option.cropOutputImageWidth = PORTRAIT_IMAGE_WIDTH;
+            option.cropOutputImageHeight = PORTRAIT_IMAGE_WIDTH;
+            option.outputPath = tempFile();
+            if(requestCode== PickImageAction.TAKE_PHOTO){
+                int from = PickImageActivity.FROM_CAMERA;
+                if (!option.crop) {
+                    PickImageActivity.start(getActivity(), mRequestCode, from, option.outputPath, option.multiSelect, 1,
+                            true, false, 0, 0);
+                }else {
+                    PickImageActivity.start(getActivity(), mRequestCode, from, option.outputPath, false, 1,
+                            false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                }
+            }else if(requestCode== PickImageAction.ALBUM){
+                int from = PickImageActivity.FROM_LOCAL;
+                if (!option.crop) {
+                    PickImageActivity.start(getActivity(), mRequestCode, from, option.outputPath, option.multiSelect,
+                            option.multiSelectMaxCount, true, false, 0, 0);
+                } else {
+                    PickImageActivity.start(getActivity(), mRequestCode, from, option.outputPath, false, 1,
+                            false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                }
+            }
+
+        }
+    }
     /**
      * 打开图片选择器
      */

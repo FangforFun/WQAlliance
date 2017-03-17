@@ -3,6 +3,7 @@ package com.netease.nim.uikit.session.fragment;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.netease.nim.uikit.common.fragment.TFragment;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.actions.BaseAction;
 import com.netease.nim.uikit.session.actions.ImageAction;
+import com.netease.nim.uikit.session.actions.LocationAction;
 import com.netease.nim.uikit.session.actions.VideoAction;
 import com.netease.nim.uikit.session.constant.Extras;
 import com.netease.nim.uikit.session.module.Container;
@@ -224,9 +226,14 @@ public class MessageFragment extends TFragment implements ModuleProxy {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         inputPanel.onActivityResult(requestCode, resultCode, data);
         messageListPanel.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        inputPanel.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     // 操作面板集合
@@ -235,7 +242,6 @@ public class MessageFragment extends TFragment implements ModuleProxy {
         actions.add(new ImageAction());
         actions.add(new VideoAction());
 //        actions.add(new LocationAction());
-
         if (customization != null && customization.actions != null) {
             actions.addAll(customization.actions);
         }

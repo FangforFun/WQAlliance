@@ -1,7 +1,10 @@
 package com.netease.nim.uikit.common.media.picker;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
 
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.media.picker.activity.PickImageActivity;
@@ -9,6 +12,8 @@ import com.netease.nim.uikit.common.ui.dialog.CustomAlertDialog;
 import com.netease.nim.uikit.common.util.storage.StorageType;
 import com.netease.nim.uikit.common.util.storage.StorageUtil;
 import com.netease.nim.uikit.common.util.string.StringUtil;
+import com.netease.nim.uikit.permission.MPermission;
+import com.netease.nim.uikit.session.actions.PickImageAction;
 
 /**
  * Created by huangjun on 2015/9/22.
@@ -66,13 +71,28 @@ public class PickImageHelper {
         dialog.addItem(context.getString(R.string.input_panel_take), new CustomAlertDialog.onSeparateItemClickListener() {
             @Override
             public void onClick() {
-                int from = PickImageActivity.FROM_CAMERA;
-                if (!option.crop) {
-                    PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, option.multiSelect, 1,
-                            true, false, 0, 0);
-                } else {
-                    PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, false, 1,
-                            false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                //请求权限
+                if(ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    MPermission.with((Activity) context)
+                            .addRequestCode(PickImageAction.TAKE_PHOTO)
+                            .permissions(
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.CAMERA
+                            ).request();
+                }else {
+                    int from = PickImageActivity.FROM_CAMERA;
+                    if (!option.crop) {
+
+                        PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, option.multiSelect, 1,
+                                true, false, 0, 0);
+                    }else{
+                        PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, false, 1,
+                                false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                    }
                 }
 
             }
@@ -82,13 +102,24 @@ public class PickImageHelper {
                 .onSeparateItemClickListener() {
             @Override
             public void onClick() {
-                int from = PickImageActivity.FROM_LOCAL;
-                if (!option.crop) {
-                    PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, option.multiSelect,
-                            option.multiSelectMaxCount, true, false, 0, 0);
+                if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    MPermission.with((Activity) context)
+                            .addRequestCode(PickImageAction.ALBUM)
+                            .permissions(
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE
+                            ).request();
                 } else {
-                    PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, false, 1,
-                            false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                    int from = PickImageActivity.FROM_LOCAL;
+                    if (!option.crop) {
+                        PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, option.multiSelect,
+                                option.multiSelectMaxCount, true, false, 0, 0);
+                    } else {
+                        PickImageActivity.start((Activity) context, requestCode, from, option.outputPath, false, 1,
+                                false, true, option.cropOutputImageWidth, option.cropOutputImageHeight);
+                    }
                 }
 
             }

@@ -7,7 +7,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 25
     }
 
@@ -32,7 +32,7 @@ dependencies {
     compile files('libs/fastjson-1.1.34.android.jar')
     compile files('libs/nim-avchat-3.4.0.jar')
     compile files('libs/nim-lucene-3.4.0.jar')
-    compile files('libs/universal-image-loader-1.9.5.jar')
     //    compile 'com.netease.nimlib:basesdk:3.3.0'
     compile files('libs/nim-basesdk-3.4.0.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
 }

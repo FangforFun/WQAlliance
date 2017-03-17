@@ -1,10 +1,14 @@
 package com.netease.nim.uikit.session.module.input;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Spannable;
@@ -31,12 +35,15 @@ import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialogHelper;
 import com.netease.nim.uikit.common.util.log.LogUtil;
 import com.netease.nim.uikit.common.util.string.StringUtil;
+import com.netease.nim.uikit.permission.MPermission;
+import com.netease.nim.uikit.permission.util.MPermissionUtil;
 import com.netease.nim.uikit.recent.AitHelper;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.actions.BaseAction;
 import com.netease.nim.uikit.session.emoji.EmoticonPickerView;
 import com.netease.nim.uikit.session.emoji.IEmoticonSelectedListener;
 import com.netease.nim.uikit.session.emoji.MoonUtil;
+import com.netease.nim.uikit.session.helper.VideoMessageHelper;
 import com.netease.nim.uikit.session.module.Container;
 import com.netease.nim.uikit.team.model.TeamExtras;
 import com.netease.nim.uikit.team.model.TeamRequestCode;
@@ -579,17 +586,32 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    touched = true;
-                    initAudioRecord();
-                    onStartAudioRecord();
-                } else if (event.getAction() == MotionEvent.ACTION_CANCEL
-                        || event.getAction() == MotionEvent.ACTION_UP) {
-                    touched = false;
-                    onEndAudioRecord(isCancelled(v, event));
-                } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                    touched = false;
-                    cancelAudioRecord(isCancelled(v, event));
+                if (ContextCompat.checkSelfPermission(container.activity, Manifest.permission.RECORD_AUDIO)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(container.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(container.activity, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    //请求权限
+                    MPermission.with(container.activity)
+                            .addRequestCode(InputPanel.class.hashCode())
+                            .permissions(
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.RECORD_AUDIO
+                            ).request();
+
+                } else {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        touched = true;
+                        initAudioRecord();
+                        onStartAudioRecord();
+                    }else if (event.getAction() == MotionEvent.ACTION_CANCEL
+                            || event.getAction() == MotionEvent.ACTION_UP) {
+                        touched = false;
+                        onEndAudioRecord(isCancelled(v, event));
+                    } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                        touched = false;
+                        cancelAudioRecord(isCancelled(v, event));
+                    }
                 }
 
                 return false;
@@ -696,6 +718,7 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      * 开始语音录制动画
      */
     private void playAudioRecordAnim() {
+
         audioAnimLayout.setVisibility(View.VISIBLE);
         time.setBase(SystemClock.elapsedRealtime());
         time.start();
@@ -755,7 +778,13 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
     public boolean isRecording() {
         return audioMessageHelper != null && audioMessageHelper.isRecording();
     }
-
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        for(BaseAction action:actions){
+            if (action != null) {
+                action.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+        }
+    }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != Activity.RESULT_OK) {
             return;

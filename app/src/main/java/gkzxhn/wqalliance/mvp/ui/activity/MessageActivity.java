@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.jess.arms.utils.UiUtils;
+import com.netease.nim.uikit.NimUIKit;
 
 import common.AppComponent;
 import gkzxhn.wqalliance.R;
@@ -22,6 +23,7 @@ public class MessageActivity extends BaseContentActivity{
     protected void setTitleData() {
         mTvTitle.setText(UiUtils.getString(R.string.my_msg));
         mTvSubtitle.setVisibility(View.GONE);
+        NimUIKit.startP2PSession(this,"Raleigh");
     }
 
     @Override

@@ -1,12 +1,15 @@
 package com.netease.nim.uikit.session.helper;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
 import com.netease.nim.uikit.R;
@@ -18,6 +21,7 @@ import com.netease.nim.uikit.common.util.storage.StorageType;
 import com.netease.nim.uikit.common.util.storage.StorageUtil;
 import com.netease.nim.uikit.common.util.string.MD5;
 import com.netease.nim.uikit.common.util.string.StringUtil;
+import com.netease.nim.uikit.permission.MPermission;
 import com.netease.nim.uikit.session.activity.CaptureVideoActivity;
 
 import java.io.File;
@@ -55,7 +59,23 @@ public class VideoMessageHelper {
         dialog.addItem("拍摄视频",new CustomAlertDialog.onSeparateItemClickListener(){
             @Override
             public void onClick() {
-                chooseVideoFromCamera();
+                if(ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    //请求权限
+                    MPermission.with(activity)
+                            .addRequestCode(VideoMessageHelper.class.hashCode())
+                            .permissions(
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.RECORD_AUDIO
+                            ).request();
+                }else {
+                    chooseVideoFromCamera();
+                }
             }
         });
         dialog.addItem("从相册中选择视频",new CustomAlertDialog.onSeparateItemClickListener() {
@@ -72,7 +92,7 @@ public class VideoMessageHelper {
     /**
      * 拍摄视频
      */
-    protected void chooseVideoFromCamera() {
+    public void chooseVideoFromCamera() {
         if (!StorageUtil.hasEnoughSpaceForWrite(activity,
                 StorageType.TYPE_VIDEO, true)) {
             return;

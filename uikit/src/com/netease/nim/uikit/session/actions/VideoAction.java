@@ -1,10 +1,18 @@
 package com.netease.nim.uikit.session.actions;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.netease.nim.uikit.R;
+import com.netease.nim.uikit.common.media.picker.PickImageHelper;
+import com.netease.nim.uikit.common.util.C;
+import com.netease.nim.uikit.common.util.storage.StorageType;
+import com.netease.nim.uikit.common.util.storage.StorageUtil;
+import com.netease.nim.uikit.common.util.string.StringUtil;
+import com.netease.nim.uikit.session.activity.CaptureVideoActivity;
 import com.netease.nim.uikit.session.helper.VideoMessageHelper;
 import com.netease.nim.uikit.session.constant.RequestCode;
 import com.netease.nimlib.sdk.msg.MessageBuilder;
@@ -70,6 +78,14 @@ public class VideoAction extends BaseAction {
         case RequestCode.CAPTURE_VIDEO:
             videoHelper().onCaptureVideoResult(data);
             break;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == VideoMessageHelper.class.hashCode() && grantResults.length>0&&grantResults[0] == PackageManager.PERMISSION_GRANTED) {//拍照
+            videoMessageHelper.chooseVideoFromCamera();
         }
     }
 

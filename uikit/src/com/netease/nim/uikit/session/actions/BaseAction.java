@@ -2,6 +2,7 @@ package com.netease.nim.uikit.session.actions;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 
 import com.netease.nim.uikit.session.module.Container;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
@@ -63,7 +64,10 @@ public abstract class BaseAction implements Serializable {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // default: empty
     }
-
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                               @NonNull int[] grantResults){
+        // default: empty
+    }
     protected void sendMessage(IMMessage message) {
         container.proxy.sendMessage(message);
     }

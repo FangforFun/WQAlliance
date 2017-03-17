@@ -2,7 +2,6 @@ package com.netease.nim.uikit.session.viewholder;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +27,6 @@ import com.netease.nimlib.sdk.msg.constant.MsgDirectionEnum;
 import com.netease.nimlib.sdk.msg.constant.MsgStatusEnum;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
-
-import static com.netease.nim.uikit.common.util.sys.NetworkUtil.TAG;
 
 /**
  * 会话窗口消息列表项的ViewHolder基类，负责每个消息项的外层框架，包括头像，昵称，发送/接收进度条，重发按钮等。<br>
@@ -293,17 +290,15 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
         longClickListener = new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // 优先派发给自己处理，
                 try {
+                    // 优先派发给自己处理，
                     if (!onItemLongClick()) {
                         if (getMsgAdapter().getEventListener() != null) {
                             getMsgAdapter().getEventListener().onViewHolderLongClick(contentContainer, view, message);
                             return true;
                         }
                     }
-                }catch (Exception e) {
-                    Log.i(TAG, "onLongClick: onItemLongClick-----" + e.getMessage());
-                }
+                }catch (Exception e){}
                 return false;
             }
         };

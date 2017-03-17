@@ -2,6 +2,7 @@ package com.netease.nim.uikit.session.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -65,6 +66,14 @@ public abstract class BaseMessageActivity extends UI {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (messageFragment != null) {
+            messageFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
     private void parseIntent() {
         sessionId = getIntent().getStringExtra(Extras.EXTRA_ACCOUNT);
         customization = (SessionCustomization) getIntent().getSerializableExtra(Extras.EXTRA_CUSTOMIZATION);
@@ -88,11 +97,10 @@ public abstract class BaseMessageActivity extends UI {
         LinearLayout view = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.nim_action_bar_custom_view, null);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         for (final SessionCustomization.OptionsButton button : buttons) {
-            button.iconId = R.drawable.ic_launcher;
             ImageView imageView = new ImageView(activity);
-            imageView.setImageResource(R.drawable.ic_launcher);
+            imageView.setImageResource(button.iconId);
             imageView.setBackgroundResource(R.drawable.nim_nim_action_bar_button_selector);
-            imageView.setPadding(ScreenUtil.dip2px(10), 0, ScreenUtil.dip2px(3), 0);
+            imageView.setPadding(ScreenUtil.dip2px(10), 0, ScreenUtil.dip2px(10), 0);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

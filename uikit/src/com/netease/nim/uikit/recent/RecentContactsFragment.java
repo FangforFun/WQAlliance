@@ -98,15 +98,7 @@ public class RecentContactsFragment extends TFragment {
         adapter.notifyDataSetChanged();
         boolean empty = items.isEmpty() && msgLoaded;
         emptyBg.setVisibility(empty ? View.VISIBLE : View.GONE);
-        emptyHint.setHint("还没有会话，找个人聊聊吧！");
-        if (emptyBg.getVisibility() == View.VISIBLE){
-            emptyBg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    NimUIKit.startP2PSession(getActivity(), "gkzxhn002");
-                }
-            });
-        }
+        emptyHint.setHint("还没有会话，在通讯录中找个人聊聊吧！");
     }
 
     @Override
