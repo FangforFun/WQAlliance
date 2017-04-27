@@ -179,7 +179,7 @@ public class MineFragment extends android.support.v4.app.Fragment {
                 switch (mSignedStatus) {
                     case 1:  //签约中
                         UiUtils.makeText("您已提交签约,请等待审核结果");
-                        break;
+                        return;
                 }
                 signDialog = DialogUtil.showSignDialog(getActivity(), new View.OnClickListener() {
                     @Override

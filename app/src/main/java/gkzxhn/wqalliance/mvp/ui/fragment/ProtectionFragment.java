@@ -158,7 +158,8 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
      * 提交案件
      */
     public void commitCase() {
-        if (isSigned()) {
+        int signedStatus = getSignedStatus();
+        if (signedStatus == 3) {
 
             int userId = (int) SPUtil.get(mActivity, SharedPreferenceConstants.USERID, 0);
             String title = mTheme.getText().toString().trim();
@@ -182,7 +183,7 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
             Log.i(TAG, "onClick: title       " + title);
             Log.i(TAG, "onClick: description       " + description);
             mPresenter.addOrder(userId, title, description, orderEvidenceJs);
-        }else {
+        }else if(0 == signedStatus) {
             mDialog = DialogUtil.showUnSignedDialog(mActivity, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -195,6 +196,10 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
                     launchActivity(new Intent(mActivity, SignActivity.class));
                 }
             });
+        }else if (1 == signedStatus) {
+            UiUtils.makeText("您的签约还在审核中,请等待审核结果");
+        }else if (2 == signedStatus) {
+            UiUtils.makeText("您的签约审核失败,请重新提交签约");
         }
         return;
     }
@@ -203,11 +208,9 @@ public class ProtectionFragment extends BaseContentFragment<ProtectionPresenter>
      * 是否已签约
      * @return
      */
-    private boolean isSigned() {
-        if (((int)SPUtil.get(mActivity, SharedPreferenceConstants.SIGNEDSTATUS, 0))==3) {
-            return true;
-        }
-        return false;
+    private int getSignedStatus() {
+        int i = (int) SPUtil.get(mActivity, SharedPreferenceConstants.SIGNEDSTATUS, 0);
+        return i;
     }
 
 //    @Subscriber()
