@@ -9,6 +9,7 @@ import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
+import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import okhttp3.MediaType;
@@ -285,6 +286,23 @@ public class ApiWrap {
                 .build();
         CommonService service = retrofit.create(CommonService.class);
         service.versionUpdate(2).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 扫码获得商品信息
+     * @param code
+     * @param subscriber
+     */
+    public static void getGoodsByCode(String code, SimpleObserver<ScanningInfo> subscriber){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getGoodsByCode(code).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }

@@ -6,6 +6,7 @@ import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
+import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import okhttp3.MultipartBody;
@@ -195,8 +196,23 @@ public interface CommonService {
             @Field("orderEvidenceJson")String orderEvidenceJson
     );
 
+    /**
+     * 版本更新
+     * @param appFlag
+     * @return
+     */
     @GET("appVersion/versionUpdate")
     Observable<VersionBean> versionUpdate(
             @Query("appFlag") int appFlag
+    );
+
+    /**
+     * 二维码/条码查询商品
+     * @param code
+     * @return
+     */
+    @GET("goods/getGoodsByCode")
+    Observable<ScanningInfo> getGoodsByCode(
+            @Query("code") String code
     );
 }

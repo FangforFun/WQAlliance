@@ -10,103 +10,17 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c04ff26a-ffaa-4c7e-91e3-f7e3e208f185" name="Default" comment="加入扫码功能...">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/saoma_bad.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/saoma_checked.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/saoma_first.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/saoma_unchecked.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/saoma_used.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/qr_code_bg.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/scan_line.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shadow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/beep.ogg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/core_3_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/multidex_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/multidex_instrumentation_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/SaoMaResultEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/CaptureActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/AutoFocusManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/CameraConfigurationManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/CameraManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/PreviewCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/open/OpenCameraInterface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeFormatManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/BeepManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/CaptureActivityHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/InactivityTimer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/saoma.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scan.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/zxing_ids.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_integration_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javawriter_2_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javax_annotation_api_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jsr305_1_3_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/gkzxhn/wqalliance/ExampleInstrumentedTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/local.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/adapter_rxjava_2_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/adapter_rxjava_2_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/androideventbus_1_0_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/androideventbus_1_0_5_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/api_0_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/api_0_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/autolayout_1_4_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/autolayout_1_4_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/butterknife_8_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/butterknife_8_5_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/butterknife_annotations_8_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/butterknife_annotations_8_5_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/cardview_v7_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/common_0_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/common_0_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/converter_gson_2_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/converter_gson_2_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/core_1_7_0_1_x.xml" afterPath="$PROJECT_DIR$/.idea/libraries/core_1_7_0_1_x.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/dagger_2_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/dagger_2_8.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/glide_3_7_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/glide_3_7_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gson_0_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gson_0_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javax_annotation_10_0_b28.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javax_annotation_10_0_b28.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javax_inject_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javax_inject_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jsr250_api_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jsr250_api_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jsr305_3_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jsr305_3_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_3_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okio_1_11_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_11_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/retrofit_2_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/retrofit_2_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/runtime_1_7_0_1_x.xml" afterPath="$PROJECT_DIR$/.idea/libraries/runtime_1_7_0_1_x.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxandroid_1_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxandroid_1_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxbinding_0_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxbinding_0_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxbinding_recyclerview_v7_0_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxbinding_recyclerview_v7_0_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxjava_1_2_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxjava_1_2_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_android_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_android_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_components_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxlifecycle_components_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rxpermissions_0_9_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rxpermissions_0_9_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_compat_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/timber_4_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/timber_4_5_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/transition_25_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/transition_25_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/utilcode_1_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/utilcode_1_3_6.xml" />
+    <list default="true" id="c04ff26a-ffaa-4c7e-91e3-f7e3e208f185" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/ScanningInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.gradle" afterPath="$PROJECT_DIR$/config.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml" />
     </list>
     <ignored path="WQAlliance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -219,47 +133,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="EvidenceListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/EvidenceListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiWrap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="297" column="37" selection-start-line="297" selection-start-column="23" selection-end-line="297" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="284" column="17" selection-start-line="284" selection-start-column="17" selection-end-line="284" selection-end-column="17" />
+            <state relative-caret-position="512">
+              <caret line="294" column="50" selection-start-line="294" selection-start-column="50" selection-end-line="294" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4809#5123#0" expanded="true" />
+                <element signature="e#5122#5123#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeepManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/BeepManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -267,68 +180,46 @@
       <file leaf-file-name="SaoMaFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="44" column="24" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="24" />
+            <state relative-caret-position="382">
+              <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
               <folding>
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1233#1234#0" expanded="true" />
+                <element signature="e#2502#2503#0" expanded="true" />
+                <element signature="e#2534#2535#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaoMaResultEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/SaoMaResultEvent.java">
+      <file leaf-file-name="fragment_saoma.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="468">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
               <folding>
-                <element signature="e#190#191#0" expanded="true" />
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#2380#2418#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainContract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java">
+      <file leaf-file-name="CommonService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MineFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangeInfoActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="346" column="24" selection-start-line="346" selection-start-column="24" selection-end-line="346" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvidenceListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/EvidenceListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="548">
+              <caret line="214" column="43" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -4792,11 +4683,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MyAddressActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SettingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/HttpStatus.java" />
         <option value="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/viewholder/MsgViewHolderBase.java" />
@@ -4816,7 +4702,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/EvidenceList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/utils/BitmapUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" />
         <option value="$PROJECT_DIR$/uikit/src/com/netease/nim/uikit/session/fragment/MessageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java" />
@@ -4824,7 +4709,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SignActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/EvidenceListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java" />
         <option value="$PROJECT_DIR$/config.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/CaptureActivityHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeThread.java" />
@@ -4837,12 +4721,19 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_scan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/CaptureActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/SaoMaResultEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/BeepManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/ScanningInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml" />
       </list>
     </option>
   </component>
@@ -5505,6 +5396,52 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WQAlliance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WQAlliance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gkzxhn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wqalliance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="contract" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -5658,7 +5595,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="device.picker.selection" value="ba21d45b" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="SearchEverywhereHistoryKey" value="saoma&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java&#10;maina&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;mainac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;homefra&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.fragment.HomeFragment&#10;CaptureActivity&#9;PSI&#9;JAVA://gkzxhn.wqalliance.zxing.CaptureActivity&#10;gradle&#9;FILE&#9;file://F:/github_repository/WQAlliance/build.gradle&#10;login&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;ed&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;sign&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SignActivity.java&#10;main&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;messagef&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java&#10;chang&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java&#10;videomessa&#9;PSI&#9;JAVA://com.netease.nim.uikit.session.helper.VideoMessageHelper&#10;regis&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.RegisterActivity&#10;messagefr&#9;PSI&#9;JAVA://com.netease.nim.uikit.session.fragment.MessageFragment&#10;message&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java&#10;api&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java&#10;chan&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java&#10;dow&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;logi&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;splash&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;signac&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.SignActivity&#10;changein&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.ChangeInfoActivity&#10;edact&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;superapp&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/common/SuperApplication.java&#10;spla&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;prote&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;updatdi&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/widget/UpdateDialog.java&#10;superap&#9;PSI&#9;JAVA://common.SuperApplication&#10;protectiona&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ProtectionActivity.java&#10;prot&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;cons&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Constants.java&#10;share&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/SharedPreferenceConstants.java&#10;noti&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.NotificationSettingActivity&#10;mine&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java&#10;reg&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/RegisterActivity.java&#10;forget&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ForgetPwdActivity.java&#10;edac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;protec&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;const&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Constants.java&#10;forg&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ForgetPwdActivity.java&#10;register&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/RegisterActivity.java&#10;download&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;setting&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SettingActivity.java&#10;downl&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;splas&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;my&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java&#10;loginac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;change&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java&#10;myor&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java" />
+    <property name="SearchEverywhereHistoryKey" value="mainac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;api&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.model.api.Api&#10;consta&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.model.api.Constants&#10;protec&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;saoma&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java&#10;maina&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;homefra&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.fragment.HomeFragment&#10;CaptureActivity&#9;PSI&#9;JAVA://gkzxhn.wqalliance.zxing.CaptureActivity&#10;gradle&#9;FILE&#9;file://F:/github_repository/WQAlliance/build.gradle&#10;login&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;ed&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;sign&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SignActivity.java&#10;main&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java&#10;messagef&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java&#10;chang&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java&#10;videomessa&#9;PSI&#9;JAVA://com.netease.nim.uikit.session.helper.VideoMessageHelper&#10;regis&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.RegisterActivity&#10;messagefr&#9;PSI&#9;JAVA://com.netease.nim.uikit.session.fragment.MessageFragment&#10;message&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MessageFragment.java&#10;chan&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java&#10;dow&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;logi&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;splash&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;signac&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.SignActivity&#10;changein&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.ChangeInfoActivity&#10;edact&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;superapp&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/common/SuperApplication.java&#10;spla&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;prote&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;updatdi&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/widget/UpdateDialog.java&#10;superap&#9;PSI&#9;JAVA://common.SuperApplication&#10;protectiona&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ProtectionActivity.java&#10;prot&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java&#10;cons&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Constants.java&#10;share&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/SharedPreferenceConstants.java&#10;noti&#9;PSI&#9;JAVA://gkzxhn.wqalliance.mvp.ui.activity.NotificationSettingActivity&#10;mine&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java&#10;reg&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/RegisterActivity.java&#10;forget&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ForgetPwdActivity.java&#10;edac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java&#10;const&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Constants.java&#10;forg&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ForgetPwdActivity.java&#10;register&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/RegisterActivity.java&#10;download&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;setting&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SettingActivity.java&#10;downl&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/utils/DownLoadHelper.java&#10;splas&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/SplashActivity.java&#10;my&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/MyOrderListAdapter.java&#10;loginac&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/LoginActivity.java&#10;change&#9;FILE&#9;file://F:/github_repository/WQAlliance/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/ChangeInfoActivity.java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="ExportApk.ApkPath" value="F:\github_repository\WQAlliance\app\build\outputs\apk" />
@@ -6300,7 +6237,21 @@
       <option name="project" value="LOCAL" />
       <updated>1489655497954</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="加入扫码功能...">
+      <created>1493260775631</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1493260775631</updated>
+    </task>
+    <task id="LOCAL-00040" summary="维权签约逻辑调整...">
+      <created>1493262189076</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1493262189077</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -6308,13 +6259,13 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270809" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270809" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5327869" sideWeight="0.50214595" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39507622" sideWeight="0.49785408" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.49785408" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32886267" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -6368,7 +6319,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="个人中心ui&#10;" />
     <MESSAGE value="我的订单、我的地址、联系方式、签约页面UI完成&#10;" />
     <MESSAGE value="除签订合同页面以外UI基本完成，等待后台接口&#10;" />
     <MESSAGE value="登录、注册、忘记密码、上传图片、更新用户资料接口对接完成&#10;" />
@@ -6393,7 +6343,8 @@
     <MESSAGE value="图片压缩上传" />
     <MESSAGE value="三星手机动态存储权限" />
     <MESSAGE value="加入扫码功能..." />
-    <option name="LAST_COMMIT_MESSAGE" value="加入扫码功能..." />
+    <MESSAGE value="维权签约逻辑调整..." />
+    <option name="LAST_COMMIT_MESSAGE" value="维权签约逻辑调整..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6476,106 +6427,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/decode/DecodeThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/open/OpenCameraInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/AutoFocusManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/CameraConfigurationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/camera/CameraManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/gkzxhn/wqalliance/ExampleUnitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/gkzxhn/wqalliance/ExampleInstrumentedTest.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/common/im/NimController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-359">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/PayWaysActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uikit/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/protect_check.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/saoma.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/protection.xml">
@@ -6642,14 +6496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="162" column="16" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4740">
-          <caret line="260" column="0" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -6729,25 +6575,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/Code.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -6760,30 +6587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/EvidenceListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -6859,27 +6662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="24" />
-          <folding>
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="284" column="17" selection-start-line="284" selection-start-column="17" selection-end-line="284" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/arms/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -6896,23 +6678,198 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/BeepManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/ProtectionPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/MineFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="180" column="45" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_nosign_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/utils/DialogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/ProtectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="183" column="42" selection-start-line="183" selection-start-column="42" selection-end-line="183" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="263">
+          <caret line="123" column="57" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/zxing/utils/BeepManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/Ed1Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
+        <state relative-caret-position="192">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/EdActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="116" column="47" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/Api.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/adapter/EvidenceListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/ApiWrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="297" column="37" selection-start-line="297" selection-start-column="23" selection-end-line="297" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/contract/MainContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/presenter/MainPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+          <folding>
+            <element signature="e#2380#2418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/saoma.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/entities/ScanningInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/model/api/service/CommonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="214" column="43" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="294" column="50" selection-start-line="294" selection-start-column="50" selection-end-line="294" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4809#5123#0" expanded="true" />
+            <element signature="e#5122#5123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gkzxhn/wqalliance/mvp/ui/fragment/SaoMaFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
+          <folding>
+            <element signature="e#2502#2503#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saoma.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

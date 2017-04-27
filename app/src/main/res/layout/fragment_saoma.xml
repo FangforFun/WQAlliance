@@ -21,4 +21,14 @@
         android:textColor="@color/ONE"
         android:layout_gravity="center_horizontal"
         android:text="扫码结果"/>
+
+    <TextView
+        android:id="@+id/tv_goods_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        android:textColor="@color/ONE"
+        android:layout_gravity="center_horizontal"
+        android:text=""/>
 </LinearLayout>

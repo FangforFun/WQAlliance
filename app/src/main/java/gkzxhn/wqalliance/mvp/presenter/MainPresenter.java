@@ -1,15 +1,21 @@
 package gkzxhn.wqalliance.mvp.presenter;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.jess.arms.base.AppManager;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
+import com.jess.arms.utils.UiUtils;
 import com.jess.arms.widget.imageloader.ImageLoader;
 
 import javax.inject.Inject;
 
+import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.contract.MainContract;
+import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
+import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 
@@ -54,4 +60,24 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
         this.mApplication = null;
     }
 
+    /**
+     * 扫码信息获取商品信息
+     * @param result
+     */
+    public void getGoodsInfo(final String result) {
+        ApiWrap.getGoodsByCode(result, new SimpleObserver<ScanningInfo>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                Log.i(TAG, "onError: getgoodsinfo ==== " + e.getMessage());
+                mRootView.showMessage(UiUtils.getString(R.string.net_broken));
+            }
+
+            @Override
+            public void onNext(ScanningInfo scanningInfo) {
+                super.onNext(scanningInfo);
+                mRootView.showSaomaResultFragment(scanningInfo);
+            }
+        });
+    }
 }

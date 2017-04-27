@@ -30,6 +30,7 @@ import gkzxhn.wqalliance.di.module.MainModule;
 import gkzxhn.wqalliance.mvp.contract.MainContract;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
 import gkzxhn.wqalliance.mvp.model.entities.VersionBean;
 import gkzxhn.wqalliance.mvp.presenter.MainPresenter;
 import gkzxhn.wqalliance.mvp.ui.fragment.HomeFragment;
@@ -129,12 +130,13 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
             case SCANNING_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
                     final Bundle bundle = data.getExtras();
+                    mPresenter.getGoodsInfo(bundle.getString("result"));
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
                             Log.i(TAG, "run: result: " + bundle.getString("result"));
-                            showSaomaResultFragment((String) bundle.get("result"));
+//                            showSaomaResultFragment((String) bundle.get("result"));
                         }
                     });
                 }
@@ -288,9 +290,9 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
     }
 
     @Override
-    public void showSaomaResultFragment(String result) {
+    public void showSaomaResultFragment(ScanningInfo scanningInfo) {
         changeUi(2);
-        ((SaoMaFragment) mFragments.get(2)).setResult(result);
+        ((SaoMaFragment) mFragments.get(2)).setResult(scanningInfo);
         changeFragment(2);
     }
 }
