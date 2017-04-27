@@ -71,6 +71,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="48px"
                 android:layout_marginTop="10px"
+                android:src="@drawable/saoma"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10px"
+                android:gravity="center"
+                android:text="扫码"
+                android:textColor="@color/main_bottom_tv_color"
+                android:textSize="24px"/>
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginTop="10px"
                 android:src="@drawable/message"/>
 
             <TextView

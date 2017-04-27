@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_saoma_result"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/saoma_first"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:id="@+id/tv_saoma_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/ONE"
+        android:layout_gravity="center_horizontal"
+        android:text="扫码结果"/>
+</LinearLayout>

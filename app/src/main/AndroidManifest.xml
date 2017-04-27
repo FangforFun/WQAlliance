@@ -17,6 +17,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <permission
         android:name="gkzxhn.wqalliance.permission.RECEIVE_MSG"
         android:protectionLevel="signature" />
@@ -156,6 +158,7 @@
                           android:name=".mvp.ui.activity.EdActivity" />
         <activity         android:screenOrientation="portrait"
                           android:name=".mvp.ui.activity.PayWaysActivity"/>
+        <activity android:name=".zxing.CaptureActivity"/>
 
         <provider
             android:authorities="WQAlliance.fileprovider"

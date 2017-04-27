@@ -3,6 +3,9 @@ package gkzxhn.wqalliance.mvp.ui.activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -33,7 +36,9 @@ import gkzxhn.wqalliance.mvp.ui.fragment.HomeFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.MessageFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.MineFragment;
 import gkzxhn.wqalliance.mvp.ui.fragment.ProtectionFragment;
+import gkzxhn.wqalliance.mvp.ui.fragment.SaoMaFragment;
 import gkzxhn.wqalliance.mvp.widget.UpdateDialog;
+import gkzxhn.wqalliance.zxing.CaptureActivity;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -52,12 +57,13 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 public class MainActivity extends SuperActivity<MainPresenter> implements MainContract.View {
 
+    private static final int SCANNING_REQUEST_CODE = 1;
     @BindView(R.id.main_fragment_container)
     FrameLayout mMainFragmentContainer;
     @BindView(R.id.main_bottome_switcher_container)
     LinearLayout mMainBottomeSwitcherContainer;
 
-    private List<Fragment> mFragments = new ArrayList<>();
+    private List<Fragment> mFragments;
     private long mExitTime = 0;
 
 
@@ -78,8 +84,10 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
     @Override
     protected void initData() {
+        mFragments = new ArrayList<>();
         mFragments.add(HomeFragment.newInstance());
         mFragments.add(ProtectionFragment.newInstance());
+        mFragments.add(new SaoMaFragment());
         mFragments.add(new MessageFragment());
         mFragments.add(new MineFragment());
 
@@ -102,10 +110,39 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         @Override
         public void onClick(View view) {
             int index = mMainBottomeSwitcherContainer.indexOfChild(view);
+            if (2 == index) {
+                //第三个为扫描二维码
+                Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivityForResult(intent, SCANNING_REQUEST_CODE);
+                return;
+            }
             changeUi(index);
             changeFragment(index);
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case SCANNING_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    final Bundle bundle = data.getExtras();
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.i(TAG, "run: result: " + bundle.getString("result"));
+                            showSaomaResultFragment((String) bundle.get("result"));
+                        }
+                    });
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
     /**
      * 改变index对应的孩子的状态为选中,其他为不选中
@@ -139,7 +176,6 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
     /**
      * 切换fragment
-     *
      * @param index
      */
     private void changeFragment(int index) {
@@ -190,6 +226,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mFragments = null;
         SuperApplication.getOrderEvidences().clear();
     }
 
@@ -250,4 +287,10 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         });
     }
 
+    @Override
+    public void showSaomaResultFragment(String result) {
+        changeUi(2);
+        ((SaoMaFragment) mFragments.get(2)).setResult(result);
+        changeFragment(2);
+    }
 }

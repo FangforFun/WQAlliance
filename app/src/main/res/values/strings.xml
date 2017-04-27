@@ -95,5 +95,7 @@
     <string name="check_updating">正在检测最新版本...</string>
 
     <string name="download_failed">下载失败</string>
+    <string name="unable_to_open_camera">无法打开相机</string>
+    <string name="error">错误</string>
 
 </resources>
