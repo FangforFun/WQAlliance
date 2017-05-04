@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/ll_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@color/BJ">
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="640px"
+            android:layout_height="100px"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="40px"
+            android:background="@drawable/btn_login_shape"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/W"
+            android:textSize="32px"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:background="@color/W"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_left"
+                    android:text="商品名称"
+                    style="@style/item_left_textview"/>
+
+                <EditText
+                    android:id="@+id/et_goods_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:hint="输入商品名称"
+                    android:paddingRight="28px"
+                    android:textColorHint="@color/THREE"
+                    android:textSize="28px"/>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/item_slip_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_upload_ed"
+            style="@style/rl_item">
+
+            <TextView
+                android:id="@+id/tv_evidence_name"
+                style="@style/item_left_textview"
+                android:layout_centerVertical="true"
+                android:text="上传图片"/>
+
+            <ImageView
+                android:id="@+id/iv_upload_ed"
+                android:src="@drawable/add_pic_icon"
+                android:layout_centerVertical="true"
+                style="@style/item_right_arrow"/>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_photo"
+                style="@style/item_right_arrow"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:layout_width="68px"
+                android:layout_height="68px"/>
+
+            <TextView
+                style="@style/item_slip_line"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="所在位置"
+                    style="@style/item_left_textview"/>
+                
+                <EditText
+                    android:id="@+id/et_addr"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:hint="输入地址位置"
+                    android:paddingRight="14dp"
+                    android:textColorHint="@color/THREE"
+                    android:textSize="14dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_location"
+                    android:clickable="true"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/location"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/item_slip_line"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

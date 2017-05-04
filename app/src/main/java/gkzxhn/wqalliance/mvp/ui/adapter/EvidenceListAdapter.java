@@ -127,9 +127,9 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 LogUtils.i(TAG, "checked position: " + which);
+                ((EdActivity)mActivity).setClickPosition(position);
                 switch (which){
                     case 0:// 图库
-                        ((EdActivity)mActivity).setClickPosition(position);
                         addStoragePermission(position);
                         break;
                     case 1:// 相机
@@ -146,7 +146,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                                 != PackageManager.PERMISSION_GRANTED) {
                             //申请WRITE_EXTERNAL_STORAGE权限
                             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA},
-                                    position);
+                                    1);
                         }else {
                             takePhoto(position);
                         }

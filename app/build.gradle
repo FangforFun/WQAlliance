@@ -30,6 +30,12 @@ android {
             abortOnError false
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 buildscript {

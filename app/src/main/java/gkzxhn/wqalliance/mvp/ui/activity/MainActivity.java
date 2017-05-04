@@ -67,7 +67,6 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
     private List<Fragment> mFragments;
     private long mExitTime = 0;
 
-
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
         DaggerMainComponent
@@ -91,12 +90,9 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         mFragments.add(new SaoMaFragment());
         mFragments.add(new MessageFragment());
         mFragments.add(new MineFragment());
-
         checkVersion();
         setListener();
     }
-
-
 
     private void setListener() {
         int childCount = mMainBottomeSwitcherContainer.getChildCount();
@@ -129,6 +125,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
         switch (requestCode) {
             case SCANNING_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
+
                     final Bundle bundle = data.getExtras();
                     mPresenter.getGoodsInfo(bundle.getString("result"));
                     Handler handler = new Handler(Looper.getMainLooper());

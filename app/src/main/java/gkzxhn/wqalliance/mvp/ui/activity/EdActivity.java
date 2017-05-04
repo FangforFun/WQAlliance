@@ -114,7 +114,7 @@ public class EdActivity extends BaseContentActivity {
                     //执行后续的操作
                     Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
                     // TODO: 2016/11/4
-                    mEvidenceListAdapter.takePhoto(requestCode);
+                    mEvidenceListAdapter.takePhoto(mClickPosition);
                 }
                 break;
             case 2:

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:background="@color/BJ"
               android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/iv_saoma_result"
         android:layout_marginTop="120dp"
@@ -12,23 +16,70 @@
         android:layout_width="60dp"
         android:layout_height="60dp"/>
 
+        <RelativeLayout
+            android:background="@drawable/goods_bg"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/ll_saoma_result"
+                android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="第"
+                    android:letterSpacing="0.5"
+                    android:textSize="16sp"
+        android:textColor="@color/ONE"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/tv_saoma_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:textSize="16sp"
-        android:textColor="@color/ONE"
-        android:layout_gravity="center_horizontal"
-        android:text="扫码结果"/>
+        android:textColor="@color/B"
+        android:text="1"/>
 
+                <TextView
+                    android:letterSpacing="0.5"
+                    android:layout_width="wrap_content"
+                    android:text="次扫描"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/ONE"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
     <TextView
         android:id="@+id/tv_goods_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="14sp"
-        android:textColor="@color/ONE"
-        android:layout_gravity="center_horizontal"
-        android:text=""/>
-</LinearLayout>
+        android:layout_marginTop="12dp"
+        android:textSize="10sp"
+        android:lineSpacingExtra="6dp"
+        android:layout_below="@+id/ll_saoma_result"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/TWO"
+        android:text="商品详情"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_fignt_fake"
+        android:layout_width="640px"
+        android:layout_height="100px"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="40px"
+        android:background="@drawable/btn_login_shape"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/fight_fake"
+        android:textColor="@color/W"
+        android:textSize="32px"/>
+</FrameLayout>

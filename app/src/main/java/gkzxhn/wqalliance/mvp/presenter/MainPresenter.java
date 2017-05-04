@@ -70,12 +70,14 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
             public void onError(Throwable e) {
                 super.onError(e);
                 Log.i(TAG, "onError: getgoodsinfo ==== " + e.getMessage());
-                mRootView.showMessage(UiUtils.getString(R.string.net_broken));
+                mRootView.showMessage(UiUtils.getString(R.string.server_exeption));
+                mRootView.showSaomaResultFragment(null);
             }
 
             @Override
             public void onNext(ScanningInfo scanningInfo) {
                 super.onNext(scanningInfo);
+                scanningInfo.scanningCode = result;
                 mRootView.showSaomaResultFragment(scanningInfo);
             }
         });

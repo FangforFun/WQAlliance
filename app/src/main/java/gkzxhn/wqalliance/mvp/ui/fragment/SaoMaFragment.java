@@ -1,5 +1,6 @@
 package gkzxhn.wqalliance.mvp.ui.fragment;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import common.AppComponent;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
+import gkzxhn.wqalliance.mvp.ui.activity.FightFakeActivity;
 
 /**
  * Created by 方 on 2017/3/3.
@@ -19,6 +21,7 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
     private ImageView mIv_saoma;
     private TextView mTv_goods_info;
     private ScanningInfo mResult;
+    private TextView tv_fignt_fake;
 
     @Override
     protected void setTitleData() {
@@ -33,6 +36,15 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
         mTv_saoma = (TextView)contentView.findViewById(R.id.tv_saoma_result);
         mIv_saoma = (ImageView)contentView.findViewById(R.id.iv_saoma_result);
         mTv_goods_info = (TextView)contentView.findViewById(R.id.tv_goods_info);
+        tv_fignt_fake = (TextView)contentView.findViewById(R.id.tv_fignt_fake);
+
+        tv_fignt_fake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), FightFakeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         if (mResult != null) {
             Log.i(TAG, "initContentView: result goods  " + mResult);
@@ -41,21 +53,21 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
                 case 0 :
                     //成功
                     mIv_saoma.setImageResource(R.drawable.saoma_first);
-                    mTv_saoma.setText("此商品为正品");
-                    mTv_goods_info.setText("商品信息: " + mResult.data.goodsName);
+                    mTv_saoma.setText(mResult.data.scanNumber + "");
+                    mTv_goods_info.setText(mResult.data.goods.goodsName + "\r\n" + mResult.data.goods.goodsDesc);
                     break;
                 case 40001 :
                     //无此产品
                     mIv_saoma.setImageResource(R.drawable.saoma_bad);
                     mTv_saoma.setText("此商品未认证");
-                    mTv_goods_info.setText("条码信息: " + mResult.data.goodsName);
+                    mTv_goods_info.setText("条码信息: " + mResult.scanningCode);
                     break;
                 case 40002 :
-                    //此条码已被使用
+                    //此条码已被扫描
                     mIv_saoma.setImageResource(R.drawable.saoma_used);
-                    mTv_saoma.setText("此条码已被使用");
-                    if (mResult.data.goodsName != null) {
-                        mTv_goods_info.setText("商品信息: " + mResult.data.goodsName);
+                    mTv_saoma.setText(mResult.data.scanNumber+"");
+                    if (mResult.data.goods.goodsName != null) {
+                        mTv_goods_info.setText(mResult.data.goods.goodsName + "\r\n" + mResult.data.goods.goodsDesc);
                     }
                     break;
                 default:
