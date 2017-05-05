@@ -1,6 +1,7 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -68,6 +69,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
     private List<Fragment> mFragments;
     private long mExitTime = 0;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -211,12 +213,14 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
     @Override
     public void showLoading() {
-
+        mProgressDialog = UiUtils.showProgressDialog(this);
     }
 
     @Override
     public void hideLoading() {
-
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+        }
     }
 
     @Override

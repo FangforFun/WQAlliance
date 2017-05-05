@@ -345,8 +345,7 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                 break;
             case 3:
                 Log.i(TAG, "onRequestPermissionsResult: location--------");
-                if(grantResults[0] == PackageManager.PERMISSION_GRANTED ||
-                        grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     //执行后续的操作
                     // TODO: 2016/11/4
                     startLocation();

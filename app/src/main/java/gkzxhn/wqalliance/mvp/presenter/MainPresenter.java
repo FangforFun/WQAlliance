@@ -65,6 +65,7 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
      * @param result
      */
     public void getGoodsInfo(final String result) {
+        mRootView.showLoading();
         ApiWrap.getGoodsByCode(result, new SimpleObserver<ScanningInfo>(){
             @Override
             public void onError(Throwable e) {
@@ -79,6 +80,7 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
                 super.onNext(scanningInfo);
                 scanningInfo.scanningCode = result;
                 mRootView.showSaomaResultFragment(scanningInfo);
+                mRootView.hideLoading();
             }
         });
     }
