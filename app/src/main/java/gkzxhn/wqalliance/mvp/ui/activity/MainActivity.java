@@ -1,19 +1,21 @@
 package gkzxhn.wqalliance.mvp.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.jess.arms.utils.UiUtils;
 
@@ -109,15 +111,45 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
             int index = mMainBottomeSwitcherContainer.indexOfChild(view);
             if (2 == index) {
                 //第三个为扫描二维码
-                Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivityForResult(intent, SCANNING_REQUEST_CODE);
+                //检查权限
+                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    //申请WRITE_EXTERNAL_STORAGE权限
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, 1);
+                }else {
+                    startSaoma();
+                }
                 return;
             }
             changeUi(index);
             changeFragment(index);
         }
     };
+
+    /**
+     * 开始扫码
+     */
+    private void startSaoma() {
+        Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivityForResult(intent, SCANNING_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 1:
+                Log.i(TAG, "onRequestPermissionsResult: camera--------");
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //执行后续的操作
+                    Toast.makeText(this, "相机已经授权成功了", Toast.LENGTH_SHORT).show();
+                    // TODO: 2016/11/4
+                    startSaoma();
+                }
+                break;
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -128,14 +160,6 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
 
                     final Bundle bundle = data.getExtras();
                     mPresenter.getGoodsInfo(bundle.getString("result"));
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.i(TAG, "run: result: " + bundle.getString("result"));
-//                            showSaomaResultFragment((String) bundle.get("result"));
-                        }
-                    });
                 }
                 break;
             default:
@@ -289,7 +313,7 @@ public class MainActivity extends SuperActivity<MainPresenter> implements MainCo
     @Override
     public void showSaomaResultFragment(ScanningInfo scanningInfo) {
         changeUi(2);
-        ((SaoMaFragment) mFragments.get(2)).setResult(scanningInfo);
+        ((SaoMaFragment)mFragments.get(2)).setResult(scanningInfo);
         changeFragment(2);
     }
 }

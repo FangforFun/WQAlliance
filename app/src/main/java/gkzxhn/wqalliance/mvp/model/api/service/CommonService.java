@@ -2,6 +2,7 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 
 import java.util.Map;
 
+import gkzxhn.wqalliance.mvp.model.entities.Code;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
 import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
@@ -214,5 +215,13 @@ public interface CommonService {
     @GET("goods/getGoodsByCode")
     Observable<ScanningInfo> getGoodsByCode(
             @Query("code") String code
+    );
+
+    @FormUrlEncoded
+    @POST("goods/fake")
+    Observable<Code> fake(
+            @Field("goodsName") String goodsName,
+            @Field("imgUrl") String imgUrl,
+            @Field("address") String address
     );
 }

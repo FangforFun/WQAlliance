@@ -107,7 +107,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
 //                UiUtils.makeText(position+"");
                 //TODO ...上传照片
-                choosePhoto(position);
+                addStoragePermission(position);
             }
         });
     }
@@ -130,7 +130,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
                 ((EdActivity)mActivity).setClickPosition(position);
                 switch (which){
                     case 0:// 图库
-                        addStoragePermission(position);
+                        openAlbum(position);
                         break;
                     case 1:// 相机
                         //TODO ...
@@ -181,7 +181,7 @@ public class EvidenceListAdapter extends RecyclerView.Adapter{
             //申请READ_EXTERNAL_STORAGE权限
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
         }else {
-            openAlbum(position);
+            choosePhoto(position);
         }
     }
 

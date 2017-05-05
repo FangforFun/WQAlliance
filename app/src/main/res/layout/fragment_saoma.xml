@@ -20,13 +20,28 @@
             android:background="@drawable/goods_bg"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="490px"
+            android:layout_height="324px">
+
+            <TextView
+                android:id="@+id/tv_fake"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:text="第"
+                android:letterSpacing="0.5"
+                android:textSize="32px"
+                android:textColor="@android:color/holo_red_dark"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+
             <LinearLayout
                 android:id="@+id/ll_saoma_result"
                 android:layout_width="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
 
@@ -34,8 +49,8 @@
                     android:layout_width="wrap_content"
                     android:text="第"
                     android:letterSpacing="0.5"
-                    android:textSize="16sp"
-        android:textColor="@color/ONE"
+                    android:textSize="32px"
+                    android:textColor="@color/ONE"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"/>
 
@@ -43,7 +58,7 @@
         android:id="@+id/tv_saoma_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="32px"
         android:textColor="@color/B"
         android:text="1"/>
 
@@ -52,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:text="次扫描"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="32px"
                     android:textColor="@color/ONE"
                     android:layout_height="wrap_content"/>
 
@@ -62,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:textSize="10sp"
+        android:textSize="20px"
         android:lineSpacingExtra="6dp"
         android:layout_below="@+id/ll_saoma_result"
         android:layout_centerHorizontal="true"

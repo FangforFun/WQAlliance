@@ -13,10 +13,12 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,13 +27,13 @@ import com.blankj.utilcode.utils.FileUtils;
 import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
+import org.simple.eventbus.EventBus;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 import common.AppComponent;
-import common.SuperApplication;
 import gkzxhn.utils.BitmapUtils;
 import gkzxhn.utils.DialogUtil;
 import gkzxhn.utils.FileUtil;
@@ -40,7 +42,8 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
-import gkzxhn.wqalliance.mvp.model.entities.OrderEvidence;
+import gkzxhn.wqalliance.mvp.model.entities.Code;
+import gkzxhn.wqalliance.mvp.model.entities.ToHomeEvent;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import gkzxhn.wqalliance.mvp.ui.activity.listener.MyLocationListener;
 
@@ -57,6 +60,10 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
     private TextView mTv_commit;        //提交打假
     private String mFileName;
     private MyLocationListener mListener;
+    private ImageView mIv_upload_ed;  //上传图片的icon
+    private ImageView mIv_photo;        //已上传图片预览
+    private String mImgUrl;
+    private String mGoods_name;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -65,12 +72,30 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
 
     @Override
     protected void setTitleData() {
-        mListener = new MyLocationListener(this);
+        mGoods_name = getIntent().getStringExtra("goods_name");
         mTvTitle.setText(UiUtils.getString(R.string.fight_fake));
         mTvSubtitle.setVisibility(View.GONE);
+    }
 
-        LocationService.getInstance().start();
-        LocationService.getInstance().registerListener(mListener);
+    /**
+     * 申请定位权限
+     */
+    private void addLocationPermission() {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请定位LOCATION权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 3);
+        }
+        else if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请定位LOCATION权限
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION}, 3);
+        }
+        else {
+            startLocation();
+        }
     }
 
     @Override
@@ -81,7 +106,13 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
         mEt_addr = (EditText)view.findViewById(R.id.et_addr);
         mRl_location = (RelativeLayout)view.findViewById(R.id.rl_location);
         mTv_commit = (TextView)view.findViewById(R.id.tv_commit);
+        mIv_upload_ed = (ImageView)view.findViewById(R.id.iv_upload_ed);
+        mIv_photo = (ImageView)view.findViewById(R.id.iv_photo);
+        addLocationPermission();
 
+        if (!TextUtils.isEmpty(mGoods_name)) {
+            mEt_goods_name.setText(mGoods_name);
+        }
         rl_upload_ed.setOnClickListener(this);
         mRl_location.setOnClickListener(this);
         mTv_commit.setOnClickListener(this);
@@ -93,15 +124,45 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
         super.onClick(view);
         switch (view.getId()) {
             case R.id.rl_upload_ed:
-                choosePhoto();
+                addStoragePermission();
                 break;
             case R.id.rl_location:
                 //手动定位
-
+                addLocationPermission();
                 break;
             case R.id.tv_commit:
                 //提交打假
+                String goodsName = mEt_goods_name.getText().toString().trim();
+                if (TextUtils.isEmpty(goodsName)) {
+                    UiUtils.makeText("商品名不能为空");
+                    return;
+                }
+                if (mImgUrl == null) {
+                    UiUtils.makeText("请上传图片");
+                    return;
+                }
+                String address = mEt_addr.getText().toString().trim();
+                if (TextUtils.isEmpty(address)) {
+                    UiUtils.makeText("请填写地址信息");
+                    return;
+                }
+                ApiWrap.fightFake(goodsName, mImgUrl, address, new SimpleObserver<Code>(){
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        UiUtils.makeText(UiUtils.getString(R.string.net_broken));
+                    }
 
+                    @Override
+                    public void onNext(Code code) {
+                        super.onNext(code);
+                        if (code.code == 0) {
+                            UiUtils.makeText("提交成功");
+                            EventBus.getDefault().post(new ToHomeEvent());
+                            finish();
+                        }
+                    }
+                });
                 break;
         }
     }
@@ -114,7 +175,7 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                 LogUtils.i(TAG, "checked position: " + which);
                 switch (which){
                     case 0:// 图库
-                        addStoragePermission();
+                        openAlbum();
                         break;
                     case 1:// 相机
                         //TODO ...
@@ -245,10 +306,11 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                 UiUtils.dismissProgressDialog(uploadDialog);
                 if (uploadImageResult.getCode() == 0){
                     if (photo != null) {
-                        List<OrderEvidence> orderEvidences = SuperApplication.getOrderEvidences();
-                        String imgUrl = uploadImageResult.getData().getImgUrl();
-                        Log.i(TAG, "onNext: imgUrl: " + imgUrl);
-
+                        mImgUrl = uploadImageResult.getData().getImgUrl();
+                        Log.i(TAG, "onNext: imgUrl: " + mImgUrl);
+                        mIv_upload_ed.setVisibility(View.GONE);
+                        mIv_photo.setVisibility(View.VISIBLE);
+                        mIv_photo.setImageBitmap(photo);
                     } else {
                         LogUtils.i(TAG, "bitmap is null");
                     }
@@ -278,10 +340,29 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     //执行后续的操作
                     // TODO: 2016/11/4
-                    openAlbum();
+                    choosePhoto();
+                }
+                break;
+            case 3:
+                Log.i(TAG, "onRequestPermissionsResult: location--------");
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED ||
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                    //执行后续的操作
+                    // TODO: 2016/11/4
+                    startLocation();
                 }
                 break;
         }
+    }
+
+    /**
+     * 开始定位
+     */
+    private void startLocation() {
+        mEt_addr.setText("正在定位...");
+        mListener = new MyLocationListener(this);
+        LocationService.getInstance().start();
+        LocationService.getInstance().registerListener(mListener);
     }
 
     /**
@@ -299,7 +380,7 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
             //申请READ_EXTERNAL_STORAGE权限
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
         }else {
-            openAlbum();
+            choosePhoto();
         }
     }
 

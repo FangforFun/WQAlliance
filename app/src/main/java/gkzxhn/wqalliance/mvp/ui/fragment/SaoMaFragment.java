@@ -1,15 +1,22 @@
 package gkzxhn.wqalliance.mvp.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.jess.arms.utils.UiUtils;
+
+import org.simple.eventbus.Subscriber;
 
 import common.AppComponent;
 import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.entities.ScanningInfo;
+import gkzxhn.wqalliance.mvp.model.entities.ToHomeEvent;
 import gkzxhn.wqalliance.mvp.ui.activity.FightFakeActivity;
 
 /**
@@ -22,6 +29,9 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
     private TextView mTv_goods_info;
     private ScanningInfo mResult;
     private TextView tv_fignt_fake;
+    private String mGoodsName;
+    private LinearLayout mLl_saoma_result;
+    private TextView tv_fake;
 
     @Override
     protected void setTitleData() {
@@ -37,11 +47,14 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
         mIv_saoma = (ImageView)contentView.findViewById(R.id.iv_saoma_result);
         mTv_goods_info = (TextView)contentView.findViewById(R.id.tv_goods_info);
         tv_fignt_fake = (TextView)contentView.findViewById(R.id.tv_fignt_fake);
+        tv_fake = (TextView)contentView.findViewById(R.id.tv_fake);
+        mLl_saoma_result = (LinearLayout)contentView.findViewById(R.id.ll_saoma_result);
 
         tv_fignt_fake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), FightFakeActivity.class);
+                intent.putExtra("goods_name", mGoodsName);
                 startActivity(intent);
             }
         });
@@ -51,24 +64,32 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
             int code = mResult.code;
             switch (code) {
                 case 0 :
-                    //成功
+                    //成功,真产品
+                    mGoodsName = mResult.data.goods.goodsName;
                     mIv_saoma.setImageResource(R.drawable.saoma_first);
                     mTv_saoma.setText(mResult.data.scanNumber + "");
-                    mTv_goods_info.setText(mResult.data.goods.goodsName + "\r\n" + mResult.data.goods.goodsDesc);
+                    mTv_goods_info.setText("商品: " + mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
+                    tv_fignt_fake.setVisibility(View.GONE);
                     break;
                 case 40001 :
                     //无此产品
+                    mGoodsName = null;
                     mIv_saoma.setImageResource(R.drawable.saoma_bad);
-                    mTv_saoma.setText("此商品未认证");
+                    mLl_saoma_result.setVisibility(View.INVISIBLE);
+                    tv_fake.setVisibility(View.VISIBLE);
+                    tv_fake.setText("此商品未认证");
                     mTv_goods_info.setText("条码信息: " + mResult.scanningCode);
+                    tv_fignt_fake.setVisibility(View.VISIBLE);
                     break;
                 case 40002 :
                     //此条码已被扫描
                     mIv_saoma.setImageResource(R.drawable.saoma_used);
                     mTv_saoma.setText(mResult.data.scanNumber+"");
-                    if (mResult.data.goods.goodsName != null) {
-                        mTv_goods_info.setText(mResult.data.goods.goodsName + "\r\n" + mResult.data.goods.goodsDesc);
+                    mGoodsName = mResult.data.goods.goodsName;
+                    if (mGoodsName != null) {
+                        mTv_goods_info.setText(mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
                     }
+                    tv_fignt_fake.setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -84,5 +105,13 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
 
     public void setResult(ScanningInfo result) {
         mResult = result;
+    }
+
+    @Subscriber
+    public void toHome(ToHomeEvent toHomeEvent){
+        tv_fignt_fake.setText("提交打假成功 √");
+        tv_fignt_fake.setClickable(false);
+        tv_fignt_fake.setBackgroundColor(Color.TRANSPARENT);
+        tv_fignt_fake.setTextColor(UiUtils.getColor(R.color.B));
     }
 }
