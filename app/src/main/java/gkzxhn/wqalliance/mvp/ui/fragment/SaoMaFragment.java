@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jess.arms.utils.UiUtils;
@@ -32,6 +33,8 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
     private String mGoodsName;
     private LinearLayout mLl_saoma_result;
     private TextView tv_fake;
+    private TextView mTv_fake_scan;
+    private RelativeLayout mRl_real;
 
     @Override
     protected void setTitleData() {
@@ -49,6 +52,8 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
         tv_fignt_fake = (TextView)contentView.findViewById(R.id.tv_fignt_fake);
         tv_fake = (TextView)contentView.findViewById(R.id.tv_fake);
         mLl_saoma_result = (LinearLayout)contentView.findViewById(R.id.ll_saoma_result);
+        mTv_fake_scan = (TextView)contentView.findViewById(R.id.tv_fake_scan);
+        mRl_real = (RelativeLayout)contentView.findViewById(R.id.rl_real);
 
         tv_fignt_fake.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,31 +70,45 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
             switch (code) {
                 case 0 :
                     //成功,真产品
+                    mTv_fake_scan.setVisibility(View.GONE);
+                    mRl_real.setVisibility(View.VISIBLE);
                     mGoodsName = mResult.data.goods.goodsName;
                     mIv_saoma.setImageResource(R.drawable.saoma_first);
-                    mTv_saoma.setText(mResult.data.scanNumber + "");
                     mTv_goods_info.setText("商品: " + mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
                     tv_fignt_fake.setVisibility(View.GONE);
                     break;
                 case 40001 :
-                    //无此产品
+                    mTv_fake_scan.setVisibility(View.VISIBLE);
+                    mRl_real.setVisibility(View.GONE);
+                    mIv_saoma.setImageResource(R.drawable.saoma_bad);
+                    tv_fignt_fake.setVisibility(View.VISIBLE);
+
+                    /*//无此产品
                     mGoodsName = null;
                     mIv_saoma.setImageResource(R.drawable.saoma_bad);
                     mLl_saoma_result.setVisibility(View.INVISIBLE);
                     tv_fake.setVisibility(View.VISIBLE);
                     tv_fake.setText("此商品未认证");
                     mTv_goods_info.setText("条码信息: " + mResult.scanningCode);
-                    tv_fignt_fake.setVisibility(View.VISIBLE);
+                    tv_fignt_fake.setVisibility(View.VISIBLE);*/
                     break;
                 case 40002 :
-                    //此条码已被扫描
+                    //成功,真产品
+                    mTv_fake_scan.setVisibility(View.GONE);
+                    mRl_real.setVisibility(View.VISIBLE);
+                    mGoodsName = mResult.data.goods.goodsName;
+                    mIv_saoma.setImageResource(R.drawable.saoma_first);
+                    mTv_goods_info.setText("商品: " + mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
+                    tv_fignt_fake.setVisibility(View.GONE);
+
+                    /*//此条码已被扫描
                     mIv_saoma.setImageResource(R.drawable.saoma_used);
                     mTv_saoma.setText(mResult.data.scanNumber+"");
                     mGoodsName = mResult.data.goods.goodsName;
                     if (mGoodsName != null) {
                         mTv_goods_info.setText(mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
                     }
-                    tv_fignt_fake.setVisibility(View.VISIBLE);
+                    tv_fignt_fake.setVisibility(View.VISIBLE);*/
                     break;
                 default:
                     break;

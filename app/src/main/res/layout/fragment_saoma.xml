@@ -17,6 +17,7 @@
         android:layout_height="60dp"/>
 
         <RelativeLayout
+            android:id="@+id/rl_real"
             android:background="@drawable/goods_bg"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
@@ -46,6 +47,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:text="第"
                     android:letterSpacing="0.5"
@@ -55,6 +57,7 @@
                     android:layout_height="wrap_content"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_saoma_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,9 +66,9 @@
         android:text="1"/>
 
                 <TextView
-                    android:letterSpacing="0.5"
+                    android:letterSpacing="0.3"
                     android:layout_width="wrap_content"
-                    android:text="次扫描"
+                    android:text="二维码为真"
                     android:textStyle="bold"
                     android:textSize="32px"
                     android:textColor="@color/ONE"
@@ -84,6 +87,20 @@
         android:textColor="@color/TWO"
         android:text="商品详情"/>
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_fake_scan"
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal"
+            android:letterSpacing="0.3"
+            android:layout_width="wrap_content"
+            android:text="二维码为假"
+            android:textStyle="bold"
+            android:textSize="32px"
+            android:textColor="@color/ONE"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
     <TextView
         android:id="@+id/tv_fignt_fake"

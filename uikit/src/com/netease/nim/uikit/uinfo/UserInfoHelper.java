@@ -1,11 +1,15 @@
 package com.netease.nim.uikit.uinfo;
 
+import android.util.Log;
+
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.cache.NimUserInfoCache;
 import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 
 import java.util.List;
+
+import static com.netease.nim.uikit.common.util.sys.NetworkUtil.TAG;
 
 public class UserInfoHelper {
 
@@ -17,7 +21,10 @@ public class UserInfoHelper {
             if (NimUIKit.getAccount() != null && NimUIKit.getAccount().equals(id)) {
                 return "我的电脑";
             } else {
-                return NimUserInfoCache.getInstance().getUserDisplayName(id);
+                NimUserInfoCache instance = NimUserInfoCache.getInstance();
+                String userName = instance.getUserDisplayName(id);
+                Log.i(TAG, "getUserTitleName: " + userName);
+                return userName;
             }
         }  else if (sessionType == SessionTypeEnum.Team) {
             return TeamDataCache.getInstance().getTeamName(id);
