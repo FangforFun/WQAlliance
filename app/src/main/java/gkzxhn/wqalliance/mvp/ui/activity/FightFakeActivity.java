@@ -8,17 +8,26 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,10 +37,13 @@ import com.blankj.utilcode.utils.LogUtils;
 import com.jess.arms.utils.UiUtils;
 
 import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import common.AppComponent;
 import gkzxhn.utils.BitmapUtils;
@@ -42,17 +54,24 @@ import gkzxhn.wqalliance.R;
 import gkzxhn.wqalliance.mvp.model.api.ApiWrap;
 import gkzxhn.wqalliance.mvp.model.api.Constants;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.BrandsInfo;
 import gkzxhn.wqalliance.mvp.model.entities.Code;
+import gkzxhn.wqalliance.mvp.model.entities.GoodsInfo;
+import gkzxhn.wqalliance.mvp.model.entities.TipsClickEvent;
+import gkzxhn.wqalliance.mvp.model.entities.TipsData;
 import gkzxhn.wqalliance.mvp.model.entities.ToHomeEvent;
 import gkzxhn.wqalliance.mvp.model.entities.UploadImageResult;
 import gkzxhn.wqalliance.mvp.ui.activity.listener.MyLocationListener;
+import gkzxhn.wqalliance.mvp.ui.adapter.TipsAdapter;
+import gkzxhn.wqalliance.mvp.widget.RecyclerViewDivider;
 
 /**
  * Created by 方 on 2017/4/28.
  */
 
-public class FightFakeActivity extends BaseContentActivity implements View.OnClickListener {
+public class FightFakeActivity extends BaseContentActivity implements View.OnClickListener, TextWatcher {
 
+    private EditText et_goods_brand;    //商品品牌
     private EditText mEt_goods_name;    //商品名称
     private RelativeLayout rl_upload_ed;    //上传图片
     private EditText mEt_addr;          //填写地址
@@ -64,6 +83,13 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
     private ImageView mIv_photo;        //已上传图片预览
     private String mImgUrl;
     private String mGoods_name;
+    private PopupWindow mPopupWindow;
+    private View mTipsView;
+    private RecyclerView mRecyclerView;
+    private TipsAdapter mTipsAdapter;
+    private int mBrandId = 0; //商品品牌ID
+    private int mGoodsId = 0;  //商品ID
+    private boolean withoutPop;  //不弹出pop提示
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -102,6 +128,7 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
     protected View initContentView() {
         View view = LayoutInflater.from(this).inflate(R.layout.activity_fight_fake, null, false);
         mEt_goods_name = (EditText)view.findViewById(R.id.et_goods_name);
+        et_goods_brand = (EditText)view.findViewById(R.id.et_goods_brand);
         rl_upload_ed = (RelativeLayout)view.findViewById(R.id.rl_upload_ed);
         mEt_addr = (EditText)view.findViewById(R.id.et_addr);
         mRl_location = (RelativeLayout)view.findViewById(R.id.rl_location);
@@ -116,6 +143,8 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
         rl_upload_ed.setOnClickListener(this);
         mRl_location.setOnClickListener(this);
         mTv_commit.setOnClickListener(this);
+        mEt_goods_name.addTextChangedListener(this);
+        et_goods_brand.addTextChangedListener(this);
         return view;
     }
 
@@ -133,8 +162,23 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
             case R.id.tv_commit:
                 //提交打假
                 String goodsName = mEt_goods_name.getText().toString().trim();
+                String brandName = et_goods_brand.getText().toString().trim();
+                if (TextUtils.isEmpty(brandName)) {
+                    UiUtils.makeText("请选择商品名");
+                    return;
+                }
                 if (TextUtils.isEmpty(goodsName)) {
-                    UiUtils.makeText("商品名不能为空");
+                    UiUtils.makeText("请选择商品名");
+                    return;
+                }
+                if (0 == mBrandId) {
+                    //还未选择商品
+                    UiUtils.makeText("品牌未找到,请根据提示选择商品品牌");
+                    return;
+                }
+                if (0 == mGoodsId) {
+                    //还未选择商品
+                    UiUtils.makeText("商品未找到,请根据提示选择商品");
                     return;
                 }
                 if (mImgUrl == null) {
@@ -146,7 +190,7 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                     UiUtils.makeText("请填写地址信息");
                     return;
                 }
-                ApiWrap.fightFake(goodsName, mImgUrl, address, new SimpleObserver<Code>(){
+                ApiWrap.fightFake(mGoodsId, mImgUrl, address, new SimpleObserver<Code>(){
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
@@ -394,5 +438,180 @@ public class FightFakeActivity extends BaseContentActivity implements View.OnCli
                 mEt_addr.setText(addrStr);
             }
         });
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        Log.i(TAG, "beforeTextChanged: charSequence : " + charSequence );
+        Log.i(TAG, "beforeTextChanged: i : " + i );
+        Log.i(TAG, "beforeTextChanged: i1 : " + i1 );
+        Log.i(TAG, "beforeTextChanged: i2 : " + i2 );
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        Log.i(TAG, "onTextChanged: charSequence : " + charSequence );
+        Log.i(TAG, "onTextChanged: i : " + i );
+        Log.i(TAG, "onTextChanged: i1 : " + i1 );
+        Log.i(TAG, "onTextChanged: i2 : " + i2 );
+        View currentFocus = getCurrentFocus();
+        if (!withoutPop) {
+            mGoodsId = 0; //每次变化清空goodsId
+        int id = currentFocus.getId();
+        switch (id) {
+            case R.id.et_goods_brand:
+                    mBrandId = 0; //清空brandId
+                    getBrandTips(charSequence, currentFocus);
+                break;
+            case R.id.et_goods_name:
+                    if (0 == mBrandId) {
+                        UiUtils.makeText("请先选择商品品牌");
+                        return;
+                    }
+                    getGoodsNameTips(mBrandId, charSequence, currentFocus);
+                break;
+            }
+        }else {
+            withoutPop = false;
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        Log.i(TAG, "afterTextChanged: editable : " + editable);
+    }
+
+    /**
+     * 获取商品品牌信息
+     * @param charSequence
+     * @param currentFocus
+     */
+    private void getBrandTips(CharSequence charSequence, final View currentFocus) {
+        ApiWrap.getBrandsByName(charSequence.toString(), new SimpleObserver<BrandsInfo>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                Log.i(TAG, "onError: getbrandsbyname : " + e.getMessage());
+            }
+
+            @Override
+            public void onNext(BrandsInfo brandsInfo) {
+                Log.i(TAG, "onNext: brandsInfo : " + brandsInfo);
+                super.onNext(brandsInfo);
+                int code = brandsInfo.code;
+                if (code == 0) {
+                    ArrayList<TipsData> data= new ArrayList<>();
+                    for (BrandsInfo.DataBean dataBean : brandsInfo.data) {
+                        TipsData tipsData = new TipsData();
+                        tipsData.brandId = dataBean.id;
+                        tipsData.name = dataBean.brandName;
+                        data.add(tipsData);
+                    }
+                    showAndNotifyPop(data, currentFocus);
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取商品信息
+     * @param brandId
+     * @param charSequence
+     * @param currentFocus
+     */
+    private void getGoodsNameTips(int brandId, CharSequence charSequence, final View currentFocus){
+        ApiWrap.getGoodsByName(brandId, charSequence.toString(), new SimpleObserver<GoodsInfo>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                UiUtils.makeText(UiUtils.getString(R.string.net_broken));
+                Log.i(TAG, "onError: getGoodsName: " + e.getMessage());
+            }
+
+            @Override
+            public void onNext(GoodsInfo goodsInfo) {
+                super.onNext(goodsInfo);
+                int code = goodsInfo.code;
+                if (code == 0) {
+                    ArrayList<TipsData> data= new ArrayList<>();
+                    for (GoodsInfo.DataBean dataBean : goodsInfo.data) {
+                        TipsData tipsData = new TipsData();
+                        tipsData.goodsId = dataBean.id;
+                        tipsData.brandId = dataBean.brandId;
+                        tipsData.name = dataBean.goodsName;
+                        data.add(tipsData);
+                    }
+                    showAndNotifyPop(data, currentFocus);
+                }
+            }
+        });
+    }
+
+    /**
+     * 显示并刷新提示列表
+     */
+    private void showAndNotifyPop(List<TipsData> data, View view) {
+        if (data == null || data.size()==0) {
+            if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                mPopupWindow.dismiss();
+            }
+            return;
+        }
+        if (mTipsView == null) {
+            mTipsView = LayoutInflater.from(this).inflate(R.layout.popupwindow_tips, null);
+            mRecyclerView = (RecyclerView) mTipsView.findViewById(R.id.rl_pop_tips);
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            mRecyclerView.addItemDecoration(new RecyclerViewDivider(this, LinearLayoutManager.VERTICAL, 1, UiUtils.getColor(R.color.L)));
+            mTipsAdapter = new TipsAdapter(data, view);
+            mRecyclerView.setAdapter(mTipsAdapter);
+        }else {
+            mTipsAdapter.setData(data);
+            mTipsAdapter.setView(view);
+            mTipsAdapter.notifyDataSetChanged();
+        }
+        if (mPopupWindow == null) {
+            mPopupWindow = new PopupWindow(this){
+                @Override
+                public void dismiss() {
+                    super.dismiss();
+                    setWindowBackgroundAlpha(1.0f);
+                }
+            };
+            mPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+            mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+            mPopupWindow.setContentView(mTipsView);
+            mPopupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+            mPopupWindow.setOutsideTouchable(true);
+//            mPopupWindow.setFocusable(true);
+        }
+        if (!mPopupWindow.isShowing()) {
+            setWindowBackgroundAlpha(0.7f);
+            mPopupWindow.showAsDropDown(view);
+        }else {
+            mTipsAdapter.setData(data);
+            mTipsAdapter.notifyDataSetChanged();
+        }
+    }
+
+    /**
+     * 控制窗口背景的不透明度
+     * */
+    private void setWindowBackgroundAlpha(float alpha) {
+        Window window = getWindow();
+        WindowManager.LayoutParams layoutParams = window.getAttributes();
+        layoutParams.alpha = alpha;
+        window.setAttributes(layoutParams);
+    }
+
+    @Subscriber
+    public void setText(TipsClickEvent tipsClickEvent){
+        if (mPopupWindow != null && mPopupWindow.isShowing()) {
+            mPopupWindow.dismiss();
+            withoutPop = true;
+            mGoodsId = tipsClickEvent.mGoodsId;
+            mBrandId = tipsClickEvent.mBrandId;
+            EditText editText = (EditText) tipsClickEvent.mView;
+            editText.setText(tipsClickEvent.mBrandName);
+        }
     }
 }

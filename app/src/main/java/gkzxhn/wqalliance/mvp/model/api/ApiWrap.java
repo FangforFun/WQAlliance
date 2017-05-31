@@ -5,8 +5,10 @@ import java.util.Map;
 
 import gkzxhn.wqalliance.mvp.model.api.service.CommonService;
 import gkzxhn.wqalliance.mvp.model.api.service.SimpleObserver;
+import gkzxhn.wqalliance.mvp.model.entities.BrandsInfo;
 import gkzxhn.wqalliance.mvp.model.entities.Code;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.GoodsInfo;
 import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
@@ -310,19 +312,54 @@ public class ApiWrap {
 
     /**
      * 提交打假内容
-     * @param goodsName
+     * @param goodsId
      * @param imgUrl
      * @param address
      * @param subscriber
      */
-    public static void fightFake(String goodsName, String imgUrl, String address, SimpleObserver<Code> subscriber) {
+    public static void fightFake(Integer goodsId, String imgUrl, String address, SimpleObserver<Code> subscriber) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         CommonService service = retrofit.create(CommonService.class);
-        service.fake(goodsName, imgUrl, address).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+        service.fake(goodsId, imgUrl, address).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 查询商品品牌名称
+     * @param brandName
+     * @param subscriber
+     */
+    public static void getBrandsByName(String brandName, SimpleObserver<BrandsInfo> subscriber){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getBrandsByName(brandName).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 查询商品名称
+     * @param brandId
+     * @param goodsName
+     * @param subscriber
+     */
+    public static void getGoodsByName(int brandId, String goodsName, SimpleObserver<GoodsInfo> subscriber){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommonService service = retrofit.create(CommonService.class);
+        service.getGoodsByName(brandId, goodsName).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }

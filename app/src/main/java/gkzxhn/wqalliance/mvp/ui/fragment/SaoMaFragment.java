@@ -83,33 +83,7 @@ public class SaoMaFragment extends BaseContentFragment implements View.OnClickLi
                     mIv_saoma.setImageResource(R.drawable.saoma_bad);
                     tv_fignt_fake.setVisibility(View.VISIBLE);
 
-                    /*//无此产品
-                    mGoodsName = null;
-                    mIv_saoma.setImageResource(R.drawable.saoma_bad);
-                    mLl_saoma_result.setVisibility(View.INVISIBLE);
-                    tv_fake.setVisibility(View.VISIBLE);
-                    tv_fake.setText("此商品未认证");
-                    mTv_goods_info.setText("条码信息: " + mResult.scanningCode);
-                    tv_fignt_fake.setVisibility(View.VISIBLE);*/
-                    break;
-                case 40002 :
-                    //成功,真产品
-                    mTv_fake_scan.setVisibility(View.GONE);
-                    mRl_real.setVisibility(View.VISIBLE);
-                    mGoodsName = mResult.data.goods.goodsName;
-                    mIv_saoma.setImageResource(R.drawable.saoma_first);
-                    mTv_goods_info.setText("商品: " + mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
-                    tv_fignt_fake.setVisibility(View.GONE);
-
-                    /*//此条码已被扫描
-                    mIv_saoma.setImageResource(R.drawable.saoma_used);
-                    mTv_saoma.setText(mResult.data.scanNumber+"");
-                    mGoodsName = mResult.data.goods.goodsName;
-                    if (mGoodsName != null) {
-                        mTv_goods_info.setText(mGoodsName + "\r\n" + mResult.data.goods.goodsDesc);
-                    }
-                    tv_fignt_fake.setVisibility(View.VISIBLE);*/
-                    break;
+                    Log.i(TAG, "initContentView: 条码信息: " + mResult.scanningCode);
                 default:
                     break;
             }

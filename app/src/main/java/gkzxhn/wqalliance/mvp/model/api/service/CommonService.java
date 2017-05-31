@@ -2,8 +2,10 @@ package gkzxhn.wqalliance.mvp.model.api.service;
 
 import java.util.Map;
 
+import gkzxhn.wqalliance.mvp.model.entities.BrandsInfo;
 import gkzxhn.wqalliance.mvp.model.entities.Code;
 import gkzxhn.wqalliance.mvp.model.entities.EvidenceList;
+import gkzxhn.wqalliance.mvp.model.entities.GoodsInfo;
 import gkzxhn.wqalliance.mvp.model.entities.OrderProcedure;
 import gkzxhn.wqalliance.mvp.model.entities.OrderResult;
 import gkzxhn.wqalliance.mvp.model.entities.Result;
@@ -217,11 +219,40 @@ public interface CommonService {
             @Query("code") String code
     );
 
+    /**
+     * 打假
+     * @param goodsId
+     * @param imgUrl
+     * @param address
+     * @return
+     */
     @FormUrlEncoded
     @POST("goods/fake")
     Observable<Code> fake(
-            @Field("goodsName") String goodsName,
+            @Field("goodsId") Integer goodsId,
             @Field("imgUrl") String imgUrl,
             @Field("address") String address
+    );
+
+    /**
+     * 查询商品品牌
+     * @param brandName
+     * @return
+     */
+    @GET("goods/getBrandsByName")
+    Observable<BrandsInfo> getBrandsByName(
+            @Query("brandName") String brandName
+    );
+
+    /**
+     * 查询商品名称
+     * @param brandId
+     * @param goodsName
+     * @return
+     */
+    @GET("goods/getGoodsByName")
+    Observable<GoodsInfo> getGoodsByName(
+            @Query("brandId") Integer brandId,
+            @Query("goodsName") String goodsName
     );
 }
